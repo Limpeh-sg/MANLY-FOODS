@@ -7,20 +7,41 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-  --primary: #1c2f2b;     /* ✅ 背景 - 磨砂深绿色 */
-  --accent: #D4AF37;      /* ✅ 金色标题 */
-  --light: #FFFFFF;       /* 正文白字备用 */
-  --dark: #D4AF37;        /* ✅ 字体统一也改成金色 */
+       :root {
+    --primary: #002D26;  /* 深绿磨砂 */
+    --accent: #D4AF37;   /* 金色标题 */
+    --light: #FFFFFF;    /* 文案白色 */
+    --dark: #002D26;     /* 主背景色也用深绿 */
 }
-        
-        body {
-  background-color: var(--primary);
-  color: var(--dark);  /* 所有文字变成金色 */
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 .section-heading {
-  color: var(--accent);  /* 特别标题用金色 */
+    color: var(--accent);
+}
+
+.navbar,
+footer {
+    background-color: var(--dark);
+}
+
+.nav-link {
+    color: var(--accent);
+}
+
+.brand-name,
+h4,
+h5,
+h2,
+h3 {
+    color: var(--accent);
+}
+
+p, .accordion-body {
+    color: var(--light);
 }
         
         /* Navigation */
@@ -365,7 +386,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-            <img src="MANLY%20LOGO.png" alt="MANLY LOGO" style="height: 140px;">
+            <img src="MANLY%20LOGO.png" alt="MANLY LOGO" style="height: 300px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -405,7 +426,7 @@
             <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active" style="background-image: url('carousel_1.jpg')">
+            <div class="carousel-item active" style="background-image: url('carousel_5.jpg')">
                 <div class="carousel-caption">
                     <h2>Trusted by Singapore's Best</h2>
                     <p>Retail & Travel Channels Partner with Us</p>
@@ -529,68 +550,54 @@
     </section>
 
     <!-- Brands Section -->
-    <section id="brands" class="brands-section">
-        <div class="container">
-            <h2 class="section-heading text-center">Our Brands</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_1.png" alt="Ahmad Tea">
-                        </div>
-                        <div class="brand-info">
-                            <h5 class="brand-name">Ahmad Tea (UK)</h5>
-                            <p>Elegant Halal tea for weddings, hotels, and cultural gifting</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_2.png" alt="SG MANLY Wooden Box Tea">
-                        </div>
-                        <div class="brand-info">
-                            <h5 class="brand-name">SG MANLY Wooden Box Tea</h5>
-                            <p>Tourist-favorite wooden tea boxes, handmade with Singapore icons</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_3.png" alt="Merlion Chocolate">
-                        </div>
-                        <div class="brand-info">
-                            <h5 class="brand-name">Merlion Chocolate</h5>
-                            <p>Signature chocolate shaped like Singapore's Merlion</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_4.png" alt="Fulmer Honey">
-                        </div>
-                        <div class="brand-info">
-                            <h5 class="brand-name">Fulmer Honey</h5>
-                            <p>EU-certified gift honey trusted in health & gourmet circles</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_5.png" alt="Buram Honey">
-                        </div>
-                        <div class="brand-info">
-                            <h5 class="brand-name">Buram Honey</h5>
-                            <p>German-imported honey with mass market appeal</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="brands" class="py-12 px-6 bg-white text-center">
+  <h2 class="text-3xl font-bold mb-6 text-gray-900">Our Brands</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Mlesna Wooden Box Tea -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/logo_4.png" alt="Mlesna Wooden Box Tea" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">Mlesna Wooden Box Tea</h3>
+      <p class="text-yellow-700">Premium Sri Lankan teas in souvenir boxes with Singapore landmarks</p>
+    </div>
+
+    <!-- Ahmad Tea -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/logo_1.png" alt="Ahmad Tea" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">Ahmad Tea (UK)</h3>
+      <p class="text-yellow-700">Elegant Halal tea for weddings, hotels, and cultural gifting</p>
+    </div>
+
+    <!-- Merlion Chocolate -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/logo_5.png" alt="Merlion Chocolate" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">Merlion Chocolate</h3>
+      <p class="text-yellow-700">Signature chocolate shaped like Singapore's Merlion</p>
+    </div>
+
+    <!-- Fulmer Honey -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/fulmer.png" alt="Fulmer Honey" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">Fulmer Honey</h3>
+      <p class="text-yellow-700">EU-certified gift honey trusted in health & gourmet circles</p>
+    </div>
+
+    <!-- Buram Honey -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/logo_2.png" alt="Buram Honey" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">Buram Honey</h3>
+      <p class="text-yellow-700">German-imported honey with mass market appeal</p>
+    </div>
+
+    <!-- MANLY Chocolate -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <img src="images/logo_3.png" alt="MANLY Chocolate" class="mx-auto h-20 mb-4">
+      <h3 class="font-semibold text-lg text-gray-900">MANLY Chocolate</h3>
+      <p class="text-yellow-700">Merlion-shaped chocolate loved by tourists & kids alike</p>
+    </div>
+
+  </div>
+</section>
 
     <!-- Products Section -->
     <section id="products" class="products-section">
