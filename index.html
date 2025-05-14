@@ -7,41 +7,56 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-       :root {
-    --primary: #002D26;  /* 深绿磨砂 */
-    --accent: #D4AF37;   /* 金色标题 */
-    --light: #FFFFFF;    /* 文案白色 */
-    --dark: #002D26;     /* 主背景色也用深绿 */
+      :root {
+    --primary: #1c2e2b;       /* 深墨绿色 - 主色调 */
+    --secondary: #3f544e;     /* 墨绿灰辅助色 */
+    --accent: #d4af37;        /* 金色 - Logo & 强调色 */
+    --light: #f3f2ee;         /* 浅米色背景 */
+    --dark: #1a1a1a;          /* 深灰黑 - 字体 */
 }
 
 body {
-    background-color: var(--dark);
-    color: var(--light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+    background-color: var(--light);
 }
 
-.section-heading {
-    color: var(--accent);
+/* Navigation */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 0.75rem 1rem;
 }
 
-.navbar,
-footer {
-    background-color: var(--dark);
+.navbar-brand img {
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05);
 }
 
 .nav-link {
-    color: var(--accent);
+    color: var(--primary);
+    font-weight: 500;
+    margin: 0 0.25rem;
+    position: relative;
 }
 
-.brand-name,
-h4,
-h5,
-h2,
-h3 {
-    color: var(--accent);
+.nav-link:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s;
 }
 
-p, .accordion-body {
-    color: var(--light);
+.nav-link:hover:before {
+    width: 100%;
 }
         
         /* Navigation */
