@@ -8,17 +8,20 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #00334e;
-            --secondary: #145374;
-            --accent: #e8aa42;
-            --light: #f8f9fa;
-            --dark: #212529;
-        }
+  --primary: #1c2f2b;     /* ✅ 背景 - 磨砂深绿色 */
+  --accent: #D4AF37;      /* ✅ 金色标题 */
+  --light: #FFFFFF;       /* 正文白字备用 */
+  --dark: #D4AF37;        /* ✅ 字体统一也改成金色 */
+}
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark);
-        }
+  background-color: var(--primary);
+  color: var(--dark);  /* 所有文字变成金色 */
+}
+
+.section-heading {
+  color: var(--accent);  /* 特别标题用金色 */
+}
         
         /* Navigation */
         .navbar {
@@ -362,7 +365,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-            <img src="MANLY%20LOGO.png" alt="MANLY LOGO" style="height: 40px;">
+            <img src="MANLY%20LOGO.png" alt="MANLY LOGO" style="height: 75px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
