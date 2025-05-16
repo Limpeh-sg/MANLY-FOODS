@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,38 +11,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Splash Screen Styles */
-        #splash-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            z-index: 99999;
-            overflow: hidden;
-        }
+    /* 开屏视频样式 */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000; /* 背景黑色，防止视频加载时闪烁 */
+    z-index: 99999;
+    overflow: hidden;
+}
 
-        #splash-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        /* Color Variables */
+#splash-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持4:3比例，自动裁切黑边 */
+    pointer-events: none; /* 允许点击穿透到下方内容（可选） */
+}
         :root {
             --primary: #2c4c3b;       /* Deep forest green */
             --secondary: #5d8a66;     /* Sage green */
             --accent: #d4af37;        /* Gold */
             --light: #f8f5f0;         /* Cream */
             --dark: #1a1a1a;          /* Dark charcoal */
-            --text: #333333;          /* Dark gray */
+            --text: #333333;         /* Dark gray */
             --white: #ffffff;
         }
 
-        /* Base Styles */
-        body {
+        body<!-- 开屏视频（4:3比例，播完自动消失） -->
+<div id="splash-screen">
+    <video id="splash-video" autoplay muted playsinline>
+        <source src="splash-video.mp4" type="video/mp4"> <!-- 替换为你的视频路径 -->
+    </video>
+</div>
+ {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
             background-color: var(--white);
@@ -101,6 +105,7 @@
             width: 100%;
         }
 
+   
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -131,6 +136,95 @@
             max-width: 600px;
             margin: 0 auto 2rem;
             opacity: 0.9;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .bg-light {
+            background-color: var(--light);
+        }
+
+        /* About Section */
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .about-img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Brands Section */
+        .brand-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-img {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .brand-img img {
+            max-height: 100%;
+            max-width: 80%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 0.4s;
+        }
+
+        .brand-card:hover .brand-img img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .brand-info {
+            padding: 1.75rem;
+        }
+
+        .brand-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
         }
 
         /* Section Styling */
@@ -465,51 +559,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Social Media Buttons */
-        .social-buttons {
-            margin: 2rem 0;
-        }
-
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
-        }
-
-        .btn-email {
-            background-color: #D44638;
-            color: white;
-        }
-
-        .btn-shopee {
-            background-color: #EE4D2D;
-            color: white;
-        }
-
-        .btn-lazada {
-            background-color: #0F146D;
-            color: white;
-        }
-
-        .btn-instagram {
-            background-color: #E4405F;
-            color: white;
-        }
-
-        .btn-tiktok {
-            background-color: #000000;
-            color: white;
-        }
-
-        .btn-facebook {
-            background-color: #3b5998;
-            color: white;
-        }
-
-        .btn-linkedin {
-            background-color: #0077B5;
-            color: white;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -536,20 +585,6 @@
 
         .delay-3 {
             animation-delay: 0.6s;
-        }
-
-        /* Carousel Styles */
-        .carousel-item {
-            height: 80vh;
-            min-height: 500px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .carousel-caption {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
         }
 
         /* Responsive */
@@ -594,10 +629,6 @@
             .section-title {
                 margin-bottom: 2rem;
             }
-
-            .carousel-item {
-                height: 60vh;
-            }
         }
 
         @media (max-width: 575.98px) {
@@ -612,21 +643,10 @@
             .product-category {
                 height: 300px;
             }
-
-            .carousel-item {
-                height: 50vh;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Splash Screen -->
-    <div id="splash-screen">
-        <video id="splash-video" autoplay muted playsinline>
-            <source src="splash-video.mp4" type="video/mp4">
-        </video>
-    </div>
-
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
@@ -666,88 +686,110 @@
         </div>
     </nav>
 
-    <!-- Hero Carousel -->
-    <section id="home" class="hero">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('carousel_1_brand_wall.jpg')">
-                    <div class="carousel-caption">
-                        <h2>Trusted by Singapore's Best</h2>
-                        <p>Retail & Travel Channels Partner with Us</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('carousel_2_ahmad.jpg')">
-                    <div class="carousel-caption">
-                        <h2>Gift-Ready, Singapore Iconic Packaging</h2>
-                        <p>Our Exclusive SG Collection</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('carousel_3_merlion_chocolate.jpg')">
-                    <div class="carousel-caption">
-                        <h2>Elegant British Tea Gifts</h2>
-                        <p>Halal-Certified, Wedding-Approved</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('carousel_4_fulmer.jpg')">
-                    <div class="carousel-caption">
-                        <h2>German Honey for Quality Gifting</h2>
-                        <p>Clean, Certified, Trusted</p>
-                    </div>
-                </div>
-                <div class="carousel-item" style="background-image: url('carousel_5_buram.jpg')">
-                    <div class="carousel-caption">
-                        <h2>EU Honey with Character</h2>
-                        <p>Premium Taste, Premium Packaging</p>
-                    </div>
+     <!-- Carousel -->
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('/api/placeholder/1920/1080')">
+                <div class="carousel-caption">
+                    <h2>Trusted by Singapore's Best</h2>
+                    <p>Retail & Travel Channels Partner with Us</p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item" style="background-image: url('/api/placeholder/1920/1080')">
+                <div class="carousel-caption">
+                    <h2>Gift-Ready, Singapore Iconic Packaging</h2>
+                    <p>Our Exclusive SG Collection</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/api/placeholder/1920/1080')">
+                <div class="carousel-caption">
+                    <h2>Elegant British Tea Gifts</h2>
+                    <p>Halal-Certified, Wedding-Approved</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/api/placeholder/1920/1080')">
+                <div class="carousel-caption">
+                    <h2>German Honey for Quality Gifting</h2>
+                    <p>Clean, Certified, Trusted</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/api/placeholder/1920/1080')">
+                <div class="carousel-caption">
+                    <h2>EU Honey with Character</h2>
+                    <p>Premium Taste, Premium Packaging</p>
+                </div>
+            </div>
         </div>
-    </section>
-
-    <!-- Social Media Buttons -->
-    <div class="container text-center mt-4 mb-5">
-        <div class="social-buttons">
-            <a href="https://wa.me/6562750603" class="btn btn-whatsapp m-2" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="mailto:sales@manlyfoods.com" class="btn btn-email m-2" target="_blank">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://shopee.sg/shop/62656629" class="btn btn-shopee m-2" target="_blank">
-                <i class="fas fa-shopping-bag"></i> Shopee
-            </a>
-            <a href="https://www.lazada.sg/shop/manly-food1627632387" class="btn btn-lazada m-2" target="_blank">
-                <i class="fas fa-shopping-cart"></i> Lazada
-            </a>
-            <a href="https://instagram.com/manlyfoodssg" class="btn btn-instagram m-2" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-            </a>
-            <a href="https://www.tiktok.com/@manlyfoods" class="btn btn-tiktok m-2" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok Shop
-            </a>
-            <a href="https://www.facebook.com/ManlyFoods" class="btn btn-facebook m-2" target="_blank">
-                <i class="fab fa-facebook-f"></i> Facebook
-            </a>
-            <a href="https://www.linkedin.com/company/95019223/" class="btn btn-linkedin m-2" target="_blank">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+<div class="container text-center mt-4 mb-5">
+  <a href="https://wa.me/6562750603" class="btn btn-success m-2" target="_blank">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+  <a href="mailto:sales@manlyfoods.com" class="btn btn-danger m-2" target="_blank">
+    <i class="fas fa-envelope"></i> Email
+  </a>
+  <a href="https://shopee.sg/shop/62656629" class="btn btn-warning text-white m-2" target="_blank">
+    <i class="fas fa-shopping-bag"></i> Shopee
+  </a>
+  <a href="https://www.lazada.sg/shop/manly-food1627632387" class="btn btn-primary m-2" target="_blank">
+    <i class="fas fa-shopping-cart"></i> Lazada
+  </a>
+  <a href="https://instagram.com/manlyfoodssg" class="btn btn-info m-2 text-white" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.tiktok.com/@manlyfoods" class="btn btn-dark m-2" target="_blank">
+    <i class="fab fa-tiktok"></i> TikTok Shop
+  </a>
+  <a href="https://www.facebook.com/ManlyFoods" class="btn btn-primary m-2" style="background-color: #3b5998;" target="_blank">
+    <i class="fab fa-facebook-f"></i> Facebook
+  </a>
+  <a href="https://www.linkedin.com/company/95019223/" class="btn btn-primary m-2" style="background-color: #0077b5;" target="_blank">
+    <i class="fab fa-linkedin-in"></i> LinkedIn
+  </a>
+</div>
+</div>
+            <div class="carousel-item">
+                <img src="carousel_2_ahmad.jpg" class="d-block w-100" alt="Ahmad Tea">
+            </div>
+            <div class="carousel-item">
+                <img src="carousel_3_merlion_chocolate.jpg" class="d-block w-100" alt="Merlion Chocolate">
+            </div>
+            <div class="carousel-item">
+                <img src="carousel_4_fulmer.jpg" class="d-block w-100" alt="Fulmer Honey">
+            </div>
+            <div class="carousel-item">
+                <img src="carousel_5_buram.jpg" class="d-block w-100" alt="Buram Honey">
+            </div>
+            <div class="carousel-item">
+                <img src="carousel_6_brand_wall.jpg" class="d-block w-100" alt="Brand Wall">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -1086,26 +1128,26 @@
                 </div>
             </div>
             
-            <div class="row mt-5">
-                <div class="col-md-6">
-                    <h5 class="text-white mb-3">Follow Us</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook-f me-2"></i> Facebook</a></li>
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram me-2"></i> Instagram</a></li>
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-linkedin-in me-2"></i> LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="text-white mb-3">Find Us On</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-shopee me-2"></i> Shopee</a></li>
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fas fa-store me-2"></i> Lazada</a></li>
-                        <li><a href="#" class="text-white text-decoration-none"><i class="fas fa-cart-plus me-2"></i> TikTok Shop</a></li>
-                    </ul>
-                </div>
-            </div>
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h5 class="text-white mb-3">Follow Us</h5>
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-facebook-f me-2"></i> Facebook</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-instagram me-2"></i> Instagram</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-linkedin-in me-2"></i> LinkedIn</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h5 class="text-white mb-3">Find Us On</h5>
+        <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none"><i class="fab fa-shopee me-2"></i> Shopee</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i class="fas fa-store me-2"></i> Lazada</a></li>
+            <li><a href="#" class="text-white text-decoration-none"><i class="fas fa-cart-plus me-2"></i> TikTok Shop</a></li>
+        </ul>
+    </div>
+</div>
 
-            <div class="copyright">
+<div class="copyright">
                 <p class="mb-0">&copy; 2023 Manly Pte Ltd. All Rights Reserved.</p>
             </div>
         </div>
@@ -1123,57 +1165,55 @@
                 navbar.classList.remove('scrolled');
             }
         });
+// 开屏视频逻辑
+const splashScreen = document.getElementById('splash-screen');
+const splashVideo = document.getElementById('splash-video');
+const mainContent = document.querySelector('body'); // 主内容即整个body
 
-        // Splash screen logic
-        const splashScreen = document.getElementById('splash-screen');
-        const splashVideo = document.getElementById('splash-video');
-        const mainContent = document.querySelector('body');
+// 处理浏览器自动播放限制（点击屏幕播放视频）
+document.addEventListener('click', function handleSplashPlay() {
+    splashVideo.play().then(() => {
+        document.removeEventListener('click', handleSplashPlay); // 播放后移除点击监听
+    }).catch(err => {
+        console.log('自动播放失败，请手动点击播放', err);
+    });
+});
 
-        // Handle browser autoplay restrictions
-        document.addEventListener('click', function handleSplashPlay() {
-            splashVideo.play().then(() => {
-                document.removeEventListener('click', handleSplashPlay);
-            }).catch(err => {
-                console.log('Autoplay failed, please click to play', err);
-            });
-        });
+// 视频播放完毕后隐藏开屏层
+splashVideo.addEventListener('ended', () => {
+    splashScreen.style.opacity = '0'; // 渐隐效果
+    splashScreen.style.pointerEvents = 'none'; // 禁止交互
+    setTimeout(() => {
+        splashScreen.remove(); // 移除开屏容器，释放内存
+    }, 500); // 0.5秒动画时长
+});
 
-        // Hide splash screen when video ends
-        splashVideo.addEventListener('ended', () => {
-            splashScreen.style.opacity = '0';
-            splashScreen.style.pointerEvents = 'none';
-            setTimeout(() => {
-                splashScreen.remove();
-            }, 500);
-        });
+// 可选：添加倒计时跳过功能（5秒后自动跳过）
+let countdown = 5;
+const countdownElement = document.createElement('div');
+countdownElement.style.cssText = `
+    position: fixed; top: 30px; right: 30px;
+    color: white; font-size: 1.2rem; font-weight: 500;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 15px; border-radius: 20px;
+    z-index: 100000;
+`;
+countdownElement.textContent = `跳过 ${countdown}s`;
+splashScreen.appendChild(countdownElement);
 
-        // Optional: Add countdown skip functionality
-        let countdown = 5;
-        const countdownElement = document.createElement('div');
-        countdownElement.style.cssText = `
-            position: fixed; top: 30px; right: 30px;
-            color: white; font-size: 1.2rem; font-weight: 500;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px 15px; border-radius: 20px;
-            z-index: 100000;
-        `;
-        countdownElement.textContent = `Skip ${countdown}s`;
-        splashScreen.appendChild(countdownElement);
-
-        const updateCountdown = () => {
-            if (countdown <= 0) {
-                splashVideo.pause();
-                splashScreen.style.opacity = '0';
-                splashScreen.style.pointerEvents = 'none';
-                setTimeout(() => splashScreen.remove(), 500);
-                return;
-            }
-            countdown--;
-            countdownElement.textContent = `Skip ${countdown}s`;
-            setTimeout(updateCountdown, 1000);
-        };
-        updateCountdown();
-
+const updateCountdown = () => {
+    if (countdown <= 0) {
+        splashVideo.pause(); // 停止视频
+        splashScreen.style.opacity = '0';
+        splashScreen.style.pointerEvents = 'none';
+        setTimeout(() => splashScreen.remove(), 500);
+        return;
+    }
+    countdown--;
+    countdownElement.textContent = `跳过 ${countdown}s`;
+    setTimeout(updateCountdown, 1000);
+};
+updateCountdown();
         // Back to top button
         const backToTopBtn = document.getElementById('backToTop');
         
@@ -1225,3 +1265,4 @@
     </script>
 </body>
 </html>
+ykǔnv=
