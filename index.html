@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-    /* 开屏视频样式 */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000; /* 背景黑色，防止视频加载时闪烁 */
-    z-index: 99999;
-    overflow: hidden;
-}
 
-#splash-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 保持4:3比例，自动裁切黑边 */
-    pointer-events: none; /* 允许点击穿透到下方内容（可选） */
-}
+<body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Navigation -->
+    <div class="navigation-section">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+       
         :root {
             --primary: #2c4c3b;       /* Deep forest green */
             --secondary: #5d8a66;     /* Sage green */
@@ -39,12 +31,6 @@
             --white: #ffffff;
         }
 
-        body<!-- 开屏视频（4:3比例，播完自动消失） -->
-<div id="splash-screen">
-    <video id="splash-video" autoplay muted playsinline>
-        <source src="splash-video.mp4.MP4" type="video/mp4"> <!-- 替换为你的视频路径 -->
-    </video>
-</div>
  {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
@@ -685,6 +671,9 @@
             </div>
         </div>
     </nav>
+<!-- Add space between navbar and social buttons -->
+<div style="height: 40px;"></div>
+
 
      <!-- Carousel -->
     <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -734,36 +723,8 @@
         <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-<div class="container text-center mt-4 mb-5">
-  <a href="https://wa.me/6562750603" class="btn btn-success m-2" target="_blank">
-    <i class="fab fa-whatsapp"></i> WhatsApp
-  </a>
-  <a href="mailto:sales@manlyfoods.com" class="btn btn-danger m-2" target="_blank">
-    <i class="fas fa-envelope"></i> Email
-  </a>
-  <a href="https://shopee.sg/shop/62656629" class="btn btn-warning text-white m-2" target="_blank">
-    <i class="fas fa-shopping-bag"></i> Shopee
-  </a>
-  <a href="https://www.lazada.sg/shop/manly-food1627632387" class="btn btn-primary m-2" target="_blank">
-    <i class="fas fa-shopping-cart"></i> Lazada
-  </a>
-  <a href="https://instagram.com/manlyfoodssg" class="btn btn-info m-2 text-white" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
-  <a href="https://www.tiktok.com/@manlyfoods" class="btn btn-dark m-2" target="_blank">
-    <i class="fab fa-tiktok"></i> TikTok Shop
-  </a>
-  <a href="https://www.facebook.com/ManlyFoods" class="btn btn-primary m-2" style="background-color: #3b5998;" target="_blank">
-    <i class="fab fa-facebook-f"></i> Facebook
-  </a>
-  <a href="https://www.linkedin.com/company/95019223/" class="btn btn-primary m-2" style="background-color: #0077b5;" target="_blank">
-    <i class="fab fa-linkedin-in"></i> LinkedIn
-  </a>
-</div>
-</div>
-            <div class="carousel-item">
+  </div>
+ <div class="carousel-item">
                 <img src="carousel_2_ahmad.jpg" class="d-block w-100" alt="Ahmad Tea">
             </div>
             <div class="carousel-item">
@@ -790,6 +751,41 @@
     </div>
 </section>
 
+<div style="background-color: #f8f9fa; padding: 30px 0;">
+  <div class="container text-center">
+    <h4 class="mb-4 text-dark">Find Us Online</h4>
+        </button>
+<div style="background-color: #f8f9fa; padding: 30px 0;">
+  <div class="container text-center">
+    ...
+  </div>
+</div>
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+  <a href="mailto:sales@manlyfoods.com" class="btn btn-danger m-2" target="_blank">
+    <i class="fas fa-envelope"></i> Email
+  </a>
+  <a href="https://shopee.sg/shop/62656629" class="btn btn-warning text-white m-2" target="_blank">
+    <i class="fas fa-shopping-bag"></i> Shopee
+  </a>
+  <a href="https://www.lazada.sg/shop/manly-food1627632387" class="btn btn-primary m-2" target="_blank">
+    <i class="fas fa-shopping-cart"></i> Lazada
+  </a>
+  <a href="https://instagram.com/manlyfoodssg" class="btn btn-info m-2 text-white" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.tiktok.com/@manlyfoods" class="btn btn-dark m-2" target="_blank">
+    <i class="fab fa-tiktok"></i> TikTok Shop
+  </a>
+  <a href="https://www.facebook.com/ManlyFoods" class="btn btn-primary m-2" style="background-color: #3b5998;" target="_blank">
+    <i class="fab fa-facebook-f"></i> Facebook
+  </a>
+  <a href="https://www.linkedin.com/company/95019223/" class="btn btn-primary m-2" style="background-color: #0077b5;" target="_blank">
+    <i class="fab fa-linkedin-in"></i> LinkedIn
+  </a>
+</div>
+</div>
+           
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -1164,73 +1160,6 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
-// 开屏视频逻辑
-const splashScreen = document.getElementById('splash-screen');
-const splashVideo = document.getElementById('splash-video');
-const mainContent = document.querySelector('body'); // 主内容即整个body
-
-// 处理浏览器自动播放限制（点击屏幕播放视频）
-document.addEventListener('click', function handleSplashPlay() {
-    splashVideo.play().then(() => {
-        document.removeEventListener('click', handleSplashPlay); // 播放后移除点击监听
-    }).catch(err => {
-        console.log('自动播放失败，请手动点击播放', err);
-    });
-});
-
-// 视频播放完毕后隐藏开屏层
-splashVideo.addEventListener('ended', () => {
-    splashScreen.style.opacity = '0'; // 渐隐效果
-    splashScreen.style.pointerEvents = 'none'; // 禁止交互
-    setTimeout(() => {
-        splashScreen.remove(); // 移除开屏容器，释放内存
-    }, 500); // 0.5秒动画时长
-});
-
-// 可选：添加倒计时跳过功能（5秒后自动跳过）
-let countdown = 5;
-const countdownElement = document.createElement('div');
-countdownElement.style.cssText = `
-    position: fixed; top: 30px; right: 30px;
-    color: white; font-size: 1.2rem; font-weight: 500;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 5px 15px; border-radius: 20px;
-    z-index: 100000;
-`;
-countdownElement.textContent = `跳过 ${countdown}s`;
-splashScreen.appendChild(countdownElement);
-
-const updateCountdown = () => {
-    if (countdown <= 0) {
-        splashVideo.pause(); // 停止视频
-        splashScreen.style.opacity = '0';
-        splashScreen.style.pointerEvents = 'none';
-        setTimeout(() => splashScreen.remove(), 500);
-        return;
-    }
-    countdown--;
-    countdownElement.textContent = `跳过 ${countdown}s`;
-    setTimeout(updateCountdown, 1000);
-};
-updateCountdown();
-        // Back to top button
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
         });
 
         // Smooth scrolling for navigation links
