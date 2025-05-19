@@ -19,7 +19,21 @@
             --text: #333333;         /* Dark gray */
             --white: #ffffff;
         }
-
+.carousel-item img {
+    max-height: 500px; /* adjust as needed */
+    width: 100%;
+    object-fit: cover;
+}
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明灰黑背景 */
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    display: inline-block; /* 只包住文字内容 */
+}
+.carousel-caption h2,
+.carousel-caption p {
+    margin-bottom: 0;
+}
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
@@ -532,16 +546,7 @@
     </style>
 </head>
 <body>
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.4); /* 半透明灰黑背景 */
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    display: inline-block; /* 只包住文字内容 */
-}
-.carousel-caption h2,
-.carousel-caption p {
-    margin-bottom: 0;
-}
+
     <!-- Back to Top Button -->
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
