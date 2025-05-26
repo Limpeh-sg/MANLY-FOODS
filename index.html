@@ -3,323 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANLY FOODS | Premium Food Gifts & Souvenirs</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <title>MANLY FOODS | Singapore Premium Food Importer & Distributor - Gifts & Souvenirs Expert</title>
+    <meta name="description" content="Manly Foods is a leading importer and distributor of premium food products in Singapore, offering exquisite teas, honeys, chocolates, and specialty gifts. We are the exclusive agent for renowned brands like Ahmad Tea London and Fulmer Honey, committed to providing high-quality products and exceptional service to retailers, e-commerce, and corporate clients.">
+    <meta name="keywords" content="Manly Foods, Singapore food, premium food, imported food, food distribution, tea, honey, chocolate, souvenirs, corporate gifts, halal food, Ahmad Tea, Fulmer Honey, MANLY Wooden Box Tea, food wholesale, Singapore gifts">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #2c4c3b;       /* Deep forest green */
-            --secondary: #5d8a66;     /* Sage green */
-            --accent: #d4af37;        /* Gold */
-            --light: #f8f5f0;         /* Cream */
-            --dark: #1a1a1a;          /* Dark charcoal */
-            --text: #333333;         /* Dark gray */
-            --white: #ffffff;
-            --body-font: 'Poppins', sans-serif;
-            --heading-font: 'Playfair Display', serif;
+            --primary: #2C4C3B;       /* Deep Forest Green - Primary Brand Color */
+            --secondary: #5D8A66;     /* Sage Green/Olive Green - Secondary Brand Color */
+            --accent: #D4AF37;        /* Bright Gold - Accent Color */
+            --light-bg: #F9F7F5;      /* Soft Off-White - Light Background Color */
+            --dark-text: #2A2A2A;     /* Dark Charcoal - Main Text Color */
+            --white: #FFFFFF;         /* Pure White */
+            --border-light: rgba(0,0,0,0.08); /* Light Border */
         }
 
         body {
-            font-family: var(--body-font);
-            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
             background-color: var(--white);
-            line-height: 1.8;
+            line-height: 1.7;
             overflow-x: hidden;
-            font-size: 16px;
+            scroll-behavior: smooth;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--heading-font);
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.75rem;
         }
-        h1 { font-size: 3.2rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.75rem; }
-        h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.25rem; }
-        h6 { font-size: 1rem; }
 
-        /* Navigation */
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* Global Button Styles */
+        .btn {
+            padding: 0.85rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth ease-out */
+            border: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-outline-gold {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-outline-gold:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-outline-white {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+        .btn-outline-white:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             padding: 0.8rem 2rem;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.4s ease-in-out;
+            z-index: 1030;
         }
-
         .navbar.scrolled {
             padding: 0.6rem 2rem;
-            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
-
         .navbar-brand img {
-            height: 55px;
+            height: 55px; /* Slightly larger logo */
             transition: transform 0.3s ease;
         }
-
         .navbar-brand:hover img {
             transform: scale(1.03);
         }
-
         .nav-link {
             font-weight: 500;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             color: var(--primary);
             margin: 0 0.8rem;
             position: relative;
             padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
-
+        .nav-link:hover {
+            color: var(--secondary);
+        }
         .nav-link:after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -2px;
+            bottom: -5px; /* Adjust underline position */
             left: 50%;
             transform: translateX(-50%);
             background-color: var(--accent);
-            transition: width 0.3s ease;
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
         .nav-link:hover:after,
         .nav-link.active:after {
-            width: 70%;
-        }
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent);
+            width: 100%;
         }
 
         /* Hero Carousel */
-        #heroCarousel .carousel-item {
-            height: 75vh; /* Adjusted for a more modern feel */
-            min-height: 500px; /* Minimum height */
-            max-height: 700px; /* Maximum height */
+        .carousel-item {
+            height: 90vh; /* Increased height for grander feel */
+            min-height: 650px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden; /* Ensure content doesn't overflow */
         }
-
-        #heroCarousel .carousel-item img {
+        .carousel-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.7); /* Slightly darken images for text contrast */
+            z-index: 0;
+            filter: brightness(0.8); /* Slightly darken images for text contrast */
+            transform: scale(1.0);
+            transition: transform 0.8s ease-in-out;
         }
-
-        #heroCarousel .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.45);
-            padding: 1.5rem 2rem;
-            border-radius: 8px;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            max-width: 80%;
+        .carousel-item.active img {
+            transform: scale(1.03); /* Subtle zoom effect on active slide */
         }
-
-        #heroCarousel .carousel-caption h2 {
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+            z-index: 1;
+        }
+        .carousel-caption {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem 4rem;
+            background-color: rgba(0, 0, 0, 0.45); /* Slightly darker overlay for text */
+            border-radius: 12px;
+            max-width: 900px;
+            animation: fadeInUp 1.2s ease-out forwards;
+            backdrop-filter: blur(3px); /* Subtle blur for depth */
+        }
+        .carousel-caption h2 {
+            font-size: 4rem;
             color: var(--white) !important;
-            font-size: 2.8rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: 1px;
+        }
+        .carousel-caption p {
+            font-size: 1.4rem;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            opacity: 0.98;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .carousel-caption .btn {
+            margin-top: 1.5rem;
+            font-weight: 600;
         }
 
-        #heroCarousel .carousel-caption p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 0;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: rgba(0,0,0,0.3);
-            border-radius: 50%;
-            padding: 1.2rem;
-            background-size: 50%;
-        }
-
-        /* Section Styling */
+        /* General Section Styles */
         .section {
-            padding: 5rem 0;
+            padding: 7rem 0;
             position: relative;
         }
-
         .section-title {
             position: relative;
             margin-bottom: 4rem;
             text-align: center;
-            font-size: 2.8rem;
         }
-
-        .section-title:after {
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title h2:after {
             content: '';
             position: absolute;
             left: 50%;
-            bottom: -18px;
+            bottom: 0;
             transform: translateX(-50%);
-            width: 90px;
-            height: 3px;
+            width: 100px;
+            height: 4px;
             background-color: var(--accent);
+            border-radius: 2px;
         }
-        
-        .section-subtitle {
+        .bg-light {
+            background-color: var(--light-bg) !important;
+        }
+
+        /* Social Media & Shopping Links (Connect With Us) */
+        .social-link-section {
+            padding: 4rem 0;
+            background-color: var(--light-bg);
             text-align: center;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            color: var(--text);
-            opacity: 0.9;
         }
-
-        .bg-light-custom { /* Renamed from bg-light to avoid Bootstrap conflict if styles differ too much */
-            background-color: var(--light);
+        .social-link-section h4 {
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
         }
+        .social-link-section .btn {
+            margin: 0.6rem;
+            padding: 0.9rem 1.6rem;
+            border-radius: 8px; /* Slightly less rounded for modern look */
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-link-section .btn i {
+            margin-right: 0.75rem;
+            font-size: 1.2em;
+        }
+        .btn-whatsapp { background-color: #25d366; color: white; }
+        .btn-whatsapp:hover { background-color: #1DA851; transform: translateY(-3px); }
+        .btn-shopee { background-color: #EE4D2D; color: white; }
+        .btn-shopee:hover { background-color: #D6391A; transform: translateY(-3px); }
+        .btn-lazada { background-color: #F57224; color: white; }
+        .btn-lazada:hover { background-color: #DC671F; transform: translateY(-3px); }
+        .btn-instagram { background-color: #C13584; color: white; }
+        .btn-instagram:hover { background-color: #A82E73; transform: translateY(-3px); }
+        .btn-tiktok { background-color: #000000; color: white; }
+        .btn-tiktok:hover { background-color: #333333; transform: translateY(-3px); }
+        .btn-facebook { background-color: #3b5998; color: white; }
+        .btn-facebook:hover { background-color: #2D4373; transform: translateY(-3px); }
+        .btn-linkedin { background-color: #0077b5; color: white; }
+        .btn-linkedin:hover { background-color: #005582; transform: translateY(-3px); }
+        .btn-ahmadtea { background-color: var(--primary); color: white; } /* Use primary green for Ahmad Tea */
+        .btn-ahmadtea:hover { background-color: var(--secondary); transform: translateY(-3px); }
 
-        /* About Section */
-        .about-img-container {
-            border-radius: 12px;
+
+        /* About Us Section */
+        .about-img {
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            z-index: 1; /* For layered effect */
         }
-        .about-img-container img {
-            display: block;
+        .about-img img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.0);
+            transition: transform 0.6s ease;
         }
-
-        .about-img-container:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        .about-img:hover img {
+            transform: scale(1.05);
         }
-        .about-content .section-title{
-            text-align: left;
+        .about-text h2 {
+            margin-bottom: 1.8rem;
+            font-size: 2.8rem;
         }
-        .about-content .section-title:after{
-            left: 0;
-            transform: translateX(0);
+        .about-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #555;
         }
-        .feature-item {
+        .about-feature {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            margin-bottom: 1.8rem;
         }
-        .feature-item .icon {
-            font-size: 1.8rem;
+        .about-feature i {
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-top: 5px;
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+            transition: color 0.3s;
         }
-        .feature-item h5 {
-            color: var(--primary);
+        .about-feature:hover i {
+            color: var(--accent);
+        }
+        .about-feature h5 {
+            margin-bottom: 0.3rem;
+            font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        .about-feature p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0;
         }
 
-        /* Brands Section */
+        /* Partner Brands Section */
         .brand-card {
             background: var(--white);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
-            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-light);
             display: flex;
             flex-direction: column;
         }
-
         .brand-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 18px 45px rgba(44, 76, 59, 0.15);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0,0,0,0.15);
         }
-
         .brand-img {
-            height: 200px;
+            height: 200px; /* Slightly taller for more impact */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 25px;
-            background-color: #fdfdfd;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 35px;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
         }
-
         .brand-img img {
-            max-height: 90%;
-            max-width: 75%;
+            max-height: 100%;
+            max-width: 85%; /* Slightly larger logo within card */
             object-fit: contain;
-            filter: grayscale(80%);
-            opacity: 0.85;
-            transition: all 0.4s ease;
+            filter: grayscale(100%) brightness(1.2); /* Default subtle grayscale */
+            opacity: 0.7;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: scale(0.9);
         }
-
         .brand-card:hover .brand-img img {
-            filter: grayscale(0%);
+            filter: grayscale(0) brightness(1); /* Hover: full color */
             opacity: 1;
-            transform: scale(1.05);
+            transform: scale(1.0);
         }
-
         .brand-info {
-            padding: 1.75rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
-
-        .brand-info h4 { /* Was brand-name */
-            font-weight: 700;
+        .brand-name {
+            font-weight: 600;
             color: var(--primary);
-            margin-bottom: 0.75rem;
-        }
-        .brand-info p {
-            font-size: 0.95rem;
             margin-bottom: 1rem;
-            flex-grow: 1;
+            font-size: 1.6rem;
+            text-align: center;
         }
         .brand-info ul {
-            font-size: 0.9rem;
-            margin-bottom: 1.25rem;
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
         }
-        .brand-info ul i {
+        .brand-info ul li {
+            font-size: 0.98rem;
+            margin-bottom: 0.6rem;
+            color: #444;
+            position: relative;
+            padding-left: 20px;
+        }
+        .brand-info ul li:before {
+            content: "\f00c"; /* Font Awesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
             color: var(--secondary);
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 0.9em;
         }
-        .brand-info .btn {
-            margin-top: auto; /* Pushes button to the bottom */
+        .brand-info .text-center {
+            margin-top: auto; /* Push button to bottom */
         }
 
-
-        /* Products Section */
+        /* Product Categories Section */
         .product-category {
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            height: 420px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            background-color: var(--dark); /* Fallback for image */
+            height: 450px; /* Increased height */
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            border: 1px solid var(--border-light);
         }
-
         .product-category:hover {
             transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(44, 76, 59, 0.2);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0,0,0,0.15);
         }
-
         .product-img {
             height: 100%;
             background-size: cover;
             background-position: center;
             position: relative;
-            transition: transform 0.4s ease;
+            transition: transform 0.8s ease-in-out;
         }
         .product-category:hover .product-img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
-
         .product-img:after {
             content: '';
             position: absolute;
@@ -327,479 +457,446 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0,0,0,0.5) 40%, transparent 100%);
-            transition: background 0.4s ease;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+            opacity: 1;
+            transition: opacity 0.5s ease;
         }
-         .product-category:hover .product-img:after {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
-         }
-
-
+        .product-category:hover .product-img:after {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        }
         .product-info {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 1.5rem 2rem;
+            padding: 2.5rem;
             color: var(--white);
             z-index: 2;
-            transition: bottom 0.3s ease;
         }
-        .product-category:hover .product-info {
-            bottom: 5px; /* Slight lift on hover */
-        }
-
         .product-info h3 {
             color: var(--white);
-            margin-bottom: 0.5rem;
-            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 2.5rem;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         .product-info p {
-            font-size: 0.95rem;
-            opacity: 0.85;
+            font-size: 1.15rem;
+            opacity: 0.95;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .product-info .btn {
+            margin-top: 1rem;
+            border: 2px solid var(--accent); /* Changed to gold border for emphasis */
+            color: var(--accent);
+            background-color: transparent;
+        }
+        .product-info .btn:hover {
+            background-color: var(--accent);
+            color: var(--white);
         }
 
+        /* Why Partner Section */
+        .partner-feature {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            height: 100%;
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        .partner-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0,0,0,0.15);
+        }
+        .partner-feature i {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+        .partner-feature:hover i {
+            color: var(--primary);
+        }
+        .partner-feature h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-size: 1.7rem;
+        }
+        .partner-feature p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+        }
 
         /* Testimonials Section */
         .testimonial-card {
             background: var(--white);
-            border-radius: 15px; /* Softer radius */
-            padding: 2.5rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
             margin: 1rem;
             position: relative;
-            transition: all 0.4s ease;
-            border: 1px solid transparent;
-            height: 100%;
+            min-height: 280px; /* Uniform card height */
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
         }
-
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 45px rgba(44, 76, 59, 0.12);
-            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
-
         .testimonial-card:before {
-            content: '\\f10d'; /* FontAwesome quote icon */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
+            content: '\201C'; /* Left double quotation mark Unicode */
             position: absolute;
             top: 25px;
-            left: 25px;
-            font-size: 2.5rem; /* Smaller, more subtle quote */
-            color: var(--accent);
-            opacity: 0.25;
+            left: 35px;
+            font-size: 7rem; /* Larger quote icon */
+            font-family: 'Playfair Display', serif;
+            color: rgba(0, 0, 0, 0.07);
             line-height: 1;
+            z-index: 1;
         }
-
-        .testimonial-stars {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 1.25rem; /* Adjusted margin */
-            position: relative;
-            z-index: 2;
-            margin-left: 45px; /* Align with text, past the quote icon */
-        }
-
-        .star {
-            color: var(--accent);
-            font-size: 1.1rem; /* Slightly smaller stars */
-        }
-
         .testimonial-text {
             position: relative;
             z-index: 2;
             font-style: italic;
-            margin-bottom: 2rem;
-            font-size: 1.05rem; /* Slightly adjusted font size */
-            line-height: 1.8;
-            flex-grow: 1;
-            color: var(--text);
-            padding-top: 10px; /* Space from stars/quote */
-            margin-left: 45px;
+            margin-bottom: 1.8rem;
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.6;
         }
-
         .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: auto; /* Pushes author to the bottom */
-            padding-left: 45px;
-        }
-
-        .author-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-weight: 600;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .author-info h5 {
-            margin: 0;
             font-weight: 600;
             color: var(--primary);
-            font-size: 1.1rem;
-            font-family: var(--body-font); /* Poppins for author name for better readability */
+            font-size: 1.25rem;
+            position: relative;
+            z-index: 2;
+            margin-top: auto; /* Push author to bottom */
         }
-
-        .author-info p {
-            margin: 0;
+        .testimonial-author small {
             color: var(--secondary);
-            font-size: 0.9rem;
-            font-style: normal;
+            display: block;
+            font-weight: 400;
+            margin-top: 0.4rem;
+            font-size: 1rem;
         }
-        
 
-        /* Contact Section */
-        .contact-content .section-title { text-align: left; }
-        .contact-content .section-title:after { left:0; transform: translateX(0); }
+        /* Key Clients Section */
+        .clients-section {
+            padding: 6rem 0;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        .clients-section .section-title {
+            margin-bottom: 3rem;
+        }
+        .client-logo img {
+            max-height: 120px; /* Adjust as needed */
+            width: auto;
+            margin: 20px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .client-logo img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
 
+
+        /* Contact Us Section */
         .contact-info {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
         }
-
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1.75rem;
+            margin-bottom: 2rem;
         }
-
         .contact-icon {
-            font-size: 1.6rem;
+            font-size: 2.2rem;
             color: var(--accent);
-            margin-right: 1.5rem;
+            margin-right: 1.8rem;
             flex-shrink: 0;
-            width: 30px;
-            text-align: center;
+            transition: color 0.3s;
+        }
+        .contact-item:hover .contact-icon {
+            color: var(--primary);
         }
         .contact-details h5 {
-            margin-bottom: 0.3rem;
-            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
         }
         .contact-details p {
-            margin-bottom: 0;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.5;
         }
-        .contact-form-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
         }
-        .form-control, .form-select {
-            min-height: 50px;
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Form */
+        .contact-form .form-control {
             border-radius: 8px;
-            border-color: #e0e0e0;
-            font-size: 0.95rem;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border-light);
+            box-shadow: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 0.2rem rgba(44, 76, 59, 0.15);
+        .contact-form .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 0.25rem rgba(93, 138, 102, 0.25); /* Focus glow */
         }
-
-        /* "Find Us Online" Section Styling */
-        .find-us-online {
-            padding: 3rem 0;
-            background-color: #f8f9fa; /* Light grey background */
+        .contact-form textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
-        .find-us-online h4 {
-            margin-bottom: 2rem;
-            color: var(--dark);
-            font-size: 1.8rem;
+        .contact-form .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
-        .social-buttons-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-        }
-        .social-buttons-grid .btn {
-            font-size: 0.9rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px; /* Pill shape */
-            transition: all 0.3s ease;
-            min-width: 140px; /* Ensure buttons have some width */
-            text-align: center;
-        }
-        .social-buttons-grid .btn i {
-            margin-right: 8px;
-            font-size: 1.1em; /* Relative icon size */
-        }
-        .btn-whatsapp { background-color: #25D366; color: white; }
-        .btn-whatsapp:hover { background-color: #1EAE54; color: white; }
-        .btn-email { background-color: #EA4335; color: white; }
-        .btn-email:hover { background-color: #D03323; color: white; }
-        .btn-shopee { background-color: #EE4D2D; color: white; }
-        .btn-shopee:hover { background-color: #D63E1F; color: white; }
-        .btn-lazada { background-color: #0F146D; color: white; } /* Dark blue for Lazada */
-        .btn-lazada:hover { background-color: #0A0E4A; color: white; }
-        .btn-instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: white; }
-        .btn-instagram:hover { opacity: 0.9; color: white;}
-        .btn-tiktok { background-color: #000000; color: white; } /* Black for TikTok */
-        .btn-tiktok:hover { background-color: #333333; color: white; }
-        .btn-facebook { background-color: #1877F2; color: white; } /* Facebook blue */
-        .btn-facebook:hover { background-color: #125FCE; color: white; }
-        .btn-linkedin { background-color: #0A66C2; color: white; } /* LinkedIn blue */
-        .btn-linkedin:hover { background-color: #0852A0; color: white; }
-
 
         /* Footer */
         footer {
             background-color: var(--primary);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 5rem 0 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-logo img {
-            height: 70px; /* Adjusted size */
-            margin-bottom: 1.5rem;
-        }
-        footer p {
-            line-height: 1.7;
-        }
-
-        .footer-links h5 {
             color: var(--white);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-            font-family: var(--body-font);
-            font-weight: 600;
+            padding: 5rem 0 2.5rem;
         }
-
+        .footer-logo img {
+            height: 140px; /* Larger footer logo */
+            margin-bottom: 2rem;
+            filter: brightness(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.3)); /* Lighten and add subtle shadow for logo */
+        }
+        .footer-links h5 {
+            color: var(--accent); /* Gold heading */
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
         .footer-links h5:after {
             content: '';
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 35px;
-            height: 2px;
+            width: 50px;
+            height: 3px;
             background-color: var(--accent);
+            border-radius: 2px;
         }
-
         .footer-links ul {
             list-style: none;
             padding: 0;
         }
-
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
-
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.85);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 1rem;
+            display: inline-block;
         }
-
         .footer-links a:hover {
-            color: var(--white);
-            padding-left: 6px;
+            color: var(--accent);
+            transform: translateX(8px); /* Subtle slide on hover */
+        }
+        .footer-contact-info p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
         .footer-contact-info i {
             margin-right: 10px;
             color: var(--accent);
+            font-size: 1.1em;
         }
-
-        .footer-social-links h5 {
-             color: var(--white); font-size: 1.1rem; margin-bottom: 1rem; font-family: var(--body-font); font-weight:600;
-        }
-        .footer-social-links a {
-            color: rgba(255,255,255,0.7);
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.18);
+            color: var(--white);
+            border-radius: 50%;
             margin-right: 15px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             font-size: 1.3rem;
-            transition: color 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .footer-social-links a:hover {
-            color: var(--accent);
+        .social-icons a:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
-
-
         .copyright {
             border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding-top: 2rem;
-            margin-top: 3rem;
+            padding-top: 2.5rem;
+            margin-top: 3.5rem;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 45px;
-            height: 45px;
+            bottom: 30px;
+            right: 30px;
+            width: 55px; /* Slightly larger */
+            height: 55px;
             background-color: var(--accent);
             color: var(--white);
-            border-radius: 8px; /* Rounded square */
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
         }
-
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
-
         .back-to-top:hover {
             background-color: var(--primary);
             transform: translateY(-3px);
-        }
-
-        /* Buttons */
-        .btn {
-            padding: 0.7rem 1.6rem;
-            border-radius: 50px; /* Pill shape for default */
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary);
-            color: var(--white);
-            border-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(44, 76, 59, 0.15);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
         }
         
-        .btn-secondary { /* Example for a secondary action button */
-            background-color: var(--accent);
-            color: var(--white);
-            border-color: var(--accent);
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .btn-secondary:hover {
-            background-color: #c09b2e; /* Darker gold */
-            border-color: #c09b2e;
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(212, 175, 55, 0.2);
+        .animate-on-scroll {
+            opacity: 0; /* Default hidden, waiting for animation trigger */
         }
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1.0s; }
+        .delay-6 { animation-delay: 1.2s; }
 
-
-        .btn-outline-light { /* For dark backgrounds */
-            background-color: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline-light:hover {
-            background-color: var(--white);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .btn-outline-primary { /* For light backgrounds */
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        .btn-outline-primary:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
-
-        /* Animations */
-        .animate { /* Initial state for JS animation */
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .animate.animated { /* State after JS adds class */
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 1199.98px) {
-            #heroCarousel .carousel-caption h2 { font-size: 2.4rem; }
-            #heroCarousel .carousel-caption p { font-size: 1rem; }
-            h1 { font-size: 2.8rem; }
-            h2, .section-title { font-size: 2.2rem; }
+            .carousel-caption h2 { font-size: 3.5rem; }
+            .carousel-caption p { font-size: 1.3rem; }
+            .section { padding: 6rem 0; }
+            .section-title h2 { font-size: 2.8rem; }
+            .about-text h2 { font-size: 2.5rem; }
+            .product-category { height: 400px; }
+            .product-info h3 { font-size: 2.2rem; }
+            .product-info p { font-size: 1.05rem; }
         }
-
         @media (max-width: 991.98px) {
-            .section { padding: 4rem 0; }
-            #heroCarousel .carousel-item { height: 65vh; min-height: 450px; }
-            .navbar { padding: 0.75rem 1rem; }
-            .navbar-nav { margin-top: 1rem; }
-            .nav-link { margin: 0.5rem 0; display: block; text-align: center;}
-            .nav-link:after { left: 50%; transform: translateX(-50%); }
-            .about-content .section-title, .contact-content .section-title { text-align: center; }
-            .about-content .section-title:after, .contact-content .section-title:after { left:50%; transform: translateX(-50%); }
-            .testimonial-card { padding: 2rem; }
-            .testimonial-card:before { font-size: 2rem; top: 20px; left: 20px;}
-            .testimonial-stars, .testimonial-text, .testimonial-author { margin-left: 0; padding-left: 0; }
-        }
-
-        @media (max-width: 767.98px) {
-            body { font-size: 15px; }
-            #heroCarousel .carousel-item { height: 60vh; min-height: 400px; }
-            #heroCarousel .carousel-caption { padding: 1rem 1.5rem; max-width: 90%; bottom: 8%;}
-            #heroCarousel .carousel-caption h2 { font-size: 2rem; }
-            #heroCarousel .carousel-caption p { font-size: 0.9rem; }
-            h1 { font-size: 2.4rem; }
-            h2, .section-title { font-size: 2rem; }
-            .section-subtitle { font-size: 1rem; }
-            .brand-card, .product-category { margin-bottom: 1.5rem; } /* Stack cards on mobile */
-            .contact-form-card { padding: 2rem; }
-            .footer-links h5 { margin-top: 2rem; }
-        }
-
-        @media (max-width: 575.98px) {
-            #heroCarousel .carousel-item { height: 55vh; min-height: 350px; }
-            #heroCarousel .carousel-caption h2 { font-size: 1.6rem; }
-            #heroCarousel .carousel-caption p { font-size: 0.85rem; }
-            h1 { font-size: 2rem; }
-            h2, .section-title { font-size: 1.8rem; }
+            .navbar-brand img { height: 48px; }
+            .carousel-item { min-height: 550px; height: 80vh; }
+            .carousel-caption { padding: 2rem 3rem; }
+            .carousel-caption h2 { font-size: 2.8rem; }
+            .carousel-caption p { font-size: 1.15rem; }
+            .section { padding: 5rem 0; }
+            .section-title h2 { font-size: 2.4rem; }
+            .about-img { margin-bottom: 3rem; }
+            .about-text h2 { font-size: 2.2rem; }
             .product-category { height: 350px; }
-            .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
-            .social-buttons-grid .btn { min-width: 120px; }
-            .footer-logo img { height: 60px; }
+            .product-info h3 { font-size: 2rem; }
+            .product-info p { font-size: 0.95rem; }
+            .partner-feature { padding: 2.5rem; }
+            .testimonial-card { margin: 0.75rem 0; padding: 2.5rem; min-height: 220px;}
+            .social-link-section .btn { margin: 0.4rem; padding: 0.8rem 1.4rem; font-size: 0.95rem; }
+            .footer-logo img { height: 100px; }
+            .footer-links h5 { font-size: 1.5rem; margin-bottom: 1.5rem;}
+        }
+        @media (max-width: 767.98px) {
+            .carousel-item { min-height: 450px; height: 70vh; }
+            .carousel-caption { padding: 1.5rem 2rem; }
+            .carousel-caption h2 { font-size: 2.2rem; margin-bottom: 0.8rem; }
+            .carousel-caption p { font-size: 1rem; margin-bottom: 1.5rem; }
+            .btn { padding: 0.75rem 1.8rem; font-size: 0.95rem; }
+            .section { padding: 4rem 0; }
+            .section-title h2 { font-size: 2rem; margin-bottom: 3rem;}
+            .about-feature { margin-bottom: 1.5rem; }
+            .product-category { height: 300px; }
+            .product-info { padding: 1.5rem; }
+            .product-info h3 { font-size: 1.8rem; }
+            .product-info p { font-size: 0.85rem; }
+            .contact-item { margin-bottom: 1.2rem; }
+            .social-link-section h4 { font-size: 2rem; }
+            .social-link-section .btn { display: block; width: 80%; max-width: 300px; margin: 0.5rem auto; }
+            .footer-links h5 { text-align: left; }
+            .footer-links ul { text-align: left; }
+            .footer-contact-info { text-align: left; }
+            .footer-logo { text-align: center; }
+            .footer-social-icons { text-align: center; margin-top: 2rem; }
+        }
+        @media (max-width: 575.98px) {
+            .carousel-item { min-height: 380px; height: 60vh; }
+            .carousel-caption h2 { font-size: 1.8rem; }
+            .carousel-caption p { font-size: 0.9rem; }
+            .btn { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .about-text h2 { font-size: 1.8rem; }
+            .product-category { height: 280px; }
+            .product-info { padding: 1.5rem; }
+            .product-info h3 { font-size: 1.5rem; }
+            .product-info p { font-size: 0.85rem; }
+            .testimonial-card { padding: 2rem; min-height: 200px; }
+            .testimonial-card:before { font-size: 5rem; top: 15px; left: 20px; }
+            .footer-logo img { height: 70px; }
+            .social-icons a { width: 40px; height: 40px; font-size: 1rem; margin-right: 8px;}
         }
     </style>
 </head>
 <body>
-
-    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" class="img-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="manly_logo.png" alt="MANLY FOODS Logo" class="img-fluid">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -807,71 +904,78 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link active" href="#heroCarousel">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#brands">Brands</a>
+                        <a class="nav-link" href="#brands">Our Brands</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#products">Products</a>
+                        <a class="nav-link" href="#products">Product Lines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why-partner">Why Partner With Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#key-clients">Key Clients</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#testimonials">Testimonials</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-<header id="home" class="hero-section">
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    ---
+    ## Hero Carousel
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="carousel_1_wooden_tea.jpg" class="d-block" alt="Wooden Box Tea Gifts">
-                <div class="carousel-caption">
-                    <h2>Wooden Tea Gift Boxes</h2>
-                    <p>Singapore Landmarks on Premium Ceylon Tea</p>
+                <img src="carousel_1_singapore_tea.jpg" class="d-block w-100" alt="Singapore Iconic Wooden Box Tea">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="animate-fadeInUp delay-1">Singapore Flavours, Exquisite Wooden Box Teas</h2>
+                    <p class="animate-fadeInUp delay-2">Infusing the richness of Ceylon Tea with Singapore's iconic landmarks, creating luxurious souvenir gifts.</p>
+                    <a href="#products" class="btn btn-outline-white animate-fadeInUp delay-3">Explore Gift Collections</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="carousel_2_ahmad.jpg" class="d-block" alt="Ahmad Tea Collection">
-                <div class="carousel-caption">
-                    <h2>Ahmad Tea London</h2>
-                    <p>British Elegance for Every Occasion, Halal-Certified</p>
+                <img src="carousel_2_ahmad_tea.jpg" class="d-block w-100" alt="Ahmad Tea">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="animate-fadeInUp delay-1">Ahmad Tea London</h2>
+                    <p class="animate-fadeInUp delay-2">Embracing the essence of English tea traditions, trusted by 80+ countries. Discover premium black teas and specialty blends.</p>
+                    <a href="https://www.ahmadtea.com.sg" class="btn btn-outline-white animate-fadeInUp delay-3" target="_blank">Visit Ahmad Tea SG Official Site <i class="fas fa-external-link-alt ms-2"></i></a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="carousel_3_merlion_chocolate.jpg" class="d-block" alt="Merlion Themed Chocolate">
-                <div class="carousel-caption">
-                    <h2>Merlion Chocolates</h2>
-                    <p>Delicious Singapore-Themed Sweet Gifts & Souvenirs</p>
+                <img src="carousel_3_fulmer_honey.jpg" class="d-block w-100" alt="Fulmer Honey">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="animate-fadeInUp delay-1">Fulmer Honey</h2>
+                    <p class="animate-fadeInUp delay-2">Pure and natural, sourced from the UK. Bringing nature's gift to your healthy lifestyle.</p>
+                    <a href="#brands" class="btn btn-outline-white animate-fadeInUp delay-3">Learn More</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="carousel_4_fulmer.jpg" class="d-block" alt="Fulmer Premium Honey">
-                <div class="carousel-caption">
-                    <h2>Fulmer Honey Germany</h2>
-                    <p>Pure, Raw Floral Honey from Europe's Finest Apiaries</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="carousel_5_buram.jpg" class="d-block" alt="Buram EU Honey">
-                <div class="carousel-caption">
-                    <h2>Buram Honey EU</h2>
-                    <p>Premium Taste and Quality from the European Union</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="carousel_6_brand_wall.jpg" class="d-block" alt="Manly Foods Brand Partners">
-                <div class="carousel-caption">
-                    <h2>Trusted by Partners</h2>
-                    <p>Collaborating with Leading Retail & Travel Channels</p>
+                <img src="manlychocolate.png" class="d-block w-100" alt="Merlion Chocolates">
+                <div class="carousel-overlay"></div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="animate-fadeInUp delay-1">Artisan Merlion Chocolates</h2>
+                    <p class="animate-fadeInUp delay-2">Sweet memories of the Lion City, beautifully packaged, an ideal choice for gifting friends, family, and business partners.</p>
+                    <a href="#products" class="btn btn-outline-white animate-fadeInUp delay-3">View Souvenir Gifts</a>
                 </div>
             </div>
         </div>
@@ -884,214 +988,71 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</header>
 
-<section class="find-us-online">
-    <div class="container text-center">
-        <h4 class="animate">Find Us Online &amp; In Stores</h4>
-        <div class="social-buttons-grid animate">
-            <a href="https://wa.me/6562750603" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="mailto:sales@manlyfoods.com" class="btn btn-email" target="_blank"><i class="fas fa-envelope"></i> Email Us</a>
-            <a href="https://shopee.sg/shop/62656629" class="btn btn-shopee" target="_blank"><i class="fas fa-shopping-bag"></i> Shopee</a>
-            <a href="https://www.lazada.sg/shop/manly-food1627632387" class="btn btn-lazada" target="_blank"><i class="fas fa-store"></i> Lazada</a>
-            <a href="https://instagram.com/manlyfoodssg" class="btn btn-instagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://www.tiktok.com/@manlyfoods" class="btn btn-tiktok" target="_blank"><i class="fab fa-tiktok"></i> TikTok Shop</a>
-            <a href="https://www.facebook.com/ManlyFoods" class="btn btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
-            <a href="https://www.linkedin.com/company/95019223/" class="btn btn-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+    ---
+    ## Connect With Us & Shop Online
+    <section id="find-us" class="social-link-section">
+        <div class="container">
+            <h4 class="animate-on-scroll delay-1">Connect With Us & Shop Online</h4>
+            <div class="d-flex flex-wrap justify-content-center animate-on-scroll delay-2">
+                <a href="https://wa.me/6562750603" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                <a href="https://www.shopee.sg/manlyfoods" class="btn btn-shopee" target="_blank"><i class="fas fa-shopping-bag"></i> Shop on Shopee</a>
+                <a href="https://www.lazada.sg/shop/manlyfoods" class="btn btn-lazada" target="_blank"><i class="fas fa-shopping-basket"></i> Shop on Lazada</a>
+                <a href="https://www.instagram.com/manlyfoods_sg/" class="btn btn-instagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                
+                <a href="https://www.tiktok.com/@manlyfoods_sg" class="btn btn-tiktok" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="https://www.facebook.com/ManlyFoodsSG/" class="btn btn-facebook" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.linkedin.com/company/manly-foods-pte-ltd/" class="btn btn-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+               <a href="https://www.instagram.com/ahmadteasg/" class="btn btn-info m-2 text-white" target="_blank">
+  <i class="fab fa-instagram"></i> Ahmad Tea SG
+</a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <section id="about" class="section">
+    ---
+    ## About Us
+    <section id="about" class="section bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0 animate">
-                    <div class="about-img-container">
-                        <img src="image_00.png" alt="MANLY FOODS - Our Heritage and Products" class="img-fluid">
+                <div class="col-lg-6 mb-4 mb-lg-0 animate-on-scroll delay-1">
+                    <div class="about-img">
+                        <img src="about_manly_foods.jpg" class="img-fluid" alt="About Manly Foods">
                     </div>
                 </div>
-                <div class="col-lg-6 animate about-content" style="animation-delay: 0.2s;">
-                    <h2 class="section-title">Our Story of Taste & Tradition</h2>
-                    <p>Founded in 1986, <strong>Manly Pte Ltd</strong> stands as a cornerstone in Singapore's <strong>food import and distribution</strong> landscape. We pride ourselves on curating premium <strong>tea, honey, chocolate</strong>, and distinctive souvenir-friendly FMCG products.</p>
-                    <p>Evolving from a traditional distributor to an esteemed exclusive brand representative, Manly now serves a diverse clientele including premier retailers, dynamic <strong>e-commerce platforms, corporate gifting partners, and international visitors</strong> throughout Singapore.</p>
-                    <div class="mt-4 pt-2">
-                        <div class="feature-item mb-4">
-                            <div class="icon"><i class="fas fa-certificate"></i></div>
-                            <div>
-                                <h5>Quality Assurance</h5>
-                                <p class="mb-0">Sourcing Halal-certified products from globally trusted brands.</p>
+                <div class="col-lg-6 animate-on-scroll delay-2">
+                    <div class="about-text">
+                        <h2 class="section-title text-start">About MANLY FOODS</h2>
+                        <p>MANLY FOODS is a leading food importer and distributor in Singapore, dedicated to sourcing and supplying premium gourmet products from around the world. We understand the paramount importance of quality and trust, striving to bring the most authentic and beloved brands to consumers and business partners across Singapore.</p>
+                        <p>With deep market insights and a robust distribution network, we are more than just a supplier; we are a bridge for brands, ensuring every product reaches your hands in its optimal condition.</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6 about-feature animate-on-scroll delay-3">
+                                <i class="fas fa-award"></i>
+                                <div>
+                                    <h5>Exceptional Quality Assurance</h5>
+                                    <p>We meticulously select only top-tier brands that meet stringent international certifications.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="feature-item">
-                            <div class="icon"><i class="fas fa-truck-fast"></i></div>
-                            <div>
-                                <h5>Efficient Fulfillment</h5>
-                                <p class="mb-0">Robust Singapore-based warehousing ensuring prompt delivery with ample buffer stock.</p>
+                            <div class="col-md-6 about-feature animate-on-scroll delay-4">
+                                <i class="fas fa-globe-asia"></i>
+                                <div>
+                                    <h5>Extensive Global Network</h5>
+                                    <p>Our partnerships span continents, bringing diverse and authentic flavours to Singapore.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="brands" class="section bg-light-custom">
-        <div class="container">
-            <h2 class="section-title">Our Exclusive Brand Portfolio</h2>
-            <p class="section-subtitle">We are proud to represent distinguished international brands that epitomize quality, captivating packaging, and exceptional retail value.</p>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 animate">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_1.png" alt="Ahmad Tea London Logo">
-                        </div>
-                        <div class="brand-info">
-                            <h4>Ahmad Tea London</h4>
-                            <p>A celebrated British heritage tea brand, cherished in over 80 countries, presented in elegant, gift-ready formats.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check me-2"></i> Halal-certified selections</li>
-                                <li><i class="fas fa-check me-2"></i> Exquisite premium black teas & blends</li>
-                                <li><i class="fas fa-check me-2"></i> Luxurious, award-winning packaging</li>
-                            </ul>
-                             <a href="https://www.ahmadtea.com/" target="_blank" class="btn btn-outline-primary btn-sm mt-auto">Visit Ahmad Tea &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 animate" style="animation-delay: 0.2s;">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo.4.png" alt="MANLY Wooden Box Tea Logo">
-                        </div>
-                        <div class="brand-info">
-                            <h4>MANLY Wooden-Box Tea</h4>
-                            <p>Premium Ceylon tea offering rich aroma and flavor, encased in iconic Singapore-themed wooden gift boxes.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check me-2"></i> Features iconic Singapore landmarks</li>
-                                <li><i class="fas fa-check me-2"></i> A consistent tourist favorite & ideal gift</li>
-                                <li><i class="fas fa-check me-2"></i> Collectible wooden gift boxes</li>
-                            </ul>
-                            <a href="manly_tea_website_video_7s.html" class="btn btn-secondary btn-sm mt-auto">Explore Collection &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 animate" style="animation-delay: 0.4s;">
-                    <div class="brand-card">
-                        <div class="brand-img">
-                            <img src="logo_3.png" alt="Fulmer Honey Germany Logo">
-                        </div>
-                        <div class="brand-info">
-                            <h4>Fulmer Honey Germany</h4>
-                            <p>Authentic raw floral honey from Europe, minimally processed and presented in attractive, gift-friendly formats.</p>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check me-2"></i> Halal-certified varieties</li>
-                                <li><i class="fas fa-check me-2"></i> Perfect for the health-conscious consumer</li>
-                                <li><i class="fas fa-check me-2"></i> Ideal for seasonal pairings & gourmet use</li>
-                            </ul>
-                            <a href="#" class="btn btn-outline-primary btn-sm mt-auto disabled">Discover Fulmer &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<section id="products" class="section">
-    <div class="container">
-        <h2 class="section-title">Curated Product Collections</h2>
-        <p class="section-subtitle">Explore our thoughtfully selected range of premium products, perfect for distinguished gifting and everyday indulgence.</p>
-        
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6 animate">
-                <div class="product-category">
-                    <div class="product-img" style="background-image: url('product_tea.jpg')"></div>
-                    <div class="product-info">
-                        <h3>Tea Collections</h3>
-                        <p class="mb-3">Exquisite blends in elegant packaging, from classic to contemporary.</p>
-                        <a href="manly_tea_website_video_7s.html" class="btn btn-outline-light btn-sm" aria-label="Explore Tea Collections">
-                            Explore Teas &rarr;
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animate" style="animation-delay: 0.2s;">
-                <div class="product-category">
-                    <div class="product-img" style="background-image: url('product_honey.jpg')"></div>
-                    <div class="product-info">
-                        <h3>Honey Selection</h3>
-                        <p class="mb-3">Pure, natural, and raw honey sourced from the finest European apiaries.</p>
-                        <a href="manly_honey_website_video_7s.html" class="btn btn-outline-light btn-sm" aria-label="Explore Honey Selection">
-                            Discover Honey &rarr;
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animate" style="animation-delay: 0.4s;">
-                <div class="product-category">
-                    <div class="product-img" style="background-image: url('product_chocolate.jpg')"></div>
-                    <div class="product-info">
-                        <h3>Chocolate Gifts</h3>
-                        <p class="mb-3">Delectable Singapore-themed chocolates, ideal for souvenirs and gifts.</p>
-                        <a href="manly_chocolate_website_video_7s.html" class="btn btn-outline-light btn-sm" aria-label="Explore Chocolate Gifts">
-                            View Chocolates &rarr;
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="testimonials" class="section bg-light-custom">
-        <div class="container">
-            <h2 class="section-title">What Our Partners Say</h2>
-            <p class="section-subtitle">We take pride in building strong relationships. Here's what some of our valued clients and partners have to share.</p>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4 animate">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                            <i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i>
-                        </div>
-                        <p class="testimonial-text">"Manly Foods consistently delivers high-quality products with excellent service. Their Singapore-themed teas are a huge hit with our customers!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">RS</div>
-                            <div class="author-info">
-                                <h5>Retail Manager</h5>
-                                <p>Changi Airport Gift Store</p>
+                            <div class="col-md-6 about-feature animate-on-scroll delay-5">
+                                <i class="fas fa-truck-fast"></i>
+                                <div>
+                                    <h5>Efficient Logistics & Support</h5>
+                                    <p>Streamlined supply chain and dedicated support ensure timely delivery and service.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 animate" style="animation-delay: 0.2s;">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                           <i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star-half-alt star"></i>
-                        </div>
-                        <p class="testimonial-text">"The Ahmad Tea selection is fantastic for our corporate gifting needs. Elegant packaging and always well-received. Manly makes fulfillment easy."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">PL</div>
-                            <div class="author-info">
-                                <h5>Procurement Lead</h5>
-                                <p>Global MNC, Singapore</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4 animate" style="animation-delay: 0.4s;">
-                    <div class="testimonial-card">
-                        <div class="testimonial-stars">
-                           <i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i>
-                        </div>
-                        <p class="testimonial-text">"We love the Fulmer Honey range. It's a great addition to our gourmet section, and our customers appreciate the quality and taste. Manly is a reliable partner."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">JT</div>
-                            <div class="author-info">
-                                <h5>Online Grocer Owner</h5>
-                                <p>Premium E-commerce Platform</p>
+                            <div class="col-md-6 about-feature animate-on-scroll delay-6">
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <h5>Tailored B2B Solutions</h5>
+                                    <p>We offer customized wholesale and corporate gifting solutions for your business needs.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1100,130 +1061,418 @@
         </div>
     </section>
 
-   <section id="contact" class="section">
+    ---
+    ## Our Brands
+    <section id="brands" class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-5 mb-5 mb-lg-0 animate contact-content">
-                    <h2 class="section-title">Get In Touch With Us</h2>
-                    <p class="mb-5">Whether you're a prospective buyer, event planner, established retailer, or dynamic travel business, Manly is poised and ready to support your unique needs. Let's connect!</p>
-                    
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>Our Distinguished Brands</h2>
+                <p class="lead text-muted">We proudly represent a curated selection of world-class brands, bringing their legacy of quality to Singapore.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-2">
+                    <div class="brand-card">
+                        <div class="brand-img">
+                            <img src="ahmad_tea_logo.png" alt="Ahmad Tea London Logo">
+                        </div>
+                        <div class="brand-info">
+                            <h3 class="brand-name">Ahmad Tea London</h3>
+                            <ul>
+                                <li>Exclusive distributor in Singapore.</li>
+                                <li>Award-winning tea blends from a 4-generation family business.</li>
+                                <li>Wide range of black, green, herbal, and fruit teas.</li>
+                                <li>Committed to ethical sourcing and sustainable practices.</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="https://www.ahmadtea.com.sg" class="btn btn-outline-gold" target="_blank">Visit Ahmad Tea SG <i class="fas fa-external-link-alt ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-3">
+                    <div class="brand-card">
+                        <div class="brand-img">
+                            <img src="fulmer_honey_logo.png" alt="Fulmer Honey Logo">
+                        </div>
+                        <div class="brand-info">
+                            <h3 class="brand-name">Fulmer Honey</h3>
+                            <ul>
+                                <li>Premium, natural honey from the United Kingdom.</li>
+                                <li>Known for its rich taste and health benefits.</li>
+                                <li>Sustainably harvested and pure.</li>
+                                <li>Versatile for cooking, baking, or direct consumption.</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="#contact" class="btn btn-outline-gold">Enquire Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-4">
+                    <div class="brand-card">
+                        <div class="brand-img">
+                            <img src="manly_wooden_box_tea_logo.png" alt="MANLY Wooden Box Tea Logo">
+                        </div>
+                        <div class="brand-info">
+                            <h3 class="brand-name">MANLY Wooden Box Tea</h3>
+                            <ul>
+                                <li>Exclusive Singapore-themed souvenir tea boxes.</li>
+                                <li>Premium Ceylon Black Tea, elegantly presented.</li>
+                                <li>Ideal for corporate gifts and tourist mementos.</li>
+                                <li>Customizable options available for bulk orders.</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="manly_tea_website_video_7s.html" class="btn btn-outline-gold">View Product Video</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-5">
+                    <div class="brand-card">
+                        <div class="brand-img">
+                            <img src="merlion_chocolates_logo.png" alt="Merlion Chocolates Logo">
+                        </div>
+                        <div class="brand-info">
+                            <h3 class="brand-name">Merlion Chocolates</h3>
+                            <ul>
+                                <li>Artisan chocolates inspired by Singapore's iconic Merlion.</li>
+                                <li>Perfect souvenir for visitors and local gifting.</li>
+                                <li>Premium quality chocolate with unique flavour profiles.</li>
+                                <li>Beautifully packaged for a luxury gifting experience.</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="#products" class="btn btn-outline-gold">Discover Chocolates</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-6">
+                    <div class="brand-card">
+                        <div class="brand-img">
+                            <img src="generic_premium_brand_logo.png" alt="Premium Brand Logo">
+                        </div>
+                        <div class="brand-info">
+                            <h3 class="brand-name">Gourmet Spices & Condiments</h3>
+                            <ul>
+                                <li>Sourcing high-quality, authentic spices and condiments.</li>
+                                <li>Enhance culinary experiences with unique flavours.</li>
+                                <li>Carefully selected from reputable global producers.</li>
+                                <li>Perfect for home cooks and professional chefs.</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="#products" class="btn btn-outline-gold">Explore Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    ## Product Lines
+    <section id="products" class="section bg-light">
+        <div class="container">
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>Our Diverse Product Range</h2>
+                <p class="lead text-muted">From refreshing teas to delightful sweets, our selection caters to every palate and occasion.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 animate-on-scroll delay-2">
+                    <div class="product-category">
+                        <div class="product-img" style="background-image: url('tea_products.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Premium Teas</h3>
+                            <p>Discover a world of exceptional teas, from classic black teas to fragrant herbal infusions.</p>
+                            <a href="#brands" class="btn btn-outline-white">Explore Teas</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-on-scroll delay-3">
+                    <div class="product-category">
+                        <div class="product-img" style="background-image: url('honey_products.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Natural Honeys</h3>
+                            <p>Savour the natural sweetness and health benefits of our carefully selected honey varieties.</p>
+                            <a href="#brands" class="btn btn-outline-white">View Honeys</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 animate-on-scroll delay-4">
+                    <div class="product-category">
+                        <div class="product-img" style="background-image: url('manlychocolate.png'); background-size: contain; background-repeat: no-repeat; background-color: rgba(255,255,255,0.9); background-position: center;"></div>
+                        <div class="product-info">
+                            <h3>Gourmet Chocolates</h3>
+                            <p>Indulge in our exquisite chocolate creations, perfect for any occasion or as a special treat.</p>
+                            <a href="#contact" class="btn btn-outline-white">Order Chocolates</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6 col-lg-4 animate-on-scroll delay-5">
+                    <div class="product-category">
+                        <div class="product-img" style="background-image: url('corporate_gifts.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Corporate Gifts</h3>
+                            <p>Elevate your corporate gifting with our premium selections, tailored to impress and delight.</p>
+                            <a href="#contact" class="btn btn-outline-white">Custom Solutions</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6 col-lg-4 animate-on-scroll delay-6">
+                    <div class="product-category">
+                        <div class="product-img" style="background-image: url('souvenir_products.jpg');"></div>
+                        <div class="product-info">
+                            <h3>Unique Souvenirs</h3>
+                            <p>Bring home a piece of Singapore with our charming and authentic local-themed souvenirs.</p>
+                            <a href="#products" class="btn btn-outline-white">Browse Souvenirs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    ## Why Partner With Us
+    <section id="why-partner" class="section">
+        <div class="container">
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>Why Choose MANLY FOODS as Your Partner?</h2>
+                <p class="lead text-muted">We offer more than just products; we provide a partnership built on trust, quality, and mutual growth.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-2">
+                    <div class="partner-feature">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Reliable Distribution</h4>
+                        <p>Leverage our extensive network and efficient logistics to ensure your products reach the market swiftly and safely across Singapore.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-3">
+                    <div class="partner-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Assured Product Integrity</h4>
+                        <p>We uphold the highest standards of food safety and quality control, ensuring every product maintains its excellence from origin to customer.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-4">
+                    <div class="partner-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Market Expertise</h4>
+                        <p>Benefit from our in-depth understanding of the Singaporean food market, enabling strategic product placement and growth opportunities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-5">
+                    <div class="partner-feature">
+                        <i class="fas fa-users-cog"></i>
+                        <h4>Dedicated Partnership</h4>
+                        <p>We believe in building strong, long-term relationships with our clients, offering personalized support and flexible solutions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-6">
+                    <div class="partner-feature">
+                        <i class="fas fa-star-half-alt"></i>
+                        <h4>Premium Portfolio</h4>
+                        <p>Join a portfolio of esteemed international brands, enhancing your market presence and appeal to discerning consumers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-on-scroll delay-7">
+                    <div class="partner-feature">
+                        <i class="fas fa-tags"></i>
+                        <h4>Competitive Advantage</h4>
+                        <p>Our competitive pricing and value-added services provide you with a distinct edge in Singapore's dynamic food landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    ## Key Clients
+    <section id="key-clients" class="clients-section">
+        <div class="container">
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>Our Valued Key Clients</h2>
+                <p class="lead text-muted">We are honored to partner with leading businesses and institutions across various sectors, demonstrating our commitment to excellence and reliability.</p>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 animate-on-scroll delay-2">
+                    <img src="carousel_6_brand_wall.jpg" class="img-fluid" alt="Key Clients Logos" style="max-width: 90%; height: auto; object-fit: contain;">
+                </div>
+                <div class="col-12 text-center mt-4 animate-on-scroll delay-3">
+                    <p class="text-muted">Our partnerships span across premium hotels, airlines, major supermarkets, leading e-commerce platforms, and reputable corporate entities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    ## Testimonials
+    <section id="testimonials" class="section bg-light">
+        <div class="container">
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>What Our Partners Say</h2>
+                <p class="lead text-muted">Hear directly from our satisfied clients about their experience partnering with MANLY FOODS.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll delay-2">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Manly Foods has been an invaluable partner in distributing our products. Their professionalism, efficient logistics, and deep understanding of the Singapore market have been crucial to our success here."</p>
+                        <div class="testimonial-author">
+                            John D.
+                            <small>Sales Director, International Tea Brand</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll delay-3">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The quality of products supplied by Manly Foods is consistently excellent. Their commitment to sourcing premium items aligns perfectly with our brand values."</p>
+                        <div class="testimonial-author">
+                            Sarah L.
+                            <small>Procurement Manager, Luxury Hotel Chain</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll delay-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"We rely on Manly Foods for our corporate gifting needs. Their customized solutions and prompt delivery always exceed our expectations, making our clients feel truly special."</p>
+                        <div class="testimonial-author">
+                            David K.
+                            <small>HR & Admin Head, Multinational Corporation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll delay-5">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Their team is incredibly responsive and supportive. It’s a pleasure to work with a distributor who genuinely cares about their partners' growth and success."</p>
+                        <div class="testimonial-author">
+                            Emily R.
+                            <small>E-commerce Manager, Online Grocer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    ---
+    ## Contact Us
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title animate-on-scroll delay-1">
+                <h2>Get in Touch</h2>
+                <p class="lead text-muted">Whether you're interested in our products, seeking partnership opportunities, or have any inquiries, we'd love to hear from you.</p>
+            </div>
+            <div class="row align-items-start">
+                <div class="col-lg-5 mb-5 mb-lg-0 animate-on-scroll delay-2">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
                             <div class="contact-details">
                                 <h5>Our Office</h5>
-                                <p>#07-11, 221 Henderson Rd,<br>Henderson Building, Singapore 159557</p>
+                                <p>MANLY FOODS PTE. LTD.</p>
+                                <p>200 Jalan Sultan, #03-45 Textile Centre, Singapore 199018</p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <i class="fas fa-phone-alt contact-icon"></i>
                             <div class="contact-details">
-                                <h5>Phone</h5>
-                                <p><a href="tel:+6584014364" class="text-decoration-none text-dark">+65 8401 4364</a></p>
+                                <h5>Call Us</h5>
+                                <p><a href="tel:+6562750603">+65 62750603</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <i class="fas fa-envelope contact-icon"></i>
                             <div class="contact-details">
-                                <h5>Email</h5>
-                                <p><a href="mailto:sales@manlyfoods.com" class="text-decoration-none text-dark">sales@manlyfoods.com</a></p>
+                                <h5>Email Us</h5>
+                                <p><a href="mailto:info@manlyfoods.com">info@manlyfoods.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div class="contact-details">
+                                <h5>Business Hours</h5>
+                                <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+                                <p>Sat, Sun, Public Holidays: Closed</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-lg-7 animate" style="animation-delay: 0.2s;">
-                    <div class="contact-form-card">
-                        <h4 class="mb-4 text-primary">Send Us a Message</h4>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" placeholder="Your Name" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="email" class="form-control" placeholder="Email Address" required>
-                                </div>
+                <div class="col-lg-7 animate-on-scroll delay-3">
+                    <form class="contact-form" action="submit_form.php" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
                             </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" placeholder="Phone Number (Optional)">
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
                             </div>
-                            <div class="mb-3">
-                                <select class="form-select" required>
-                                    <option selected disabled value="">I'm interested in...</option>
-                                    <option>Wholesale Inquiry</option>
-                                    <option>Corporate Gifting Solutions</option>
-                                    <option>Product Information & Samples</option>
-                                    <option>Becoming a Retail Partner</option>
-                                    <option>Other</option>
-                                </select>
+                            <div class="col-12">
+                                <input type="text" class="form-control" placeholder="Subject" required>
                             </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <div class="col-12">
+                                <textarea class="form-control" placeholder="Your Message" rows="6" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
-                        </form>
-                    </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
+    ---
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 mb-5 mb-lg-0">
+                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
                     <div class="footer-logo">
-                        <img src="MANLY LOGO.png" alt="MANLY FOODS Singapore">
+                        <img src="manly_logo_footer.png" alt="MANLY FOODS Footer Logo" class="img-fluid">
                     </div>
-                    <p>Your trusted partner in premium food import and distribution since 1986. Specializing in exquisite tea, pure honey, fine chocolate, and unique souvenir-friendly FMCG products for Singapore and beyond.</p>
-                     <div class="mt-4 footer-social-links">
-                        <h5 class="d-none d-lg-block">Follow Our Journey</h5>
-                        <a href="https://www.facebook.com/ManlyFoods" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com/manlyfoodssg" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/95019223/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.tiktok.com/@manlyfoods" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <p class="text-white-75">MANLY FOODS is Singapore's dedicated importer and distributor of premium food products, connecting the world's finest tastes to your table.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/ManlyFoodsSG/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/manlyfoods_sg/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/manly-foods-pte-ltd/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.tiktok.com/@manlyfoods_sg" target="_blank"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-
-                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-md-0">
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
                     <div class="footer-links">
                         <h5>Quick Links</h5>
                         <ul>
-                            <li><a href="#home">Home</a></li>
                             <li><a href="#about">About Us</a></li>
                             <li><a href="#brands">Our Brands</a></li>
-                            <li><a href="#products">Products</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#products">Product Lines</a></li>
+                            <li><a href="#why-partner">Why Partner With Us</a></li>
+                            <li><a href="#key-clients">Key Clients</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-6 mb-4 mb-md-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <div class="footer-links">
-                        <h5>Product Lines</h5>
+                        <h5>Support</h5>
                         <ul>
-                            <li><a href="#products">Premium Tea Collections</a></li>
-                            <li><a href="#products">Natural Honey Selection</a></li>
-                            <li><a href="#products">Artisanal Chocolate Gifts</a></li>
-                            <li><a href="#">Seasonal & Festive Sets</a></li>
-                            <li><a href="#">Corporate Gifting Packages</a></li>
-                        </ul>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="mailto:info@manlyfoods.com">Email Support</a></li>
+                            <li><a href="https://wa.me/6562750603" target="_blank">WhatsApp Support</a></li>
+                            <li><a href="privacy-policy.pdf" target="_blank">Privacy Policy</a></li> <li><a href="terms-of-service.pdf" target="_blank">Terms of Service</a></li> </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer-links">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links footer-contact-info">
                         <h5>Contact Info</h5>
-                        <ul class="footer-contact-info">
-                            <li class="d-flex"><i class="fas fa-map-marker-alt mt-1"></i><span>221 Henderson Rd, #07-11 Henderson Building, Singapore 159557</span></li>
-                            <li class="d-flex"><i class="fas fa-phone-alt mt-1"></i><span><a href="tel:+6584014364">+65 8401 4364</a></span></li>
-                            <li class="d-flex"><i class="fas fa-envelope mt-1"></i><span><a href="mailto:sales@manlyfoods.com">sales@manlyfoods.com</a></span></li>
-                        </ul>
+                        <p><i class="fas fa-map-marker-alt"></i> 200 Jalan Sultan, #03-45 Textile Centre, Singapore 199018</p>
+                        <p><i class="fas fa-phone-alt"></i> <a href="tel:+6562750603">+65 62750603</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@manlyfoods.com">info@manlyfoods.com</a></p>
+                        <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="copyright">
-                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear());</script> Manly Pte Ltd. All Rights Reserved. UEN: 198600480M</p>
+            <div class="copyright mt-5">
+                &copy; <span id="currentYear"></span> MANLY FOODS PTE. LTD. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1231,8 +1480,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -1240,78 +1489,103 @@
             }
         });
 
-        // Smooth scrolling for navigation links & Activate nav link
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if(targetElement){
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Active link highlighting
-                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                    if(this.classList.contains('nav-link')){
+                if (targetId.startsWith('#')) {
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        // Close navbar toggler on mobile after clicking link
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                            bsCollapse.hide();
+                        }
+
+                        // Get the current height of the fixed navbar
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        
+                        window.scrollTo({
+                            top: targetSection.offsetTop - navbarHeight - 1, // Adjust for fixed navbar height + small buffer
+                            behavior: 'smooth'
+                        });
+
+                        // Update active class
+                        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
                         this.classList.add('active');
-                    } else if (this.closest('.navbar-nav')) { // For footer or other links pointing to nav sections
-                         const correspondingNavLink = document.querySelector(`.navbar-nav .nav-link[href="${targetId}"]`);
-                         if(correspondingNavLink) correspondingNavLink.classList.add('active');
                     }
                 }
             });
         });
-        
-        // Update active nav link on scroll
-        const sections = document.querySelectorAll('section[id]');
-        window.addEventListener('scroll', navHighlighter);
 
-        function navHighlighter() {
-            let scrollY = window.pageYOffset;
-            sections.forEach(current => {
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 100; // Adjusted offset
-                let sectionId = current.getAttribute('id');
-                
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                    document.querySelector('.nav-link[href*=' + sectionId + ']').classList.add('active');
-                } else {
-                    document.querySelector('.nav-link[href*=' + sectionId + ']').classList.remove('active');
+        // Set active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight; // Get current navbar height
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navbarHeight; // Adjusted for fixed navbar
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
                 }
             });
-             // Special case for home (top of page)
-            if (scrollY < sections[0].offsetTop - 100) {
-                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                 document.querySelector('.nav-link[href="#home"]').classList.add('active');
-            }
-        }
 
-
-        // Animation on scroll (elements with .animate class)
-        const animatedElements = document.querySelectorAll('.animate');
-        const animateOnScroll = () => {
-            animatedElements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2; // Trigger point
-                
-                if (elementPosition < screenPosition && !element.classList.contains('animated')) {
-                    element.classList.add('animated'); // Add 'animated' class to trigger CSS transition
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
                 }
             });
-        }
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-
+        });
 
         // Back to top button visibility
         const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show after scrolling 300px
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
             }
         });
+
+        // Smooth scroll for back to top button
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animate on scroll (Intersection Observer)
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
