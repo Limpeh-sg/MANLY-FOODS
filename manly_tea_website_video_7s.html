@@ -7,7 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;400;500;600&display=swap');
-        
+
         :root {
             --gold-primary: #D4AF37;
             --gold-light: #F4E4BC;
@@ -19,13 +19,14 @@
             --charcoal: #2C2C2C;
             --white: #FFFFFF;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth; /* For smooth back to top */
         }
-        
+
         body {
             font-family: 'Crimson Text', serif;
             line-height: 1.6;
@@ -33,18 +34,18 @@
             background: var(--cream);
             overflow-x: hidden;
         }
-        
+
         /* Wood Grain Texture Base */
         .wood-texture {
             position: relative;
-            background: linear-gradient(45deg, var(--wood-light) 25%, transparent 25%), 
-                        linear-gradient(-45deg, var(--wood-light) 25%, transparent 25%), 
-                        linear-gradient(45deg, transparent 75%, var(--wood-light) 75%), 
-                        linear-gradient(-45deg, transparent 75%, var(--wood-light) 75%);
+            background: linear-gradient(45deg, var(--wood-light) 25%, transparent 25%),
+                         linear-gradient(-45deg, var(--wood-light) 25%, transparent 25%),
+                         linear-gradient(45deg, transparent 75%, var(--wood-light) 75%),
+                         linear-gradient(-45deg, transparent 75%, var(--wood-light) 75%);
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         }
-        
+
         .wood-texture::before {
             content: '';
             position: absolute;
@@ -52,7 +53,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 repeating-linear-gradient(
                     0deg,
                     rgba(139, 69, 19, 0.1) 0px,
@@ -66,20 +67,28 @@
                     transparent 1px,
                     transparent 8px
                 );
+            z-index: 1;
         }
-        
+        .wood-texture > * { /* Ensure content is above texture overlay */
+            position: relative;
+            z-index: 2;
+        }
+
+
         /* Navigation */
         .nav-bar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(250, 247, 240, 0.95);
+            background: rgba(250, 247, 240, 0.95); /* var(--cream) with opacity */
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 15px 0;
             border-bottom: 1px solid var(--gold-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -88,7 +97,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .nav-logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -97,20 +106,22 @@
             text-decoration: none;
             letter-spacing: 2px;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 30px;
         }
-        
+
         .nav-links a {
             color: var(--charcoal);
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            font-size: 0.95rem;
         }
-        
+
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -121,15 +132,15 @@
             background: var(--gold-primary);
             transition: width 0.3s ease;
         }
-        
+
         .nav-links a:hover::after {
             width: 100%;
         }
-        
+
         .nav-links a:hover {
             color: var(--gold-primary);
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -138,29 +149,42 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            margin-top: 60px;
+            margin-top: 70px; /* Adjusted for fixed nav bar height */
+            /* background-image: url('新加坡木盒茶.png'); /* Moved to hero-bg */
+            /* background-size: cover; */
+            /* background-position: center; */
         }
-        
+
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, var(--cream) 0%, var(--wood-light) 100%);
+            background-image: url('新加坡木盒茶.png');
+            background-size: cover;
+            background-position: center;
         }
-        
+        .hero-bg::before { /* Overlay for 50% opacity */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(250, 247, 240, 0.5); /* Cream color with 50% opacity */
+            z-index: 1;
+        }
+
+
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensure content is above the overlay */
             text-align: center;
             max-width: 800px;
             padding: 0 20px;
         }
-        
+
         .hero-badge {
             background: linear-gradient(45deg, var(--gold-primary), var(--gold-light));
             color: var(--charcoal);
@@ -172,32 +196,35 @@
             margin-bottom: 30px;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            font-family: 'Montserrat', sans-serif;
         }
-        
+
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 7vw, 5.5rem); /* Slightly reduced for better fit */
             font-weight: 700;
             color: var(--charcoal);
             margin-bottom: 20px;
             line-height: 1.1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
-        
+
         .hero-title .gold-text {
             background: linear-gradient(45deg, var(--gold-primary), var(--gold-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            padding: 0 5px; /* Ensure gradient is visible */
         }
-        
+
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Slightly reduced */
             color: var(--wood-dark);
             margin-bottom: 50px;
             font-weight: 400;
             font-style: italic;
         }
-        
+
         .hero-cta {
             display: inline-flex;
             align-items: center;
@@ -212,47 +239,72 @@
             text-decoration: none;
             transition: all 0.4s ease;
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            font-family: 'Montserrat', sans-serif;
         }
-        
+
         .hero-cta:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
             background: var(--gold-dark);
         }
-        
-        /* Product Showcase */
-        .product-showcase {
-            padding: 120px 0;
+
+        /* Section General Styling */
+        .section {
+            padding: 100px 0;
             position: relative;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--wood-dark);
+            text-align: center;
+            margin-bottom: 60px;
+            font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* Product Showcase */
+        .product-showcase { /* Converted to use .section class */
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+
         .showcase-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
-        
+
         .product-visual {
             position: relative;
             text-align: center;
         }
-        
+
         .wooden-box {
             width: 350px;
             height: 350px;
             margin: 0 auto;
             position: relative;
             transform-style: preserve-3d;
-            animation: gentleRotate 8s ease-in-out infinite;
+            animation: gentleRotate 12s ease-in-out infinite; /* Slower rotation */
         }
-        
+
         .box-face {
             position: absolute;
             width: 350px;
@@ -260,35 +312,18 @@
             border-radius: 20px;
             background: linear-gradient(135deg, var(--wood-medium), var(--wood-dark));
             border: 3px solid var(--gold-primary);
-            box-shadow: 
+            box-shadow:
                 inset 0 0 50px rgba(0, 0, 0, 0.1),
                 0 20px 60px rgba(139, 69, 19, 0.3);
         }
-        
-        .box-front {
-            transform: translateZ(175px);
-        }
-        
-        .box-back {
-            transform: rotateY(180deg) translateZ(175px);
-        }
-        
-        .box-right {
-            transform: rotateY(90deg) translateZ(175px);
-        }
-        
-        .box-left {
-            transform: rotateY(-90deg) translateZ(175px);
-        }
-        
-        .box-top {
-            transform: rotateX(90deg) translateZ(175px);
-        }
-        
-        .box-bottom {
-            transform: rotateX(-90deg) translateZ(175px);
-        }
-        
+
+        .box-front { transform: translateZ(175px); }
+        .box-back { transform: rotateY(180deg) translateZ(175px); }
+        .box-right { transform: rotateY(90deg) translateZ(175px); }
+        .box-left { transform: rotateY(-90deg) translateZ(175px); }
+        .box-top { transform: rotateX(90deg) translateZ(175px); }
+        .box-bottom { transform: rotateX(-90deg) translateZ(175px); }
+
         .box-logo {
             position: absolute;
             top: 50%;
@@ -301,7 +336,7 @@
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 3px;
         }
-        
+
         .wood-grain {
             position: absolute;
             top: 0;
@@ -309,7 +344,7 @@
             right: 0;
             bottom: 0;
             opacity: 0.3;
-            background: 
+            background:
                 repeating-linear-gradient(
                     0deg,
                     transparent 0px,
@@ -320,18 +355,18 @@
                 );
             border-radius: inherit;
         }
-        
+
         @keyframes gentleRotate {
-            0%, 100% { transform: rotateY(0deg) rotateX(0deg); }
-            25% { transform: rotateY(15deg) rotateX(5deg); }
-            50% { transform: rotateY(0deg) rotateX(0deg); }
-            75% { transform: rotateY(-15deg) rotateX(-5deg); }
+            0%, 100% { transform: rotateY(-10deg) rotateX(5deg); }
+            25% { transform: rotateY(10deg) rotateX(-5deg); }
+            50% { transform: rotateY(-10deg) rotateX(5deg); }
+            75% { transform: rotateY(10deg) rotateX(5deg); }
         }
-        
+
         .product-info {
             padding-left: 40px;
         }
-        
+
         .section-badge {
             background: var(--gold-light);
             color: var(--gold-dark);
@@ -342,49 +377,51 @@
             letter-spacing: 1px;
             margin-bottom: 20px;
             display: inline-block;
+            font-family: 'Montserrat', sans-serif;
         }
-        
+
         .product-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 4vw, 3rem);
             font-weight: 700;
             color: var(--charcoal);
             margin-bottom: 25px;
             line-height: 1.2;
         }
-        
+
         .product-description {
-            font-size: 1.2rem;
+            font-size: 1.15rem; /* Slightly adjusted */
             color: var(--wood-dark);
             margin-bottom: 40px;
             line-height: 1.8;
         }
-        
+
         .features-list {
             list-style: none;
             margin-bottom: 40px;
         }
-        
+
         .features-list li {
             display: flex;
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid var(--gold-light);
             color: var(--charcoal);
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Slightly adjusted */
         }
-        
+
         .features-list li:last-child {
             border-bottom: none;
         }
-        
+
         .features-list i {
             color: var(--gold-primary);
             margin-right: 15px;
             font-size: 1.2rem;
             width: 20px;
+            text-align: center;
         }
-        
+
         .price-section {
             display: flex;
             align-items: center;
@@ -394,20 +431,21 @@
             background: var(--white);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gold-light);
         }
-        
+
         .price {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: 700;
             color: var(--gold-primary);
         }
-        
+
         .price-note {
             color: var(--wood-dark);
             font-size: 0.9rem;
         }
-        
+
         .purchase-btn {
             background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
             color: var(--white);
@@ -423,58 +461,100 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            font-family: 'Montserrat', sans-serif;
         }
-        
+
         .purchase-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
         }
-        
-        /* Heritage Story */
-        .heritage-section {
-            padding: 120px 0;
-            background: var(--white);
-            position: relative;
+
+        /* Tea Series Section */
+        .tea-series-section {
+            padding: 100px 0;
+            background: var(--white); /* Or var(--cream) for contrast */
         }
-        
-        .heritage-content {
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        .series-card {
+            background: var(--cream);
+            border: 1px solid var(--gold-light);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .series-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
+        }
+        .series-card-icon {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+        }
+        .series-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 15px;
+        }
+        .series-card p {
+            font-size: 1rem;
+            color: var(--wood-dark);
+            line-height: 1.7;
+        }
+
+
+        /* Heritage Story */
+        .heritage-section { /* Converted to use .section class */
+            padding: 100px 0;
+            background: var(--white); /* Ensure contrast if wood-texture is on body */
+        }
+
+        .heritage-content { /* Replaced with .container and text-align on section title/subtitle */
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
         }
-        
-        .heritage-title {
+
+        .heritage-title { /* Use .section-title */
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 700;
             color: var(--charcoal);
             margin-bottom: 30px;
         }
-        
-        .heritage-subtitle {
+
+        .heritage-subtitle { /* Use .section-subtitle */
             font-size: 1.3rem;
             color: var(--wood-dark);
             margin-bottom: 60px;
             font-style: italic;
         }
-        
+
         .heritage-timeline {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-top: 80px;
+            margin-top: 80px; /* Keep if specific spacing needed */
         }
-        
+
         .timeline-card {
             background: var(--cream);
             padding: 40px 30px;
             border-radius: 20px;
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid var(--gold-light);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
+
         .timeline-card::before {
             content: '';
             position: absolute;
@@ -487,11 +567,12 @@
             border-radius: 50%;
             border: 4px solid var(--white);
         }
-        
+
         .timeline-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.1);
         }
-        
+
         .timeline-year {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
@@ -499,74 +580,78 @@
             color: var(--gold-primary);
             margin-bottom: 15px;
         }
-        
+
         .timeline-event {
             color: var(--charcoal);
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Slightly adjusted */
             line-height: 1.6;
         }
-        
+
         /* Craftsmanship Section */
-        .craft-section {
-            padding: 120px 0;
+        .craft-section { /* Converted to use .section class */
+            padding: 100px 0;
             background: linear-gradient(135deg, var(--wood-light), var(--cream));
-            position: relative;
         }
-        
+
         .craft-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
-        
-        .craft-content h2 {
+
+        .craft-content h2 { /* Use .section-title or style specifically */
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 4vw, 3rem);
             font-weight: 700;
             color: var(--charcoal);
             margin-bottom: 30px;
+            text-align: left; /* Override general section title alignment */
         }
-        
+
         .craft-content p {
-            font-size: 1.2rem;
+            font-size: 1.15rem; /* Slightly adjusted */
             color: var(--wood-dark);
             margin-bottom: 30px;
             line-height: 1.8;
         }
-        
+
         .craft-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
-        
+
         .craft-feature {
             background: var(--white);
             padding: 25px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gold-light);
         }
-        
+
         .craft-feature i {
             font-size: 2rem;
             color: var(--gold-primary);
             margin-bottom: 15px;
         }
-        
+
         .craft-feature h4 {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.1rem;
             color: var(--charcoal);
             margin-bottom: 10px;
+            font-weight: 600;
         }
-        
+
         .craft-feature p {
             font-size: 0.95rem;
             color: var(--wood-dark);
             margin: 0;
+            line-height: 1.5;
         }
-        
+
         .craft-visual {
             position: relative;
             height: 500px;
@@ -574,14 +659,15 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
-        
+
         .craft-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, var(--wood-medium), var(--wood-dark));
+            background: linear-gradient(45deg, var(--wood-medium), var(--wood-dark)); /* Placeholder if no image */
+            /* Consider adding an actual image here: background-image: url(...); background-size: cover; */
             position: relative;
         }
-        
+
         .craft-image::before {
             content: '';
             position: absolute;
@@ -589,7 +675,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 repeating-linear-gradient(
                     45deg,
                     rgba(139, 69, 19, 0.1) 0px,
@@ -605,7 +691,50 @@
                     transparent 8px
                 );
         }
-        
+
+        /* Image Carousel Section */
+        .image-carousel-section {
+            padding: 100px 0;
+            background: var(--cream); /* Or var(--white) */
+        }
+        .carousel-title { /* Using specific class for more control if needed */
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .carousel-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            gap: 20px; /* Gap between items */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .carousel-item {
+            background: var(--wood-light); /* Placeholder background */
+            border: 2px solid var(--gold-primary);
+            border-radius: 10px;
+            height: 200px; /* Adjust as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            /* Add your image styling here, e.g. background-image, background-size */
+        }
+        .carousel-item img { /* If you use <img> tags */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px; /* Match parent's rounding */
+        }
+
+
         /* Footer */
         .footer {
             background: var(--charcoal);
@@ -613,7 +742,7 @@
             padding: 80px 0 40px;
             position: relative;
         }
-        
+
         .footer::before {
             content: '';
             position: absolute;
@@ -623,14 +752,14 @@
             height: 4px;
             background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), var(--gold-primary));
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 60px;
         }
-        
+
         .footer-brand h3 {
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
@@ -638,19 +767,20 @@
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
-        
+
         .footer-tagline {
-            font-size: 1.1rem;
+            font-size: 1.05rem; /* Slightly adjusted */
             color: var(--gold-light);
             margin-bottom: 30px;
             font-style: italic;
+            line-height: 1.7;
         }
-        
+
         .footer-social {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-link {
             width: 45px;
             height: 45px;
@@ -661,212 +791,232 @@
             justify-content: center;
             color: var(--white);
             text-decoration: none;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
         }
-        
+
         .social-link:hover {
             background: var(--gold-light);
             color: var(--charcoal);
             transform: translateY(-3px);
         }
-        
+
         .footer-section h4 {
             color: var(--gold-primary);
             margin-bottom: 20px;
             font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
-        
+
         .footer-section a {
             color: var(--cream);
             text-decoration: none;
             display: block;
             margin-bottom: 12px;
             transition: color 0.3s ease;
+            font-size: 0.95rem;
         }
-        
+
         .footer-section a:hover {
             color: var(--gold-light);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
-            border-top: 1px solid #444;
-            color: #999;
+            border-top: 1px solid #444; /* Darker border for charcol bg */
+            color: #999; /* Lighter grey for readability */
+            font-size: 0.9rem;
         }
-        
+        .footer-bottom a { /* For homepage link */
+            color: var(--gold-light);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Back to Top Button */
+        #backToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            border: none;
+            outline: none;
+            background-color: var(--gold-primary);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: background-color 0.3s, opacity 0.3s, visibility 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex; /* For centering icon */
+            align-items: center;
+            justify-content: center;
+        }
+
+        #backToTopBtn:hover {
+            background-color: var(--gold-dark);
+        }
+
+        /* Popup Video Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.85); /* Darker overlay for video focus */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            animation: fadeIn 0.7s ease forwards; /* Faster fade-in */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .popup-content {
+            max-width: 80vw; /* Responsive width */
+            max-height: 80vh; /* Responsive height */
+            animation: zoomIn 0.5s ease forwards; /* Faster zoom */
+            animation-delay: 0.2s; /* slight delay for overlay to appear */
+            position: relative;
+        }
+
+        .popup-video {
+            width: 100%;
+            height: auto;
+            max-height: 80vh; /* Ensure video fits within viewport */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeVideoIn 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes fadeOut { to { opacity: 0; } } /* For JS controlled fadeOut */
+        @keyframes zoomIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeVideoIn { to { opacity: 1; } }
+
         /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
+        @media (max-width: 992px) { /* Tablet and below */
             .showcase-grid,
             .craft-grid {
                 grid-template-columns: 1fr;
                 gap: 60px;
             }
-            
-            .wooden-box {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .box-face {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .box-front { transform: translateZ(125px); }
-            .box-back { transform: rotateY(180deg) translateZ(125px); }
-            .box-right { transform: rotateY(90deg) translateZ(125px); }
-            .box-left { transform: rotateY(-90deg) translateZ(125px); }
-            .box-top { transform: rotateX(90deg) translateZ(125px); }
-            .box-bottom { transform: rotateX(-90deg) translateZ(125px); }
-            
             .product-info {
                 padding-left: 0;
                 text-align: center;
             }
-            
-            .heritage-timeline {
-                grid-template-columns: 1fr;
+            .craft-content h2 {
+                text-align: center;
             }
-            
-            .craft-features {
-                grid-template-columns: 1fr;
+             .carousel-container {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjust for tablets */
             }
-            
+             .footer-grid {
+                grid-template-columns: 1fr 1fr; /* Two columns for footer on tablets */
+            }
+            .footer-brand, .footer-section {
+                margin-bottom: 30px;
+            }
+        }
+
+
+        @media (max-width: 768px) { /* Mobile */
+            .nav-links { display: none; } /* Consider a burger menu for mobile */
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+
+            .wooden-box { width: 280px; height: 280px; } /* Slightly larger for mobile */
+            .box-face { width: 280px; height: 280px; }
+            .box-front { transform: translateZ(140px); }
+            .box-back { transform: rotateY(180deg) translateZ(140px); }
+            .box-right { transform: rotateY(90deg) translateZ(140px); }
+            .box-left { transform: rotateY(-90deg) translateZ(140px); }
+            .box-top { transform: rotateX(90deg) translateZ(140px); }
+            .box-bottom { transform: rotateX(-90deg) translateZ(140px); }
+
+            .product-title, .craft-content h2, .section-title, .carousel-title {
+                font-size: 2rem;
+            }
+
+            .heritage-timeline { grid-template-columns: 1fr; }
+            .craft-features { grid-template-columns: 1fr; }
+
             .footer-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            .footer-social {
+                justify-content: center;
+            }
+            .carousel-container {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller items on mobile */
+                gap: 15px;
+            }
+            .carousel-item {
+                height: 150px;
+            }
+
+            #backToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                width: 45px;
+                height: 45px;
+            }
         }
-        
+
         /* Scroll Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
         .animate-on-scroll {
             opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
+            /* animation: fadeInUp 0.8s ease forwards; */ /* Consider using Intersection Observer for performance */
         }
+
     </style>
 </head>
 <body>
+    <div id="top"></div> <div id="popup-overlay" class="popup-overlay" onclick="dismissPopup()">
+      <div class="popup-content" onclick="event.stopPropagation()"> <video id="popup-video" class="popup-video" autoplay muted playsinline loop> <source src="生成的视频.mp4" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
 
-<!-- Auto-opening popup modal with video -->
-<div id="popup-overlay" class="popup-overlay" onclick="dismissPopup()">
-  <div class="popup-content">
-    <video id="popup-video" class="popup-video" autoplay muted playsinline>
-      <source src="生成的视频.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
-
-<style>
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-  }
-
-  .popup-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    animation: zoomIn 1s ease forwards;
-  }
-
-  .popup-video {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    opacity: 0;
-    animation: fadeVideoIn 1.5s ease forwards;
-    animation-delay: 0.5s;
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes zoomIn {
-    0% {
-      transform: scale(0.7);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes fadeVideoIn {
-    to {
-      opacity: 1;
-    }
-  }
-</style>
-
-<script>
-  function dismissPopup() {
-    const popup = document.getElementById('popup-overlay');
-    if (popup) {
-      popup.style.animation = 'fadeOut 1s ease forwards';
-      setTimeout(() => popup.remove(), 1000);
-    }
-  }
-
-  // Auto-dismiss after 5 seconds
-  setTimeout(dismissPopup, 5000);
-
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-      }
-    }
-  `;
-  document.head.appendChild(style);
-</script>
-
-    <!-- Navigation -->
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">MANLY</a>
-            <div class="nav-links">
+            <a href="#top" class="nav-logo">MANLY</a> <div class="nav-links">
                 <a href="#collection">Collection</a>
+                <a href="#series">Our Series</a>
                 <a href="#heritage">Heritage</a>
                 <a href="#craft">Craftsmanship</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg wood-texture"></div>
-        <div class="hero-content">
+        <div class="hero-bg"></div> <div class="hero-content">
             <div class="hero-badge">PREMIUM SINGAPORE HERITAGE</div>
             <h1 class="hero-title">
                 Timeless <span class="gold-text">Wooden</span><br>
@@ -882,9 +1032,10 @@
         </div>
     </section>
 
-    <!-- Product Showcase -->
-    <section class="product-showcase" id="collection">
+    <section class="product-showcase section" id="collection">
         <div class="container">
+            <h2 class="section-title">Our Signature Piece</h2>
+            <p class="section-subtitle">Discover the heart of MANLY's craftsmanship.</p>
             <div class="showcase-grid">
                 <div class="product-visual">
                     <div class="wooden-box">
@@ -892,31 +1043,18 @@
                             <div class="wood-grain"></div>
                             <div class="box-logo">MANLY</div>
                         </div>
-                        <div class="box-face box-back">
-                            <div class="wood-grain"></div>
-                        </div>
-                        <div class="box-face box-right">
-                            <div class="wood-grain"></div>
-                        </div>
-                        <div class="box-face box-left">
-                            <div class="wood-grain"></div>
-                        </div>
-                        <div class="box-face box-top">
-                            <div class="wood-grain"></div>
-                        </div>
-                        <div class="box-face box-bottom">
-                            <div class="wood-grain"></div>
-                        </div>
+                        <div class="box-face box-back"><div class="wood-grain"></div></div>
+                        <div class="box-face box-right"><div class="wood-grain"></div></div>
+                        <div class="box-face box-left"><div class="wood-grain"></div></div>
+                        <div class="box-face box-top"><div class="wood-grain"></div></div>
+                        <div class="box-face box-bottom"><div class="wood-grain"></div></div>
                     </div>
                 </div>
-                
                 <div class="product-info">
                     <div class="section-badge">SIGNATURE COLLECTION</div>
-                    <h2 class="product-title">Heritage Wooden Tea Box</h2>
-                    <p class="product-description">
+                    <h3 class="product-title">Heritage Wooden Tea Box</h3> <p class="product-description">
                         An exquisite fusion of Singapore's tea culture and masterful woodwork. Each box is meticulously handcrafted from premium teak, housing our finest Ceylon tea blend - a testament to four decades of heritage.
                     </p>
-                    
                     <ul class="features-list">
                         <li><i class="fas fa-tree"></i> Premium Teak Wood Construction</li>
                         <li><i class="fas fa-crown"></i> Hand-Selected Ceylon Tea Leaves</li>
@@ -924,7 +1062,6 @@
                         <li><i class="fas fa-certificate"></i> Singapore Heritage Recipe</li>
                         <li><i class="fas fa-gift"></i> Perfect Collector's Gift</li>
                     </ul>
-                    
                     <div class="price-section">
                         <div class="price">S$49.90</div>
                         <div class="price-note">
@@ -932,7 +1069,6 @@
                             Free shipping within Singapore
                         </div>
                     </div>
-                    
                     <a href="#" class="purchase-btn">
                         <i class="fas fa-shopping-bag"></i>
                         Add to Collection
@@ -942,42 +1078,66 @@
         </div>
     </section>
 
-    <!-- Heritage Story -->
-    <section class="heritage-section wood-texture" id="heritage">
+    <section class="tea-series-section section" id="series">
         <div class="container">
-            <div class="heritage-content">
-                <h2 class="heritage-title">Our Legacy</h2>
-                <p class="heritage-subtitle">
-                    Four decades of dedication to Singapore's finest tea tradition
-                </p>
-                
-                <div class="heritage-timeline">
-                    <div class="timeline-card">
-                        <div class="timeline-year">1985</div>
-                        <p class="timeline-event">Founded with a vision to preserve Singapore's tea heritage through premium craftsmanship</p>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-year">1995</div>
-                        <p class="timeline-event">Introduced our signature wooden packaging, combining functionality with aesthetic beauty</p>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-year">2010</div>
-                        <p class="timeline-event">Recognized as Singapore's premier artisan tea brand, beloved by locals and tourists alike</p>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-year">2025</div>
-                        <p class="timeline-event">Launching our most exclusive collection - where tradition meets contemporary elegance</p>
-                    </div>
+            <h2 class="section-title">Explore Our Esteemed Collections</h2>
+            <p class="section-subtitle">A curated selection of MANLY's finest tea experiences, each with a unique story.</p>
+            <div class="series-grid">
+                <div class="series-card">
+                    <div class="series-card-icon"><i class="fas fa-box-open"></i></div>
+                    <h3>MANLY® WOODEN BOX TEA 24g & 50g Series</h3>
+                    <p>Our classic wooden boxes, available in convenient sizes, perfect for personal enjoyment or as a thoughtful gift. Experience the signature MANLY quality.</p>
+                </div>
+                <div class="series-card">
+                    <div class="series-card-icon"><i class="fas fa-map-signs"></i></div>
+                    <h3>Tourist-Oriented Special Packs by MANLY®</h3>
+                    <p>Specially designed packs that capture the essence of Singapore. Ideal souvenirs that carry the taste and heritage of our island city.</p>
+                </div>
+                <div class="series-card">
+                    <div class="series-card-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>MANLY® Exclusive Collector’s Tin Tea – Three Shades, Three Distinct Tastes</h3>
+                    <p>An exclusive offering for connoisseurs. Beautifully designed tins, each holding a unique tea blend, celebrating diversity in flavour and aroma.</p>
+                </div>
+                <div class="series-card">
+                    <div class="series-card-icon"><i class="fas fa-star"></i></div>
+                    <h3>Popular and Elegant Packs - Customer Choices</h3>
+                    <p>Discover the favourites! A selection of our most loved and elegantly packaged teas, chosen by our discerning customers for their exceptional quality and appeal.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Craftsmanship -->
-    <section class="craft-section" id="craft">
+    <section class="heritage-section section wood-texture" id="heritage">
+        <div class="container">
+            <h2 class="section-title">Our Legacy</h2>
+            <p class="section-subtitle">
+                Four decades of dedication to Singapore's finest tea tradition.
+            </p>
+            <div class="heritage-timeline">
+                <div class="timeline-card animate-on-scroll">
+                    <div class="timeline-year">1985</div>
+                    <p class="timeline-event">Founded with a vision to preserve Singapore's tea heritage through premium craftsmanship</p>
+                </div>
+                <div class="timeline-card animate-on-scroll">
+                    <div class="timeline-year">1995</div>
+                    <p class="timeline-event">Introduced our signature wooden packaging, combining functionality with aesthetic beauty</p>
+                </div>
+                <div class="timeline-card animate-on-scroll">
+                    <div class="timeline-year">2010</div>
+                    <p class="timeline-event">Recognized as Singapore's premier artisan tea brand, beloved by locals and tourists alike</p>
+                </div>
+                <div class="timeline-card animate-on-scroll">
+                    <div class="timeline-year">2025</div>
+                    <p class="timeline-event">Launching our most exclusive collection - where tradition meets contemporary elegance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="craft-section section" id="craft">
         <div class="container">
             <div class="craft-grid">
-                <div class="craft-content">
+                <div class="craft-content animate-on-scroll">
                     <div class="section-badge">ARTISAN EXCELLENCE</div>
                     <h2>Masterful Craftsmanship</h2>
                     <p>
@@ -985,3 +1145,172 @@
                     </p>
                     <p>
                         The intricate wood grain patterns you see are not just decorative - they're a celebration of nature's artistry, enhanced by human skill and passion.
+                    </p>
+                     <div class="craft-features">
+                        <div class="craft-feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Premium Materials</h4>
+                            <p>Only the finest, sustainably sourced teak and high-grade Ceylon tea leaves.</p>
+                        </div>
+                        <div class="craft-feature">
+                            <i class="fas fa-magic-wand-sparkles"></i> <h4>Artisan Techniques</h4>
+                            <p>Time-honored woodworking and tea blending methods passed through generations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="craft-visual animate-on-scroll">
+                    <div class="craft-image">
+                         </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-carousel-section section" id="gallery">
+        <div class="container">
+            <h2 class="carousel-title">木盒茶风采 (Elegance of Wooden Box Tea)</h2>
+            <div class="carousel-container">
+                <div class="carousel-item">
+                    Image 1
+                </div>
+                <div class="carousel-item">
+                    Image 2
+                </div>
+                <div class="carousel-item">
+                    Image 3
+                </div>
+                <div class="carousel-item">
+                    Image 4
+                </div>
+                <div class="carousel-item">
+                    Image 5
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>MANLY</h3>
+                    <p class="footer-tagline">Experience the Art of Singaporean Tea Heritage. <br>Crafted with Passion, Savoured with Joy.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#collection">Collection</a>
+                    <a href="#series">Our Series</a>
+                    <a href="#heritage">Our Heritage</a>
+                    <a href="#craft">Craftsmanship</a>
+                    <a href="#gallery">Gallery</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">FAQ</a>
+                    <a href="#">Shipping & Returns</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p style="color: var(--cream); font-size: 0.95rem; margin-bottom: 10px;">123 Tea Street, Singapore</p>
+                    <p style="color: var(--cream); font-size: 0.95rem; margin-bottom: 10px;">Email: info@manlytea.com</p>
+                    <p style="color: var(--cream); font-size: 0.95rem;">Phone: +65 1234 5678</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="currentYear"></span> MANLY Tea Collection. All Rights Reserved.
+                <a href="index.html">Return to Homepage</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#top" id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        // Popup Video Script
+        function dismissPopup() {
+            const popup = document.getElementById('popup-overlay');
+            if (popup) {
+                popup.style.animation = 'fadeOut 0.7s ease forwards'; // Match fadeOut duration
+                // Optional: Pause video on close
+                const video = document.getElementById('popup-video');
+                if (video) video.pause();
+
+                setTimeout(() => {
+                  if (popup) popup.style.display = 'none'; // Use display none instead of remove if you might reopen it
+                }, 700); // Match fadeOut duration
+            }
+        }
+
+        // Auto-dismiss popup after a delay (e.g., 7 seconds for video to play a bit)
+        // setTimeout(dismissPopup, 7000); // Comment out or adjust if not desired
+
+        // Optional: Close popup with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                dismissPopup();
+            }
+        });
+
+
+        // Back to Top Button Script
+        const backToTopButton = document.getElementById("backToTopBtn");
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "flex"; // Changed to flex as per its style
+                 setTimeout(() => backToTopButton.style.opacity = "1", 10); // For fade-in effect
+            } else {
+                backToTopButton.style.opacity = "0";
+                setTimeout(() => backToTopButton.style.display = "none", 300); // Match transition
+            }
+        }
+
+        // Smooth scroll for anchor links (optional, CSS scroll-behavior handles some of this)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') === '#' || this.getAttribute('href') === '#top') { // Basic check for top link
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else if (document.querySelector(this.getAttribute('href'))) { // Check if element exists
+                     e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations (more performant)
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `fadeInUp 0.8s ease forwards`;
+                    observer.unobserve(entry.target); // Optional: Stop observing after animation
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    </script>
+</body>
+</html>
