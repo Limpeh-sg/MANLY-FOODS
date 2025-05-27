@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" data-lang-key="metaDescription" content="MANLY FOODS - Premium Halal-certified food distributor in Singapore. Specializing in gourmet teas, chocolates, and honey gifts.">
-    <meta name="keywords" data-lang-key="metaKeywords" content="Singapore food distributor, Halal certified gifts, premium tea, gourmet chocolate, corporate gifts">
-    <title data-lang-key="pageTitle">MANLY FOODS | Premium Food Distributor Singapore</title>
+    <meta name="description" content="MANLY FOODS - Premium FMCG food wholesaler in Singapore, trusted for nearly 40 years. Specializing in gourmet teas, chocolates, and honey gifts.">
+    <meta name="keywords" content="Singapore food wholesaler, Halal certified gifts, premium tea, gourmet chocolate, corporate gifts, FMCG distributor">
+    <title>MANLY FOODS | Premium FMCG Food Wholesaler Singapore</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
@@ -312,6 +312,287 @@
             animation-iteration-count: infinite;
             animation-timing-function: linear;
         }
+
+        /* SVG icons for animated background */
+        .merlion-svg, .mbs-svg, .gardens-svg {
+            position: absolute;
+        }
+
+        .merlion-svg {
+            top: 10%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            fill: var(--accent-gold);
+            animation-name: floatMerlion;
+            animation-delay: 0s;
+        }
+
+        .mbs-svg {
+            bottom: 15%;
+            right: 10%;
+            width: 100px;
+            height: 100px;
+            fill: #fff;
+            animation-name: floatMBS;
+            animation-delay: 5s;
+        }
+
+        .gardens-svg {
+            top: 30%;
+            right: 20%;
+            width: 70px;
+            height: 70px;
+            fill: var(--primary-green);
+            animation-name: floatGardens;
+            animation-delay: 10s;
+        }
+
+        @keyframes floatMerlion {
+            0% { transform: translate(0, 0) scale(0.8); opacity: 0.1; }
+            50% { transform: translate(20px, 30px) scale(1); opacity: 0.2; }
+            100% { transform: translate(0, 0) scale(0.8); opacity: 0.1; }
+        }
+
+        @keyframes floatMBS {
+            0% { transform: translate(0, 0) scale(0.9); opacity: 0.1; }
+            50% { transform: translate(-30px, -20px) scale(1.1); opacity: 0.2; }
+            100% { transform: translate(0, 0) scale(0.9); opacity: 0.1; }
+        }
+
+        @keyframes floatGardens {
+            0% { transform: translate(0, 0) scale(0.7); opacity: 0.1; }
+            50% { transform: translate(10px, -40px) scale(0.9); opacity: 0.2; }
+            100% { transform: translate(0, 0) scale(0.7); opacity: 0.1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="MANLY FOODS Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">B2B Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Brands</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="lang-button active" data-lang="en">English</button>
+                    <button class="lang-button" data-lang="zh">中文</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-carousel-container">
+            <!-- 保留原有的六张轮播图结构 -->
+            <div class="hero-carousel-item active" style="background-image: url('carousel1.png');">
+                <div class="hero-content">
+                    <h1>MANLY FOODS</h1>
+                    <p>A trusted FMCG food wholesaler in Singapore for nearly 40 years</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">Explore Products</a>
+                        <a href="#" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-carousel-item" style="background-image: url('carousel2.png');">
+                <div class="hero-content">
+                    <h1>Premium Quality</h1>
+                    <p>Halal-certified gourmet foods from around the world</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">View Our Range</a>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-carousel-item" style="background-image: url('carousel3.png');">
+                <div class="hero-content">
+                    <h1>Corporate Solutions</h1>
+                    <p>Customized gift sets and bulk orders for businesses</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">B2B Services</a>
+                        <a href="#" class="btn btn-outline">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-carousel-item" style="background-image: url('carousel4.png');">
+                <div class="hero-content">
+                    <h1>Tea Collection</h1>
+                    <p>Exquisite blends for tea connoisseurs</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">Discover Teas</a>
+                        <a href="#" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-carousel-item" style="background-image: url('carousel5.png');">
+                <div class="hero-content">
+                    <h1>Chocolate Selection</h1>
+                    <p>Indulgent treats for every occasion</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">View Chocolates</a>
+                        <a href="#" class="btn btn-outline">Order Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-carousel-item" style="background-image: url('carousel6.png');">
+                <div class="hero-content">
+                    <h1>Honey Products</h1>
+                    <p>Natural goodness from trusted sources</p>
+                    <div class="hero-btns">
+                        <a href="#" class="btn">Browse Honey</a>
+                        <a href="#" class="btn btn-outline">FAQs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="animated-bg-elements">
+            <!-- 这里是动画元素，保留原有的设置 -->
+        </div>
+    </section>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 语言切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-button');
+            const langElements = document.querySelectorAll('[data-lang-key]');
+            
+            // 轮播图切换功能
+            const carouselItems = document.querySelectorAll('.hero-carousel-item');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                carouselItems.forEach(item => item.classList.remove('active'));
+                carouselItems[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % carouselItems.length;
+                showSlide(currentSlide);
+            }
+            
+            // 自动轮播
+            setInterval(nextSlide, 5000);
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // 示例：更新标题和元数据
+                    if (lang === 'zh') {
+                        document.title = '曼利食品 | 新加坡优质快消食品批发商';
+                        document.querySelector('meta[name="description"]').setAttribute('content', '曼利食品 - 新加坡优质清真食品经销商，近40年来深受大众信任。专注于美食茶、巧克力和蜂蜜礼品。');
+                        document.querySelector('meta[name="keywords"]').setAttribute('content', '新加坡食品批发商, 清真认证礼品, 优质茶, 美食巧克力, 企业礼品, 快消品经销商');
+                        
+                        // 更新导航菜单
+                        document.querySelectorAll('.nav-links a').forEach((link, index) => {
+                            const chineseLinks = ['首页', '关于我们', '产品系列', 'B2B服务', '联系我们', '品牌'];
+                            link.textContent = chineseLinks[index];
+                        });
+                        
+                        // 更新英雄区域文本
+                        document.querySelectorAll('.hero-carousel-item h1').forEach((h1, index) => {
+                            const chineseHeadings = ['曼利食品', '卓越品质', '企业解决方案', '茶系列', '巧克力精选', '蜂蜜产品'];
+                            h1.textContent = chineseHeadings[index];
+                        });
+                        
+                        document.querySelectorAll('.hero-carousel-item p').forEach((p, index) => {
+                            const chineseTexts = [
+                                '新加坡值得信赖的快消食品批发商，近40年历史',
+                                '来自世界各地的清真认证美食',
+                                '为企业提供定制礼品套装和批量订单',
+                                '为品茶爱好者精心调配的优质茶品',
+                                '适合各种场合的美味佳肴',
+                                '来自可靠来源的天然佳品'
+                            ];
+                            p.textContent = chineseTexts[index];
+                        });
+                        
+                        document.querySelectorAll('.hero-btns .btn').forEach((btn, index) => {
+                            const chineseBtnTexts = [
+                                '探索产品', '联系我们',
+                                '查看我们的系列', '了解更多',
+                                'B2B服务', '请求报价',
+                                '发现茶品', '联系我们',
+                                '查看巧克力', '立即订购',
+                                '浏览蜂蜜', '常见问题'
+                            ];
+                            btn.textContent = chineseBtnTexts[index];
+                        });
+                    } else {
+                        // 恢复英文内容
+                        document.title = 'MANLY FOODS | Premium FMCG Food Wholesaler Singapore';
+                        document.querySelector('meta[name="description"]').setAttribute('content', 'MANLY FOODS - Premium FMCG food wholesaler in Singapore, trusted for nearly 40 years. Specializing in gourmet teas, chocolates, and honey gifts.');
+                        document.querySelector('meta[name="keywords"]').setAttribute('content', 'Singapore food wholesaler, Halal certified gifts, premium tea, gourmet chocolate, corporate gifts, FMCG distributor');
+                        
+                        // 恢复导航菜单
+                        document.querySelectorAll('.nav-links a').forEach((link, index) => {
+                            const englishLinks = ['Home', 'About Us', 'Products', 'B2B Services', 'Contact', 'Brands'];
+                            link.textContent = englishLinks[index];
+                        });
+                        
+                        // 恢复英雄区域文本
+                        document.querySelectorAll('.hero-carousel-item h1').forEach((h1, index) => {
+                            const englishHeadings = ['MANLY FOODS', 'Premium Quality', 'Corporate Solutions', 'Tea Collection', 'Chocolate Selection', 'Honey Products'];
+                            h1.textContent = englishHeadings[index];
+                        });
+                        
+                        document.querySelectorAll('.hero-carousel-item p').forEach((p, index) => {
+                            const englishTexts = [
+                                'A trusted FMCG food wholesaler in Singapore for nearly 40 years',
+                                'Halal-certified gourmet foods from around the world',
+                                'Customized gift sets and bulk orders for businesses',
+                                'Exquisite blends for tea connoisseurs',
+                                'Indulgent treats for every occasion',
+                                'Natural goodness from trusted sources'
+                            ];
+                            p.textContent = englishTexts[index];
+                        });
+                        
+                        document.querySelectorAll('.hero-btns .btn').forEach((btn, index) => {
+                            const englishBtnTexts = [
+                                'Explore Products', 'Contact Us',
+                                'View Our Range', 'Learn More',
+                                'B2B Services', 'Request Quote',
+                                'Discover Teas', 'Contact Us',
+                                'View Chocolates', 'Order Now',
+                                'Browse Honey', 'FAQs'
+                            ];
+                            btn.textContent = englishBtnTexts[index];
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    
 
         /* SVG icons for animated background */
         .merlion-svg, .mbs-svg, .gardens-svg {
