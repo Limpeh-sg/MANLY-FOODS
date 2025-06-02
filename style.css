@@ -1,1 +1,1420 @@
+  /* Variables */
+        :root {
+            --primary-wood-dark: #5A4A3C; /* 深木棕色，用于头部、底部、按钮等 */
+            --primary-wood-medium: #8D7B6A; /* 中等木棕色 */
+            --primary-wood-light: #F5E8D7; /* 米白色，主背景色 */
+            --accent-gold: #D4AF37; /* 金色，强调色 */
+            --text-dark: #333333; /* 深色文本 */
+            --text-light: #f8f8f8; /* 浅色文本 */
+            --card-bg: rgba(255, 255, 255, 0.85); /* 卡片背景，半透明白色 */
+            --transition-speed: 0.3s ease;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
 
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-wood-light); /* 米白色基调 */
+            background-image: url('wooden bg1.png'); /* 主背景木纹图 */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay; /* 混合模式，使背景图半透明 */
+            background-color: rgba(245, 232, 215, 0.8); /* 米白色叠加层 */
+            overflow-x: hidden; /* 防止水平滚动 */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: var(--transition-speed);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+            background-color: #c29d30; /* 鼠标悬停时金色变深 */
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-wood-dark); /* 标题使用深木棕色 */
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--primary-wood-dark); /* 头部使用深木棕色 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition-speed);
+        }
+
+        .header.scrolled {
+            padding: 6px 0; /* 滚动时头部缩小 */
+            background-color: rgba(90, 74, 60, 0.95); /* 滚动时深木棕色半透明 */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            transition: var(--transition-speed);
+        }
+
+        .logo {
+            height: 65px; /* Logo大小 */
+            transition: var(--transition-speed);
+            margin-right: 30px; /* 增加Logo和菜单的距离 */
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px; /* 菜单链接间距 */
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition-speed);
+            font-size: 0.95rem;
+            color: var(--text-light); /* 菜单链接文字颜色 */
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: var(--transition-speed);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Language Switcher Buttons */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+            position: relative;
+            z-index: 1010;
+        }
+
+        .lang-button {
+            padding: 6px 12px;
+            border: 1px solid var(--text-light);
+            border-radius: 4px;
+            background-color: transparent;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-speed);
+        }
+
+        .lang-button.active, .lang-button:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+            border-color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-carousel-item.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* 深色叠加层 */
+            z-index: 3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 4;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Social Media Bar */
+        .social-media-bar {
+            background-image: url('wooden bg2.png'); /* 使用 wooden bg2.png */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 15px 0;
+            position: relative;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-blend-mode: overlay;
+            background-color: rgba(90, 74, 60, 0.85); /* 深木棕色半透明叠加 */
+            color: var(--text-light);
+        }
+
+        .social-media-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 10px;
+            padding: 0 20px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 160px;
+            height: 45px;
+            padding: 0 20px;
+            margin: 5px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: var(--accent-gold); /* 悬停时变为金色 */
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+        .social-btn img {
+            height: 1.1rem; /* 确保图片大小与图标一致 */
+            width: auto;
+            margin-right: 10px;
+            filter: brightness(0) invert(1); /* 使彩色图标变为白色，以适应深色背景 */
+        }
+        .social-btn.lazada-btn img {
+            filter: none; /* Lazada图标保持原色 */
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            background-color: var(--primary-wood-light); /* 米白色背景 */
+            background-image: url('wooden bg3.png'); /* 使用 wooden bg3.png */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(245, 232, 215, 0.8); /* 米白色半透明叠加 */
+        }
+
+        .about-us-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .about-us-image {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg); /* 半透明白色卡片背景 */
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition-speed);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-wood-dark); /* 标题使用深木棕色 */
+        }
+
+        /* Brands Section */
+        .brands {
+            text-align: center;
+            background-color: var(--primary-wood-medium); /* 中等木棕色背景 */
+            background-image: url('wooden bg4.png'); /* 使用 wooden bg4.png */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(141, 123, 106, 0.85); /* 中等木棕色半透明叠加 */
+            color: var(--text-light); /* 品牌部分文本为浅色 */
+        }
+        .brands .section-title {
+            color: var(--text-light); /* 标题为浅色 */
+        }
+        .brands .section-title:after {
+            background-color: var(--accent-gold);
+        }
+
+        .brand-carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            background-color: var(--card-bg); /* 卡片背景 */
+            padding: 20px 0;
+        }
+
+        .brand-carousel-wrapper {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .brand-slide {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            background-color: transparent; /* 滑块背景透明 */
+        }
+
+        .brand-slide img {
+            max-height: 100px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(80%); /* 略微去饱和 */
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .brand-slide img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .brand-carousel-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .brand-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .brand-dot.active {
+            background-color: var(--primary-wood-dark);
+        }
+
+        /* Products Section */
+        .products {
+            background-color: var(--primary-wood-light); /* 米白色背景 */
+            background-image: url('wooden bg1.png'); /* 使用 wooden bg1.png */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(245, 232, 215, 0.8); /* 米白色半透明叠加 */
+        }
+
+        .product-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--card-bg); /* 半透明白色背景 */
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition-speed);
+            color: var(--primary-wood-dark); /* 按钮文字颜色 */
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-wood-dark); /* 激活或悬停时深木棕色 */
+            color: white;
+            border-color: var(--primary-wood-dark);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg); /* 半透明白色卡片背景 */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-wood-dark);
+        }
+
+        .product-info p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-image: url('wooden bg2.png'); /* 使用 wooden bg2.png */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-color: rgba(90, 74, 60, 0.85); /* 深木棕色半透明叠加 */
+            color: var(--text-light);
+        }
+        .testimonials .section-title {
+            color: var(--text-light);
+        }
+        .testimonials .section-title:after {
+            background-color: var(--accent-gold);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial {
+            flex: 0 0 100%;
+            background-color: rgba(255, 255, 255, 0.15); /* 半透明白色 */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            margin: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent-gold);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Clients Section */
+        .clients-section {
+            background-color: var(--primary-wood-light); /* 米白色背景 */
+            background-image: url('wooden bg3.png'); /* 使用 wooden bg3.png */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(245, 232, 215, 0.8); /* 米白色半透明叠加 */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .clients-section .section-title {
+            color: var(--primary-wood-dark);
+        }
+
+        .clients-image-container {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 20px;
+            background-color: var(--card-bg); /* 半透明白色背景 */
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+
+        .clients-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Social Updates Section */
+        .social-updates-section {
+            background-color: var(--primary-wood-medium); /* 中等木棕色背景 */
+            background-image: url('wooden bg4.png'); /* 使用 wooden bg4.png */
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+            background-color: rgba(141, 123, 106, 0.85); /* 中等木棕色半透明叠加 */
+            padding: 80px 0;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .social-updates-section .section-title {
+            color: var(--text-light);
+        }
+        .social-updates-section .section-title:after {
+            background-color: var(--accent-gold);
+        }
+
+        .social-updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .social-update-card {
+            background-color: rgba(255, 255, 255, 0.15); /* 半透明白色 */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .social-update-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .social-update-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Specific colors for social update icons */
+        .instagram-gradient {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        .tiktok-black {
+            background-color: #000000;
+        }
+        .facebook-blue {
+            background-color: #1877F2;
+        }
+        .whatsapp-green {
+            background-color: #25D366;
+        }
+
+        .social-update-card h3 {
+            color: var(--accent-gold); /* 标题为金色 */
+            margin-bottom: 10px;
+        }
+
+        .social-update-card p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            color: var(--text-light);
+        }
+
+        .social-update-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-gold);
+            font-weight: 500;
+            transition: var(--transition-speed);
+        }
+
+        .social-update-link:hover {
+            color: var(--text-light);
+            transform: translateX(5px);
+        }
+
+        .social-update-link i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-image: url('wooden bg1.png'); /* 使用 wooden bg1.png */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-color: rgba(245, 232, 215, 0.8); /* 米白色半透明叠加 */
+            color: var(--text-dark);
+        }
+        .contact .section-title {
+            color: var(--primary-wood-dark);
+        }
+        .contact-info h3 {
+            color: var(--primary-wood-dark);
+        }
+        .contact-item p {
+            color: var(--text-dark);
+        }
+        .contact-icon {
+            color: var(--accent-gold);
+        }
+        .contact-social-link {
+            background-color: rgba(90, 74, 60, 0.2); /* 深木棕色半透明 */
+            color: var(--primary-wood-dark);
+        }
+        .contact-social-link:hover {
+            background-color: var(--primary-wood-dark);
+            color: white;
+        }
+
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary-wood-dark);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--accent-gold);
+        }
+
+        /* Social Links in Contact Section */
+        .contact-social-links { 
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: flex-start;
+        }
+
+        .contact-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px; 
+            height: 45px;
+            background-color: rgba(90, 74, 60, 0.2);
+            border-radius: 50%;
+            transition: var(--transition-speed);
+            font-size: 20px; 
+            color: var(--primary-wood-dark);
+        }
+
+        .contact-social-link:hover {
+            background-color: var(--primary-wood-dark);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--card-bg); /* 半透明白色背景 */
+            transition: var(--transition-speed);
+            color: var(--text-dark); 
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder,
+        .contact-form select option {
+            color: #888; 
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            background-color: white;
+            outline: 2px solid var(--accent-gold);
+        }
+        .contact-form select {
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%235A4A3C%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E'); /* 深木棕色下拉箭头 */
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 1em;
+            padding-right: 35px; 
+        }
+
+        /* Styles for the Address and Google Review section within Contact */
+        .address-google-review {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            max-width: 100%; 
+            margin-top: 30px;
+            padding: 24px;
+            background: linear-gradient(145deg, #ffffff, #f5f5f5);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .address-google-review:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .address-google-review .footer-heading {
+            color: var(--primary-wood-dark);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            text-align: left; 
+        }
+
+        .address-google-review .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-gold), transparent);
+        }
+
+        .address-container {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .address-icon {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-top: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .address-container:hover .address-icon {
+            transform: scale(1.2);
+        }
+
+        .address-text p {
+            margin: 6px 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            color: var(--text-dark); 
+        }
+
+        .company-name {
+            font-weight: 700;
+            color: var(--primary-wood-dark);
+            font-size: 1.1rem;
+        }
+
+        .phone-number {
+            margin-top: 12px;
+            color: var(--primary-wood-dark);
+            font-size: 0.95rem;
+        }
+
+        .phone-number i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+        .map-container {
+            margin-top: 30px; /* 确保与上方内容有间距 */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: scale(1.02);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px; /* 调整地图高度 */
+            border: 0;
+            display: block; /* 移除默认的inline-block间隙 */
+        }
+
+        .map-review-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px; /* 按钮与地图间距 */
+        }
+
+        .map-button, .review-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-button {
+            background-color: var(--primary-wood-dark);
+            color: #fff;
+            border: 2px solid transparent;
+        }
+
+        .map-button:hover {
+            background-color: #fff;
+            color: var(--primary-wood-dark);
+            border-color: var(--primary-wood-dark);
+            transform: translateY(-3px);
+        }
+
+        .review-button {
+            background-color: var(--accent-gold);
+            color: #fff;
+            border: 2px solid transparent;
+        }
+
+        .review-button:hover {
+            background-color: #fff;
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .map-button i, .review-button i {
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-wood-dark);
+            color: var(--text-light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            transition: var(--transition-speed);
+            color: var(--text-light);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .footer-logo {
+            height: 60px; 
+            margin-bottom: 20px;
+        }
+
+        .footer-values {
+            margin-top: 20px;
+        }
+
+        .footer-values p {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-values ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-values li {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-values li i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+        }
+
+
+        .copyright-area {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .copyright-area .developer-info {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* Fixed Action Buttons Container */
+        .fixed-action-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: var(--transition-speed);
+            background-color: transparent; 
+        }
+
+        .whatsapp-float img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 0;
+            background-color: transparent;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-wood-dark); /* 深木棕色 */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-speed);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        /* Custom Message Box */
+        .message-box-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .message-box-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .message-box-overlay.active .message-box {
+            transform: translateY(0);
+        }
+
+        .message-box h3 {
+            color: var(--primary-wood-dark);
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            margin-bottom: 25px;
+        }
+
+        .message-box .btn {
+            padding: 10px 25px;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--primary-wood-dark); /* 移动端菜单背景 */
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: var(--transition-speed);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero {
+                min-height: 600px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .social-media-bar {
+                gap: 10px;
+            }
+
+            /* Contact Section Responsive */
+            .contact-info {
+                order: 2;
+            }
+            .contact-form {
+                order: 1;
+            }
+            .contact-social-links {
+                justify-content: center;
+            }
+
+            /* Footer Responsive */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-col h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-values ul {
+                align-items: center;
+                justify-content: center;
+            }
+            .footer-values li {
+                justify-content: center;
+            }
+            /* Responsive adjustments for brand carousel */
+            .brand-carousel-container {
+                padding: 15px 0;
+            }
+            .brand-slide {
+                height: 120px;
+            }
+            .brand-slide img {
+                max-height: 80px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .brand-logo {
+                height: 50px;
+            }
+            
+            /* Responsive adjustments for fixed action buttons */
+            .fixed-action-buttons {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+
+            .whatsapp-float {
+                width: 70px; /* Smaller on mobile */
+                height: 70px; /* Smaller on mobile */
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            /* Specific adjustments for the new address block on small screens */
+            .address-google-review {
+                padding: 16px;
+            }
+            .map-container iframe {
+                height: 180px;
+            }
+            .map-review-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .map-button, .review-button {
+                width: 100%;
+                text-align: center;
+            }
+            .address-google-review .footer-heading {
+                font-size: 1.3rem;
+            }
+            .address-text p {
+                font-size: 0.9rem;
+            }
+            .map-container iframe {
+                height: 150px;
+            }
+            /* Responsive adjustments for brand carousel */
+            .brand-carousel-container {
+                padding: 10px 0;
+            }
+            .brand-slide {
+                height: 100px;
+            }
+            .brand-slide img {
+                max-height: 70px;
+            }
+        }
