@@ -1495,66 +1495,12 @@
     </header>
 
     <section class="hero">
-        <div id="heroCarousel" class="hero-carousel-container">
-            <div class="hero-carousel-item active" style="background-image: url('carousel_1_wooden_tea.jpg');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle"></h1>
-                    <p id="carouselSubtitle"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-carousel-item" style="background-image: url('carousel_2_ahmad.jpg');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle2"></h1>
-                    <p id="carouselSubtitle2"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-carousel-item" style="background-image: url('carousel_3_merlion_chocolate.jpg');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle3"></h1>
-                    <p id="carouselSubtitle3"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-carousel-item" style="background-image: url('carousel_4_fulmer.jpg');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle4"></h1>
-                    <p id="carouselSubtitle4"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-carousel-item" style="background-image: url('carousel5.png');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle5"></h1>
-                    <p id="carouselSubtitle5"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-carousel-item" style="background-image: url('carousel6.png');">
-                <div class="hero-content">
-                    <h1 id="carouselTitle6"></h1>
-                    <p id="carouselSubtitle6"></p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
-                        <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
-                    </div>
-                </div>
+        <div class="hero-content">
+            <h1 id="carouselTitle"></h1>
+            <p id="carouselSubtitle"></p>
+            <div class="hero-btns">
+                <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
+                <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
             </div>
         </div>
     </section>
@@ -2449,43 +2395,15 @@
         };
 
         // Hero Carousel Titles and Subtitles (language-dependent)
-        const carouselTitles = {
-            en: [
-                "Premium Halal-Certified Food Distributor",
-                "Gourmet Teas & Infusions",
-                "Exquisite Chocolates & Confections",
-                "Pure & Natural Honey Selections",
-                "Corporate Gifting & B2B Solutions",
-                "Singapore's Premier FMCG Distributor"
-            ],
-            zh: [
-                "优质清真认证食品分销商",
-                "精品茶叶与花草茶",
-                "精美巧克力与糖果",
-                "纯净天然蜂蜜精选",
-                "企业礼品与B2B解决方案",
-                "新加坡领先的快消品分销商"
-            ]
-        };
+const carouselTitles = {
+    en: "Premium Halal-Certified Food Distributor",
+    zh: "优质清真认证食品分销商"
+};
 
-        const carouselSubtitles = {
-            en: [
-                "Trusted for Quality & Excellence Since 1986",
-                "Discover Our Exquisite Tea Collections",
-                "Indulge in Rich Flavors & Unique Gifts",
-                "From Our Hives to Your Home",
-                "Tailored Food Solutions for Your Business Needs",
-                "Connecting Quality Brands with Local Markets"
-            ],
-            zh: [
-                "自1986年以来，品质卓越，值得信赖",
-                "探索我们精致的茶叶系列",
-                "尽情享受浓郁风味与独特礼品",
-                "从蜂巢到您的餐桌",
-                "为您的商业需求量身定制食品方案",
-                "连接优质品牌与本地市场"
-            ]
-        };
+const carouselSubtitles = {
+    en: "Trusted for Quality & Excellence Since 1986",
+    zh: "自1986年以来，品质卓越，值得信赖"
+};
 
         // Function to set language
         function setLanguage(lang) {
@@ -2523,18 +2441,12 @@
                     `;
                 }
 
-                // Update carousel title and subtitle immediately if carousel is active
-                if (heroCarouselItems.length > 0) {
-                    heroCarouselItems.forEach((item, index) => {
-                        const titleElement = item.querySelector('h1');
-                        const subtitleElement = item.querySelector('p');
-                        if (titleElement && subtitleElement) {
-                            titleElement.textContent = carouselTitles[lang][index];
-                            subtitleElement.textContent = carouselSubtitles[lang][index];
-                        }
-                    });
-                } else {
-                    console.warn('Hero carousel items not initialized yet or not found.');
+                // Update hero title and subtitle
+                const titleElement = document.getElementById("carouselTitle");
+                const subtitleElement = document.getElementById("carouselSubtitle");
+                if (titleElement && subtitleElement) {
+                    titleElement.textContent = carouselTitles[lang];
+                    subtitleElement.textContent = carouselSubtitles[lang];
                 }
                 
 
@@ -2766,87 +2678,6 @@
             });
         });
 
-        // Hero Carousel Logic
-        const carouselData = [
-            { img: 'carousel_1_wooden_tea.jpg' },
-            { img: 'carousel_2_ahmad.jpg' },
-            { img: 'carousel_3_merlion_chocolate.jpg' },
-            { img: 'carousel_4_fulmer.jpg' },
-            { img: 'carousel5.png' }, // Keeping original placeholder as no new file provided
-            { img: 'carousel6.png' }  // Keeping original placeholder as no new file provided
-        ];
-
-        let currentSlide = 0;
-        const heroCarouselContainer = document.getElementById('heroCarousel');
-        let heroCarouselItems = []; // To store references to created carousel item divs
-
-        // Function to initialize all carousel items once
-        function initializeCarouselItems() {
-            try {
-                if (!heroCarouselContainer) {
-                    console.warn('Hero carousel container not found. Skipping initialization.');
-                    return;
-                }
-                // Instead of creating new divs, we select the existing ones
-                heroCarouselItems = Array.from(heroCarouselContainer.querySelectorAll('.hero-carousel-item'));
-
-                heroCarouselItems.forEach((item, index) => {
-                    // Update background image for existing items
-                    item.style.backgroundImage = `url(${carouselData[index].img})`;
-                    // Fallback for image loading errors
-                    item.onerror = `this.style.backgroundImage='url(https://placehold.co/1920x1080/5A4A3C/D4AF37?text=Carousel+Image)';`; 
-                });
-
-                // Set the first item as active initially
-                if (heroCarouselItems.length > 0) {
-                    const currentLang = localStorage.getItem('selectedLang') || 'en';
-                    heroCarouselItems[0].classList.add('active');
-                    // Update titles and subtitles for all items based on current language
-                    heroCarouselItems.forEach((item, index) => {
-                        const titleElement = item.querySelector('h1');
-                        const subtitleElement = item.querySelector('p');
-                        if (titleElement && subtitleElement) {
-                            titleElement.textContent = carouselTitles[currentLang][index];
-                            subtitleElement.textContent = carouselSubtitles[currentLang][index];
-                        }
-                    });
-                }
-            } catch (error) {
-                console.error('Error initializing hero carousel items:', error);
-            }
-        }
-
-        // Function to update carousel by toggling 'active' class
-        function updateCarousel() {
-            try {
-                // Remove 'active' class from all items
-                heroCarouselItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                // Add 'active' class to the current slide
-                heroCarouselItems[currentSlide].classList.add('active');
-
-                // Update title and subtitle based on current language (already handled by setLanguage on init)
-                // This function primarily handles the slide visibility.
-            } catch (error) {
-                console.error('Error updating hero carousel:', error);
-            }
-        }
-
-        function nextSlide() {
-            try {
-                currentSlide = (currentSlide + 1) % carouselData.length;
-                updateCarousel();
-            } catch (error) {
-                console.error('Error in next hero slide function:', error);
-            }
-        }
-
-        // Initialize hero carousel items on page load
-        document.addEventListener('DOMContentLoaded', initializeCarouselItems);
-        // Start the automatic slide change
-        setInterval(nextSlide, 5000); // Change slide every 5 seconds
 
         // Testimonial Slider Logic
         const testimonialWrapper = document.getElementById('testimonialWrapper');
