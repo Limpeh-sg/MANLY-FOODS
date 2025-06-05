@@ -2568,6 +2568,128 @@
         });
 
 
+
+
+        // Testimonial Slider Logic
+        const testimonialWrapper = document.getElementById('testimonialWrapper');
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            try {
+                if (testimonials.length === 0 || !testimonialWrapper) {
+                    console.warn('Testimonial elements or wrapper not found. Skipping testimonial display.');
+                    return;
+                }
+
+                const testimonialWidth = testimonials[0].offsetWidth;
+                const testimonialMargin = parseFloat(window.getComputedStyle(testimonials[0]).marginRight) + parseFloat(window.getComputedStyle(testimonials[0]).marginLeft);
+                const totalItemWidth = testimonialWidth + testimonialMargin;
+                const offset = -index * totalItemWidth; 
+                testimonialWrapper.style.transform = `translateX(${offset}px)`;
+            } catch (error) {
+                console.error('Error showing testimonial:', error);
+            }
+        }
+
+        function nextTestimonial() {
+            try {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            } catch (error) {
+                console.error('Error in next testimonial function:', error);
+            }
+        }
+
+        // Adjust testimonial wrapper width on load and resize
+        function adjustTestimonialWrapperWidth() {
+            try {
+                if (testimonials.length > 0 && testimonialWrapper) {
+                    const testimonialWidth = testimonials[0].offsetWidth;
+                    const testimonialMargin = parseFloat(window.getComputedStyle(testimonials[0]).marginRight) + parseFloat(window.getComputedStyle(testimonials[0]).marginLeft);
+                    const totalWidth = testimonials.length * (testimonialWidth + testimonialMargin);
+                    testimonialWrapper.style.width = `${totalWidth}px`;
+                    showTestimonial(currentTestimonial); // Re-align after resize
+                }
+            } catch (error) {
+                console.error('Error adjusting testimonial wrapper width:', error);
+            }
+        }
+
+        window.addEventListener('resize', adjustTestimonialWrapperWidth);
+        document.addEventListener('DOMContentLoaded', adjustTestimonialWrapperWidth); // Initial adjustment on DOMContentLoaded
+        setInterval(nextTestimonial, 7000); // Change testimonial every 7 seconds
+
+        // Brand Carousel Logic
+        const brandCarouselWrapper = document.getElementById('brandCarouselWrapper');
+        const brandCarouselDotsContainer = document.getElementById('brandCarouselDots');
+        const brandSlides = brandCarouselWrapper ? Array.from(brandCarouselWrapper.children) : [];
+        let currentBrandSlide = 0;
+        let brandCarouselInterval;
+
+        function createBrandDots() {
+            if (!brandCarouselDotsContainer) return;
+            brandCarouselDotsContainer.innerHTML = '';
+            brandSlides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('brand-dot');
+                if (index === 0) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentBrandSlide = index;
+                    updateBrandCarousel();
+                    resetBrandCarouselInterval();
+                });
+                brandCarouselDotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateBrandCarousel() {
+            try {
+                if (!brandCarouselWrapper || brandSlides.length === 0) {
+                    console.warn('Brand carousel wrapper or slides not found. Skipping update.');
+                    return;
+                }
+                const offset = -currentBrandSlide * 100;
+                brandCarouselWrapper.style.transform = `translateX(${offset}%)`;
+
+                document.querySelectorAll('.brand-dot').forEach((dot, index) => {
+                    if (index === currentBrandSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            } catch (error) {
+                console.error('Error updating brand carousel:', error);
+            }
+        }
+
+        function nextBrandSlide() {
+            try {
+                currentBrandSlide = (currentBrandSlide + 1) % brandSlides.length;
+                updateBrandCarousel();
+            } catch (error) {
+                console.error('Error in next brand slide function:', error);
+            }
+        }
+
+        function resetBrandCarouselInterval() {
+            clearInterval(brandCarouselInterval);
+            brandCarouselInterval = setInterval(nextBrandSlide, 4000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (brandCarouselWrapper && brandCarouselDotsContainer && brandSlides.length > 0) {
+                createBrandDots();
+                updateBrandCarousel();
+                resetBrandCarouselInterval();
+            } else {
+                console.warn('Brand carousel elements not found or no slides available. Brand carousel functionality may be impaired.');
+            }
+        });
+
     </script>
 </body>
 </html>
