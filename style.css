@@ -3,7 +3,7 @@
             --primary-wood-dark: #5A4A3C; /* 深木棕色，用于头部、底部、按钮等 */
             --primary-wood-medium: #8D7B6A; /* 中等木棕色 */
             --primary-wood-light: #F5E8D7; /* 米白色，主背景色 */
-            --accent-gold: #D4AF37; /* 金色，强调色 */
+            --accent-gold: rgba(135, 206, 235, 0.5); /* 金色，强调色 */
             --text-dark: #333333; /* 深色文本 */
             --text-light: #f8f8f8; /* 浅色文本 */
             --card-bg: rgba(255, 255, 255, 0.85); /* 卡片背景，半透明白色 */
