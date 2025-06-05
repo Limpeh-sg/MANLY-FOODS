@@ -1466,42 +1466,6 @@
         </div>
     </section>
 
-    <div class="social-media-bar">
-        <div class="social-section">
-            <h3 data-lang-key="followUsTitle">Follow Us</h3>
-            <div class="social-media-container">
-                <a href="https://instagram.com/manlyfoodssg" class="social-btn instagram-btn" target="_blank">
-                    <i class="fab fa-instagram"></i> <span data-lang-key="socialManlyFoods">MANLY FOODS IG</span>
-                </a>
-                <a href="https://www.facebook.com/ManlyFoods" class="social-btn facebook-btn" target="_blank">
-                    <i class="fab fa-facebook-f"></i> <span data-lang-key="socialFacebook">Facebook</span>
-                </a>
-                <a href="https://www.instagram.com/ahmadteasg/" class="social-btn ahmadtea-btn" target="_blank">
-                    <i class="fab fa-instagram"></i> <span data-lang-key="socialAhmadTeaIG">Ahmad Tea IG</span>
-                </a>
-                <a href="https://www.facebook.com/ahmadteasg" class="social-btn facebook-btn" target="_blank">
-                    <i class="fab fa-facebook-f"></i> <span data-lang-key="socialAhmadTeaFB">Ahmad Tea FB</span>
-                </a>
-                <a href="https://www.tiktok.com/@manlyfoods" class="social-btn tiktok-btn" target="_blank">
-                    <i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTok">TikTok</span>
-                </a>
-            </div>
-        </div>
-        <div class="social-section">
-            <h3 data-lang-key="shopWithUsTitle">Shop With Us</h3>
-            <div class="social-media-container">
-                <a href="https://www.tiktok.com/@manlyfoods" class="social-btn tiktok-btn" target="_blank">
-                    <i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTokShop">TikTok Shop</span>
-                </a>
-                <a href="https://shopee.sg/shop/62656629" class="social-btn shopee-btn" target="_blank">
-                    <i class="fas fa-shopping-bag"></i> <span data-lang-key="socialShopee">Shopee</span>
-                </a>
-                <a href="https://www.lazada.sg/shop/manly-food1627632387" class="social-btn lazada-btn" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/lazada.png" alt="Lazada Icon"> <span data-lang-key="socialLazada">Lazada</span>
-                </a>
-            </div>
-        </div>
-    </div>
 
     <section class="section why-us" id="about">
         <div class="container">
@@ -1698,12 +1662,21 @@
         </div>
     </section>
 
+
+    <section class="section clients-section" id="clients">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
+            <div class="clients-image-container">
+                <img src="carousel6.png" alt="Our Key Clients" class="clients-image" onerror="this.onerror=null;this.src='https://placehold.co/900x300/f0f0f0/333333?text=Client+Logos+Here';">
+            </div>
+        </div>
+    </section>
+
     <section class="section testimonials">
         <div class="container">
             <h2 class="section-title" data-lang-key="testimonialsTitle">What Our Clients Say</h2>
             
-            <div class="testimonial-slider">
-                <div class="testimonial-wrapper" id="testimonialWrapper">
+            <div class="testimonials-grid">
                     <div class="testimonial">
                         <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=SL" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial1Content">
@@ -1739,7 +1712,7 @@
                 </div>
             </div>
         </div>
-    </section>
+
 
     <section class="section clients-section" id="clients">
         <div class="container">
@@ -1748,7 +1721,6 @@
                 <!-- TODO: image missing <img src="carousel6.png" alt="Our Key Clients" class="clients-image" onerror="this.onerror=null;this.src='https://placehold.co/900x300/f0f0f0/333333?text=Client+Logos+Here';"> -->
             </div>
         </div>
-    </section>
 
     <section class="section social-updates-section" id="social-updates">
         <div class="container">
@@ -2597,6 +2569,7 @@
 
 
 
+
         // Testimonial Slider Logic
         const testimonialWrapper = document.getElementById('testimonialWrapper');
         const testimonials = document.querySelectorAll('.testimonial');
@@ -2716,6 +2689,7 @@
                 console.warn('Brand carousel elements not found or no slides available. Brand carousel functionality may be impaired.');
             }
         });
+
     </script>
 </body>
 </html>
