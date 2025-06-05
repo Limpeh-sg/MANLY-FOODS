@@ -44,11 +44,19 @@
             list-style: none;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ensure all Font Awesome icons align consistently */
+i[class^="fa"] {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
         .container {
             width: 90%;
@@ -366,11 +374,14 @@
             transform: translateY(-10px);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
+.feature-icon {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
         .feature-card h3 {
             margin-bottom: 15px;
@@ -783,10 +794,18 @@
             margin-bottom: 15px;
         }
 
-        .contact-icon {
-            margin-right: 15px;
-            color: var(--accent-gold);
-        }
+.contact-icon {
+    margin-right: 15px;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem; /* Ensure consistent icon size */
+}
+
+/* Standardize icons used within social links */
+.contact-social-link i {
+    line-height: 1;
+}
 
         /* Social Links in Contact Section */
         .contact-social-links { 
