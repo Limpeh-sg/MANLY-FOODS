@@ -230,7 +230,6 @@
             border-color: var(--accent-gold);
         }
 
-        /* Hero Section */
         .hero {
             background-image: url("MANLYMAINHONE.jpg");
             background-size: cover;
@@ -244,7 +243,14 @@
             padding-top: 80px;
             position: relative;
             overflow: hidden;
+
+            background-image: url("MANLYMAINHONE.jpg");
+            background-size: cover;
+            background-position: center;
         }
+
+        }
+
 
         .hero::before {
             content: "";
@@ -253,9 +259,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(80, 80, 80, 0.5); /* gray overlay */
-            z-index: 1;
-        }
+
 
 
         .hero-content {
@@ -1726,6 +1730,18 @@
             </div>
         </div>
 
+    </section>
+
+    <section class="section clients-section" id="clients">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
+            <div class="clients.jpg">
+            </div>
+        </div>
+    </section>
+
+ main
+
     <section class="section social-updates-section" id="social-updates">
         <div class="container">
             <h2 class="section-title" data-lang-key="socialUpdatesTitle">Latest Social Updates</h2>
@@ -1981,11 +1997,11 @@
                 navB2B: "B2B Services",
                 navContact: "Contact",
 
+
+
                 // Hero Section
                 heroExploreProducts: "Explore Products",
                 heroContactUs: "Contact Us",
-
-
 
                 // Social Media Bar
                 followUsTitle: "Follow Us Online",
@@ -2150,9 +2166,11 @@
                 navB2B: "B2B 服务",
                 navContact: "联系我们",
 
+
                 // Hero Section
                 heroExploreProducts: "探索产品",
                 heroContactUs: "联系我们",
+
 
 
                 // Social Media Bar
@@ -2306,6 +2324,15 @@
             }
         };
 
+        // Hero Carousel Titles and Subtitles (language-dependent)
+    en: "Trusted Singapore Food Wholesaler",
+    zh: "新加坡受信任的食品批发商"
+};
+
+    en: "Since 1986",
+    zh: "自1986年起"
+};
+
 
         // Function to set language
         function setLanguage(lang) {
@@ -2342,6 +2369,7 @@
                         <option value="other" data-lang-key="enquiryOther">${translations[lang].enquiryOther}</option>
                     `;
                 }
+
 
                 // Update active state for language buttons
                 document.querySelectorAll('.lang-button').forEach(button => {
