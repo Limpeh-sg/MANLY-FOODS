@@ -243,45 +243,6 @@
             overflow: hidden;
         }
 
-        .hero-carousel-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-carousel-item {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            z-index: 1;
-        }
-
-        .hero-carousel-item.active {
-            opacity: 1;
-            z-index: 2;
-        }
-
-        .hero-carousel-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* 深色叠加层 */
-            z-index: 3;
-        }
 
         .hero-content {
             max-width: 800px;
@@ -1496,8 +1457,8 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 id="carouselTitle"></h1>
-            <p id="carouselSubtitle"></p>
+            <h1>Manly Foods</h1>
+            <p>Singapore’s Trusted Food Distributor Since 1986</p>
             <div class="hero-btns">
                 <a href="#products" class="btn" data-lang-key="heroExploreProducts">Explore Products</a>
                 <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs">Contact Us</a>
@@ -1652,7 +1613,7 @@
                 </div>
                 
                 <div class="product-card" data-category="tea">
-                    <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';">
+                    <!-- TODO: image missing <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';"> -->
                     <div class="product-info">
                         <h3 data-lang-key="productAhmadTeaTitle">Ahmad Tea Collection</h3>
                         <p data-lang-key="productAhmadTeaDesc">British royal warrant holder tea selection, offering black teas, wellness blends & fruit infusions. Elegant gift-ready formats: tins, sachets, box sets. Halal-certified, trusted by locals & Muslim travellers.</p>
@@ -1751,7 +1712,16 @@
                 </div>
             </div>
         </div>
-    </section>
+
+
+    <section class="section clients-section" id="clients">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
+            <div class="clients-image-container">
+                <!-- TODO: image missing <img src="carousel6.png" alt="Our Key Clients" class="clients-image" onerror="this.onerror=null;this.src='https://placehold.co/900x300/f0f0f0/333333?text=Client+Logos+Here';"> -->
+            </div>
+        </div>
+
     <section class="section social-updates-section" id="social-updates">
         <div class="container">
             <h2 class="section-title" data-lang-key="socialUpdatesTitle">Latest Social Updates</h2>
@@ -2011,19 +1981,6 @@
                 heroExploreProducts: "Explore Products",
                 heroContactUs: "Contact Us",
 
-                // Hero Carousel Titles & Subtitles
-                carouselTitle1: "Premium Halal-Certified Food Distributor",
-                carouselSubtitle1: "Trusted for Quality & Excellence Since 1986",
-                carouselTitle2: "Gourmet Teas & Infusions",
-                carouselSubtitle2: "Discover Our Exquisite Tea Collections",
-                carouselTitle3: "Exquisite Chocolates & Confections",
-                carouselSubtitle3: "Indulge in Rich Flavors & Unique Gifts",
-                carouselTitle4: "Pure & Natural Honey Selections",
-                carouselSubtitle4: "From Our Hives to Your Home",
-                carouselTitle5: "Corporate Gifting & B2B Solutions",
-                carouselSubtitle5: "Tailored Food Solutions for Your Business Needs",
-                carouselTitle6: "Singapore's Premier FMCG Distributor",
-                carouselSubtitle6: "Connecting Quality Brands with Local Markets",
 
 
                 // Social Media Bar
@@ -2193,19 +2150,6 @@
                 heroExploreProducts: "探索产品",
                 heroContactUs: "联系我们",
 
-                // Hero Carousel Titles & Subtitles
-                carouselTitle1: "优质清真认证食品分销商",
-                carouselSubtitle1: "自1986年以来，品质卓越，值得信赖",
-                carouselTitle2: "精品茶叶与花草茶",
-                carouselSubtitle2: "探索我们精致的茶叶系列",
-                carouselTitle3: "精美巧克力与糖果",
-                carouselSubtitle3: "尽情享受浓郁风味与独特礼品",
-                carouselTitle4: "纯净天然蜂蜜精选",
-                carouselSubtitle4: "从蜂巢到您的餐桌",
-                carouselTitle5: "企业礼品与B2B解决方案",
-                carouselSubtitle5: "为您的商业需求量身定制食品方案",
-                carouselTitle6: "新加坡领先的快消品分销商",
-                carouselSubtitle6: "连接优质品牌与本地市场",
 
                 // Social Media Bar
                 followUsTitle: "在线关注我们",
@@ -2358,16 +2302,6 @@
             }
         };
 
-        // Hero Carousel Titles and Subtitles (language-dependent)
-const carouselTitles = {
-    en: "Trusted Singapore Food Wholesaler",
-    zh: "新加坡受信任的食品批发商"
-};
-
-const carouselSubtitles = {
-    en: "Since 1986",
-    zh: "自1986年起"
-};
 
         // Function to set language
         function setLanguage(lang) {
@@ -2404,15 +2338,6 @@ const carouselSubtitles = {
                         <option value="other" data-lang-key="enquiryOther">${translations[lang].enquiryOther}</option>
                     `;
                 }
-
-                // Update hero title and subtitle
-                const titleElement = document.getElementById("carouselTitle");
-                const subtitleElement = document.getElementById("carouselSubtitle");
-                if (titleElement && subtitleElement) {
-                    titleElement.textContent = carouselTitles[lang];
-                    subtitleElement.textContent = carouselSubtitles[lang];
-                }
-                
 
                 // Update active state for language buttons
                 document.querySelectorAll('.lang-button').forEach(button => {
