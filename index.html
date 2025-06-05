@@ -231,6 +231,9 @@
         }
 
         .hero {
+            background-image: url("MANLYMAINHONE.jpg");
+            background-size: cover;
+            background-position: center;
             height: 100vh;
             min-height: 700px;
             display: flex;
@@ -240,10 +243,15 @@
             padding-top: 80px;
             position: relative;
             overflow: hidden;
+
             background-image: url("MANLYMAINHONE.jpg");
             background-size: cover;
             background-position: center;
         }
+
+        }
+
+
         .hero::before {
             content: "";
             position: absolute;
@@ -251,9 +259,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(60,60,60,0.4);
-            z-index: 1;
-        }
+
 
 
         .hero-content {
@@ -1468,52 +1474,11 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Manly Foods</h1>
-            <p>Singapore’s Trusted Food Distributor Since 1986</p>
-            <div class="hero-btns">
-                <a href="https://shopee.sg/manlyfoods" class="btn">Shop With Us</a>
-                <a href="https://instagram.com/manlyfoods" class="btn btn-outline">Follow Us</a>
+
             </div>
         </div>
     </section>
 
-    <div class="social-media-bar">
-        <div class="social-section">
-            <h3 data-lang-key="followUsTitle">Follow Us</h3>
-            <div class="social-media-container">
-                <a href="https://instagram.com/manlyfoodssg" class="social-btn instagram-btn" target="_blank">
-                    <i class="fab fa-instagram"></i> <span data-lang-key="socialManlyFoods">MANLY FOODS IG</span>
-                </a>
-                <a href="https://www.facebook.com/ManlyFoods" class="social-btn facebook-btn" target="_blank">
-                    <i class="fab fa-facebook-f"></i> <span data-lang-key="socialFacebook">Facebook</span>
-                </a>
-                <a href="https://www.instagram.com/ahmadteasg/" class="social-btn ahmadtea-btn" target="_blank">
-                    <i class="fab fa-instagram"></i> <span data-lang-key="socialAhmadTeaIG">Ahmad Tea IG</span>
-                </a>
-                <a href="https://www.facebook.com/ahmadteasg" class="social-btn facebook-btn" target="_blank">
-                    <i class="fab fa-facebook-f"></i> <span data-lang-key="socialAhmadTeaFB">Ahmad Tea FB</span>
-                </a>
-                <a href="https://www.tiktok.com/@manlyfoods" class="social-btn tiktok-btn" target="_blank">
-                    <i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTok">TikTok</span>
-                </a>
-            </div>
-        </div>
-        <div class="social-section">
-            <h3 data-lang-key="shopWithUsTitle">Shop With Us</h3>
-            <div class="social-media-container">
-                <a href="https://www.tiktok.com/@manlyfoods" class="social-btn tiktok-btn" target="_blank">
-                    <i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTokShop">TikTok Shop</span>
-                </a>
-                <a href="https://shopee.sg/shop/62656629" class="social-btn shopee-btn" target="_blank">
-                    <i class="fas fa-shopping-bag"></i> <span data-lang-key="socialShopee">Shopee</span>
-                </a>
-                <a href="https://www.lazada.sg/shop/manly-food1627632387" class="social-btn lazada-btn" target="_blank">
-                    <img src="https://img.icons8.com/color/48/000000/lazada.png" alt="Lazada Icon"> <span data-lang-key="socialLazada">Lazada</span>
-                </a>
-            </div>
-        </div>
-    </div>
 
     <section class="section why-us" id="about">
         <div class="container">
@@ -1661,7 +1626,11 @@
                 </div>
                 
                 <div class="product-card" data-category="tea">
-                    <!-- TODO: image missing <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';"> -->
+
+                    <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';">
+
+                    <!-- TODO: image missing <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="ahmad_tea_collection.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';"> -->
+
                     <div class="product-info">
                         <h3 data-lang-key="productAhmadTeaTitle">Ahmad Tea Collection</h3>
                         <p data-lang-key="productAhmadTeaDesc">British royal warrant holder tea selection, offering black teas, wellness blends & fruit infusions. Elegant gift-ready formats: tins, sachets, box sets. Halal-certified, trusted by locals & Muslim travellers.</p>
@@ -1710,12 +1679,21 @@
         </div>
     </section>
 
+
+    <section class="section clients-section" id="clients">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
+            <div class="clients-image-container">
+                <img src="client.jpg" alt="Our Key Clients" class="clients-image" onerror="this.onerror=null;this.src='https://placehold.co/900x300/f0f0f0/333333?text=Client+Logos+Here';">
+            </div>
+        </div>
+    </section>
+
     <section class="section testimonials">
         <div class="container">
             <h2 class="section-title" data-lang-key="testimonialsTitle">What Our Clients Say</h2>
             
-            <div class="testimonial-slider">
-                <div class="testimonial-wrapper" id="testimonialWrapper">
+            <div class="testimonials-grid">
                     <div class="testimonial">
                         <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=SL" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial1Content">
@@ -1751,15 +1729,18 @@
                 </div>
             </div>
         </div>
+
     </section>
 
     <section class="section clients-section" id="clients">
         <div class="container">
             <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
-            <div class="clients-image-container">
+            <div class="clients.jpg">
             </div>
         </div>
     </section>
+
+ main
 
     <section class="section social-updates-section" id="social-updates">
         <div class="container">
@@ -2015,6 +1996,13 @@
                 navProducts: "Products",
                 navB2B: "B2B Services",
                 navContact: "Contact",
+
+
+
+                // Hero Section
+                heroExploreProducts: "Explore Products",
+                heroContactUs: "Contact Us",
+
                 // Social Media Bar
                 followUsTitle: "Follow Us Online",
                 shopWithUsTitle: "Shop With Us",
@@ -2177,6 +2165,14 @@
                 navProducts: "产品",
                 navB2B: "B2B 服务",
                 navContact: "联系我们",
+
+
+                // Hero Section
+                heroExploreProducts: "探索产品",
+                heroContactUs: "联系我们",
+
+
+
                 // Social Media Bar
                 followUsTitle: "在线关注我们",
                 shopWithUsTitle: "在以下平台购物",
@@ -2337,6 +2333,7 @@
     zh: "自1986年起"
 };
 
+
         // Function to set language
         function setLanguage(lang) {
             try {
@@ -2373,7 +2370,6 @@
                     `;
                 }
 
-                
 
                 // Update active state for language buttons
                 document.querySelectorAll('.lang-button').forEach(button => {
@@ -2603,7 +2599,6 @@
             });
         });
 
-
         // Testimonial Slider Logic
         const testimonialWrapper = document.getElementById('testimonialWrapper');
         const testimonials = document.querySelectorAll('.testimonial');
@@ -2723,6 +2718,7 @@
                 console.warn('Brand carousel elements not found or no slides available. Brand carousel functionality may be impaired.');
             }
         });
+
     </script>
 </body>
 </html>
