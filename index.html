@@ -54,13 +54,11 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--primary-wood-light); /* 米白色基调 */
-            background-image: url('wooden bg1.png'); /* 主背景木纹图 */
+            background-image: url('wooden bg1.png');
+            background-color: #cfeefc;
             background-size: cover;
             background-attachment: fixed;
-            background-blend-mode: overlay; /* 混合模式，使背景图半透明 */
-            background-color: rgba(245, 232, 215, 0.8); /* 米白色叠加层 */
-            overflow-x: hidden; /* 防止水平滚动 */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         a {
@@ -231,26 +229,19 @@
         }
 
         .hero {
-            background-image: url("MANLYMAINHONE.jpg");
-            background-size: cover;
-            background-position: center;
+            position: relative;
             height: 100vh;
             min-height: 700px;
             display: flex;
+            justify-content: center;
             align-items: center;
-            color: var(--text-light);
             text-align: center;
-            padding-top: 80px;
-            position: relative;
+            color: var(--text-light);
             overflow: hidden;
-
-            background-image: url("MANLYMAINHONE.jpg");
+            background-image: url('MANLYMAINHONE.jpg');
             background-size: cover;
             background-position: center;
         }
-
-        }
-
 
         .hero::before {
             content: "";
@@ -259,14 +250,42 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
 
+        .hero-carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
 
+        .hero-carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .hero-carousel-item.active {
+            opacity: 1;
+        }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 4;
+            padding: 0 15px;
         }
 
         .hero h1 {
@@ -285,9 +304,10 @@
 
         .hero-btns {
             display: flex;
-            gap: 20px;
-            justify-content: center;
             flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         /* Social Media Bar */
@@ -1474,7 +1494,18 @@
     </header>
 
     <section class="hero">
-
+        <div class="hero-carousel-container">
+            <div class="hero-carousel-item active" style="background-image: url('MANLYMAINHONE.jpg');"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Singapore’s Trusted Name in Gourmet Gifts Since 1986</h1>
+            <div class="hero-btns">
+                <a href="https://shopee.sg/manlyfoods" class="btn">Shop on Shopee</a>
+                <a href="https://www.lazada.sg/shop/manlyfoods" class="btn">Shop on Lazada</a>
+                <a href="https://www.tiktok.com/@manlyfood" class="btn">Shop on TikTok</a>
+                <a href="https://goo.gl/maps/XhQY..." class="btn btn-outline">Google Maps</a>
+                <a href="https://wa.me/6584014364" class="btn btn-outline">WhatsApp</a>
+                <a href="https://instagram.com/manlyfood" class="btn btn-outline">Instagram</a>
             </div>
         </div>
     </section>
@@ -1732,15 +1763,7 @@
 
     </section>
 
-    <section class="section clients-section" id="clients">
-        <div class="container">
-            <h2 class="section-title" data-lang-key="clientsTitle">We Supply To Key Clients</h2>
-            <div class="clients.jpg">
-            </div>
-        </div>
-    </section>
 
- main
 
     <section class="section social-updates-section" id="social-updates">
         <div class="container">
