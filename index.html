@@ -1493,22 +1493,29 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-carousel-container">
-            <div class="hero-carousel-item active" style="background-image: url('MANLYMAINHONE.jpg');"></div>
+<section class="hero">
+    <div class="hero-content">
+        <h1 data-lang-key="heroTitle"></h1>
+        <p class="hero-subtitle" data-lang-key="heroSubtitle"></p>
+        <div class="hero-btns">
+            <a href="#products" class="btn" data-lang-key="heroExploreProducts"></a>
+            <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs"></a>
         </div>
-        <div class="hero-content">
-            <h1>Singapore’s Trusted Name in Gourmet Gifts Since 1986</h1>
-            <div class="hero-btns">
-                <a href="https://shopee.sg/manlyfoods" class="btn">Shop on Shopee</a>
-                <a href="https://www.lazada.sg/shop/manlyfoods" class="btn">Shop on Lazada</a>
-                <a href="https://www.tiktok.com/@manlyfood" class="btn">Shop on TikTok</a>
-                <a href="https://goo.gl/maps/XhQY..." class="btn btn-outline">Google Maps</a>
-                <a href="https://wa.me/6584014364" class="btn btn-outline">WhatsApp</a>
-                <a href="https://instagram.com/manlyfood" class="btn btn-outline">Instagram</a>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
+<div class="social-media-bar">
+    <div class="social-media-container">
+        <a href="https://wa.me/6584014364" class="social-btn"><i class="fab fa-whatsapp"></i> <span data-lang-key="socialWhatsApp"></span></a>
+        <a href="https://shopee.sg/manlyfoods" class="social-btn"><i class="fas fa-bag-shopping"></i> <span data-lang-key="socialShopee"></span></a>
+        <a href="https://www.lazada.sg/shop/manlyfoods" class="social-btn lazada-btn"><img src="LAZADA Icon" alt="Lazada"> <span data-lang-key="socialLazada"></span></a>
+        <a href="https://instagram.com/manlyfood" class="social-btn"><i class="fab fa-instagram"></i> <span data-lang-key="socialManlyFoods"></span></a>
+        <a href="https://instagram.com/ahmadteasingapore" class="social-btn"><i class="fab fa-instagram"></i> <span data-lang-key="socialAhmadTeaIG"></span></a>
+        <a href="https://www.tiktok.com/@manlyfoods" class="social-btn"><i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTok"></span></a>
+        <a href="https://www.facebook.com/ManlyFoods" class="social-btn"><i class="fab fa-facebook-f"></i> <span data-lang-key="socialFacebook"></span></a>
+        <a href="https://www.linkedin.com/company/manlyfoods" class="social-btn"><i class="fab fa-linkedin-in"></i> <span data-lang-key="socialLinkedIn"></span></a>
+        <a href="mailto:info@manly.sg" class="social-btn"><i class="fas fa-envelope"></i> <span data-lang-key="socialEmailUs"></span></a>
+    </div>
+</div>
 
 
     <section class="section why-us" id="about">
@@ -1724,7 +1731,8 @@
         <div class="container">
             <h2 class="section-title" data-lang-key="testimonialsTitle">What Our Clients Say</h2>
             
-            <div class="testimonials-grid">
+            <div class="testimonial-slider">
+                <div id="testimonialWrapper" class="testimonial-wrapper">
                     <div class="testimonial">
                         <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=SL" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial1Content">
@@ -2023,6 +2031,8 @@
 
 
                 // Hero Section
+                heroTitle: "Trusted Singapore Food Wholesaler",
+                heroSubtitle: "Since 1986"
                 heroExploreProducts: "Explore Products",
                 heroContactUs: "Contact Us",
 
@@ -2035,6 +2045,7 @@
                 socialAhmadTeaFB: "Ahmad Tea FB",
                 socialTikTok: "TikTok",
                 socialTikTokShop: "TikTok Shop",
+                socialWhatsApp: "WhatsApp",
                 socialShopee: "Shopee",
                 socialLazada: "Lazada",
                 socialLinkedIn: "LinkedIn",
@@ -2191,6 +2202,8 @@
 
 
                 // Hero Section
+                heroTitle: "新加坡受信任的食品批发商",
+                heroSubtitle: "自1986年起"
                 heroExploreProducts: "探索产品",
                 heroContactUs: "联系我们",
 
@@ -2206,6 +2219,7 @@
                 socialTikTok: "抖音",
                 socialTikTokShop: "TikTok 商城",
                 socialShopee: "虾皮",
+                socialWhatsApp: "WhatsApp",
                 socialLazada: "来赞达",
                 socialLinkedIn: "领英",
                 socialEmailUs: "发送邮件",
@@ -2344,18 +2358,6 @@
                 footerCorporateGifts: "企业礼品",
                 copyrightText: "© 2025 万利食品。保留所有权利。",
                 developerInfo: "本网站由Eddie倾情制作呈现。"
-            }
-        };
-
-        // Hero Carousel Titles and Subtitles (language-dependent)
-    en: "Trusted Singapore Food Wholesaler",
-    zh: "新加坡受信任的食品批发商"
-};
-
-    en: "Since 1986",
-    zh: "自1986年起"
-};
-
 
         // Function to set language
         function setLanguage(lang) {
@@ -2449,6 +2451,13 @@
                 } else {
                     console.warn('Chinese language button not found.');
                 }
+                const productCards = document.querySelectorAll("#products .product-card");
+                productCards.forEach(card => {
+                    const info = card.querySelector(".product-info");
+                    if (info) {
+                        info.querySelectorAll("a").forEach(a => a.remove());
+                    }
+                });
             } catch (error) {
                 console.error('Error during DOMContentLoaded initialization:', error);
             }
