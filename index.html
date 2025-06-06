@@ -31,7 +31,7 @@
             --primary-wood-dark: #5A4A3C; /* 深木棕色，用于头部、底部、按钮等 */
             --primary-wood-medium: #8D7B6A; /* 中等木棕色 */
             --primary-wood-light: #F5E8D7; /* 米白色，主背景色 */
-            --accent-gold: #D4AF37; /* 金色，强调色 */
+            --accent-gold: #56a0d3; /* 天藍色，強調色 */
             --text-dark: #333333; /* 深色文本 */
             --text-light: #f8f8f8; /* 浅色文本 */
             --card-bg: rgba(255, 255, 255, 0.85); /* 卡片背景，半透明白色 */
@@ -99,7 +99,7 @@
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: var(--box-shadow);
-            background-color: #c29d30; /* 鼠标悬停时金色变深 */
+            background-color: #3b89bc; /* 鼠标悬停時天藍色加深 */
         }
 
         .btn-outline {
@@ -546,6 +546,17 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
+        }
+
+        .collection-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product-category {
+            margin-bottom: 50px;
         }
 
         .product-card {
@@ -1470,7 +1481,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="/" class="logo">
-                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x65/5A4A3C/D4AF37?text=MANLY+FOODS';">
+                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" onerror="this.onerror=null;this.src='https://placehold.co/150x65/5A4A3C/56a0d3?text=MANLY+FOODS';">
                 </a>
                 
                 <div class="hamburger">
@@ -1502,20 +1513,26 @@
             <a href="#contact" class="btn btn-outline" data-lang-key="heroContactUs"></a>
         </div>
     </div>
+
 </section>
-<div class="social-media-bar">
-    <div class="social-media-container">
-        <a href="https://wa.me/6584014364" class="social-btn"><i class="fab fa-whatsapp"></i> <span data-lang-key="socialWhatsApp"></span></a>
-        <a href="https://shopee.sg/manlyfoods" class="social-btn"><i class="fas fa-bag-shopping"></i> <span data-lang-key="socialShopee"></span></a>
-        <a href="https://www.lazada.sg/shop/manlyfoods" class="social-btn lazada-btn"><img src="LAZADA Icon" alt="Lazada"> <span data-lang-key="socialLazada"></span></a>
-        <a href="https://instagram.com/manlyfood" class="social-btn"><i class="fab fa-instagram"></i> <span data-lang-key="socialManlyFoods"></span></a>
-        <a href="https://instagram.com/ahmadteasingapore" class="social-btn"><i class="fab fa-instagram"></i> <span data-lang-key="socialAhmadTeaIG"></span></a>
-        <a href="https://www.tiktok.com/@manlyfoods" class="social-btn"><i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTok"></span></a>
-        <a href="https://www.facebook.com/ManlyFoods" class="social-btn"><i class="fab fa-facebook-f"></i> <span data-lang-key="socialFacebook"></span></a>
-        <a href="https://www.linkedin.com/company/manlyfoods" class="social-btn"><i class="fab fa-linkedin-in"></i> <span data-lang-key="socialLinkedIn"></span></a>
-        <a href="mailto:info@manly.sg" class="social-btn"><i class="fas fa-envelope"></i> <span data-lang-key="socialEmailUs"></span></a>
+<section class="section social-section">
+    <div class="container">
+        <h2 data-lang-key="shopWithUsTitle">Shop With Us</h2>
+        <div class="social-media-container">
+            <a href="https://shopee.sg/manlyfoods" class="social-btn"><i class="fas fa-bag-shopping"></i> <span data-lang-key="socialShopee"></span></a>
+            <a href="https://www.lazada.sg/shop/manlyfoods" class="social-btn lazada-btn"><img src="LAZADA Icon" alt="Lazada"> <span data-lang-key="socialLazada"></span></a>
+            <a href="https://www.tiktok.com/@manlyfoods/shop" class="social-btn"><i class="fab fa-tiktok"></i> <span data-lang-key="socialTikTokShop"></span></a>
+        </div>
+        <h2 style="margin-top:30px;" data-lang-key="followUsTitle">Follow Us</h2>
+        <div class="social-media-container">
+            <a href="https://wa.me/6584014364" class="social-btn"><i class="fab fa-whatsapp"></i> <span data-lang-key="socialWhatsApp"></span></a>
+            <a href="https://www.instagram.com/manlyfoodssg/" class="social-btn"><i class="fab fa-instagram"></i> <span data-lang-key="socialManlyFoods"></span></a>
+            <a href="https://www.facebook.com/ManlyFoods" class="social-btn"><i class="fab fa-facebook-f"></i> <span data-lang-key="socialFacebook"></span></a>
+            <a href="https://www.linkedin.com/company/manlyfoods" class="social-btn"><i class="fab fa-linkedin-in"></i> <span data-lang-key="socialLinkedIn"></span></a>
+            <a href="mailto:allen@manlyfoods.com" class="social-btn"><i class="fas fa-envelope"></i> <span data-lang-key="socialEmailUs"></span></a>
+        </div>
     </div>
-</div>
+</section>
 
 
     <section class="section why-us" id="about">
@@ -1523,7 +1540,7 @@
             <h2 class="section-title" data-lang-key="aboutTitle">Our Brand Story</h2>
             
             <div class="about-us-content">
-                <img src="image_00.png" alt="About Us - MANLY FOODS" class="about-us-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5A4A3C/D4AF37?text=About+Us+Image';">
+                <img src="image_00.png" alt="About Us - MANLY FOODS" class="about-us-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5A4A3C/56a0d3?text=About+Us+Image';">
                 <p style="text-align: center; max-width: 800px;" data-lang-key="aboutContent">
                     Founded in 1986, Manly Pte Ltd is a trusted name in Singapore's food import and distribution industry. We specialize in premium tea, honey, chocolate, and souvenir-friendly FMCG products, tailored for both the tourist gifting segment and everyday household enjoyment. From our early days as a traditional distributor to now being an exclusive brand representative, we have grown to serve retailers, e-commerce platforms, gifting partners, and international visitors across Singapore. Our commitment to quality, fast response, and curated product selections makes us a reliable partner for B2B clients and customers seeking meaningful gifting solutions.
                 </p>
@@ -1585,19 +1602,19 @@
             <div class="brand-carousel-container">
                 <div class="brand-carousel-wrapper" id="brandCarouselWrapper">
                     <div class="brand-slide">
-                        <img src="logo_1.png" alt="Ahmad Tea Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/D4AF37?text=Ahmad+Tea';">
+                        <img src="logo_1.png" alt="Ahmad Tea Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/56a0d3?text=Ahmad+Tea';">
                     </div>
                     <div class="brand-slide">
-                        <img src="logo.4.png" alt="MANLY Wooden Box Tea Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/D4AF37?text=MANLY+Tea';">
+                        <img src="logo.4.png" alt="MANLY Wooden Box Tea Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/56a0d3?text=MANLY+Tea';">
                     </div>
                     <div class="brand-slide">
-                        <img src="logo_3.png" alt="Fulmer Honey Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/D4AF37?text=Fulmer+Honey';">
+                        <img src="logo_3.png" alt="Fulmer Honey Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/56a0d3?text=Fulmer+Honey';">
                     </div>
                     <div class="brand-slide">
-                        <img src="logo_2.png" alt="Buram Honey Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/D4AF37?text=Buram+Honey';">
+                        <img src="logo_2.png" alt="Buram Honey Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/56a0d3?text=Buram+Honey';">
                     </div>
                     <div class="brand-slide">
-                        <img src="logo_5.png" alt="Manly Merlion Chocolate Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/D4AF37?text=Merlion+Chocolate';">
+                        <img src="logo_5.png" alt="Manly Merlion Chocolate Logo" class="brand-logo" onerror="this.onerror=null;this.src='https://placehold.co/200x100/8D7B6A/56a0d3?text=Merlion+Chocolate';">
                     </div>
                 </div>
                 <div class="brand-carousel-dots" id="brandCarouselDots"></div>
@@ -1609,79 +1626,60 @@
         <div class="container">
             <h2 class="section-title" data-lang-key="productsTitle">Our Product Collections</h2>
             
-            <div class="product-filters">
-                <button class="filter-btn active" data-filter="all" data-lang-key="filterAll">All Products</button>
-                <button class="filter-btn" data-filter="tea" data-lang-key="filterTea">Tea</button>
-                <button class="filter-btn" data-filter="honey" data-lang-key="filterHoney">Honey</button>
-                <button class="filter-btn" data-filter="chocolate" data-lang-key="filterChocolate">Chocolate</button>
-                <button class="filter-btn" data-filter="gifts" data-lang-key="filterGifts">Gift Sets</button>
+            <div class="product-category">
+                <h3 data-lang-key="categoryTea">Tea Collections</h3>
+                <div class="collection-grid">
+                    <div class="product-card">
+                        <img src="product_tea.jpg" alt="MANLY SG Wooden Box Tea" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/56a0d3?text=Tea+Collections';">
+                        <div class="product-info">
+                            <h3 data-lang-key="productManlyTeaTitle">MANLY SG WOODEN BOX TEA</h3>
+                            <p data-lang-key="productManlyTeaDesc">Singapore landmark design, specially crafted for tourists.</p>
+                            <a href="manly_tea_website_video_7s.html" class="btn" target="_blank" data-lang-key="visitWebsiteBtn">Visit Website</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';">
+                        <div class="product-info">
+                            <h3 data-lang-key="productAhmadTeaTitle">Ahmad Tea Collection</h3>
+                            <p data-lang-key="productAhmadTeaDesc">British royal warrant holder tea selection, offering black teas, wellness blends & fruit infusions. Elegant gift-ready formats: tins, sachets, box sets. Halal-certified, trusted by locals & Muslim travellers.</p>
+                            <a href="AhmadTeaSGsite.html" class="btn" target="_blank" data-lang-key="visitWebsiteBtn">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="product-grid">
-                <div class="product-card" data-category="tea">
-                    <img src="product_tea.jpg" alt="MANLY SG Wooden Box Tea" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/D4AF37?text=Tea+Collections';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productManlyTeaTitle">MANLY SG WOODEN BOX TEA</h3>
-                        <p data-lang-key="productManlyTeaDesc">Singapore landmark design, specially crafted for tourists.</p>
-                        <a href="manly_tea_website_video_7s.html" class="btn" target="_blank" data-lang-key="visitWebsiteBtn">Visit Website</a>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="honey">
-                    <img src="product_honey.jpg" alt="Fulmer Premium Honey" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/D4AF37?text=Honey+Selection';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productFulmerHoneyTitle">Fulmer Premium Honey</h3>
-                        <p data-lang-key="productFulmerHoneyDesc">100% pure Halal-certified honey from New Zealand, known for its bold sweetness and golden color. Available in bulk jars & gift sets for varied customer needs.</p>
-                        <a href="manly_honey_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
-                    </div>
-                </div>
 
-                <div class="product-card" data-category="honey">
-                    <img src="product_honey.jpg" alt="Buram Honey" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/D4AF37?text=Buram+Honey';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productBuramHoneyTitle">Buram Honey</h3>
-                        <p data-lang-key="productBuramHoneyDesc">Raw floral honey from Europe, minimally processed and packed in jars & squeezers, perfect for health-conscious families. Strong seasonal sales when paired with tea sets.</p>
-                        <a href="manly_honey_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
+            <div class="product-category">
+                <h3 data-lang-key="categoryChocolate">Chocolate Collections</h3>
+                <div class="collection-grid">
+                    <div class="product-card">
+                        <img src="product_chocolate.jpg" alt="Merlion Chocolate" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/56a0d3?text=Chocolate+Gifts';">
+                        <div class="product-info">
+                            <h3 data-lang-key="productMerlionChocolateTitle">Merlion Chocolate</h3>
+                            <p data-lang-key="productMerlionChocolateDesc">Iconic Singapore souvenir chocolate with a premium taste. Our in-house souvenir brand featuring Merlion design, affordable, lightweight & suitcase-friendly. Available in milk, dark & assorted gift formats. Perfect for tourists, events & gift packs.</p>
+                            <a href="manly_chocolate_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="product-card" data-category="chocolate">
-                    <img src="product_chocolate.jpg" alt="Merlion Chocolate" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/D4AF37?text=Chocolate+Gifts';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productMerlionChocolateTitle">Merlion Chocolate</h3>
-                        <p data-lang-key="productMerlionChocolateDesc">Iconic Singapore souvenir chocolate with a premium taste. Our in-house souvenir brand featuring Merlion design, affordable, lightweight & suitcase-friendly. Available in milk, dark & assorted gift formats. Perfect for tourists, events & gift packs.</p>
-                        <a href="manly_chocolate_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="gifts">
-                    <img src="product_ramadan_gift_set.png" alt="Ramadan Gift Set" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ramadan+Gift+Set';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productRamadanGiftTitle">Ramadan Gift Set</h3>
-                        <p data-lang-key="productRamadanGiftDesc">Elegant tea and honey combination for festive gifting. A thoughtful choice for special occasions.</p>
-                        <a href="https://shopee.sg/manlyfoodenterprise?page=0&shopCollection=29614205" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
-                    </div>
-                </div>
-                
-                <div class="product-card" data-category="tea">
+            </div>
 
-                    <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';">
-
-                    <!-- TODO: image missing <img src="ahmad_tea_collection.png" alt="Ahmad Tea Collection" class="ahmad_tea_collection.png" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Ahmad+Tea+Collection';"> -->
-
-                    <div class="product-info">
-                        <h3 data-lang-key="productAhmadTeaTitle">Ahmad Tea Collection</h3>
-                        <p data-lang-key="productAhmadTeaDesc">British royal warrant holder tea selection, offering black teas, wellness blends & fruit infusions. Elegant gift-ready formats: tins, sachets, box sets. Halal-certified, trusted by locals & Muslim travellers.</p>
-                        <a href="AhmadTeaSGsite.html" class="btn" target="_blank" data-lang-key="visitWebsiteBtn">Visit Website</a>
+            <div class="product-category">
+                <h3 data-lang-key="categoryHoney">Honey Collections</h3>
+                <div class="collection-grid">
+                    <div class="product-card">
+                        <img src="product_honey.jpg" alt="Fulmer Premium Honey" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/56a0d3?text=Honey+Selection';">
+                        <div class="product-info">
+                            <h3 data-lang-key="productFulmerHoneyTitle">Fulmer Premium Honey</h3>
+                            <p data-lang-key="productFulmerHoneyDesc">100% pure Halal-certified honey from New Zealand, known for its bold sweetness and golden color. Available in bulk jars & gift sets for varied customer needs.</p>
+                            <a href="manly_honey_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="product-card" data-category="gifts">
-                    <img src="gift_set_corporate.png" alt="Corporate Gift Set" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Corporate+Gift+Set';">
-                    <div class="product-info">
-                        <h3 data-lang-key="productCorporateGiftTitle">Corporate Gift Set</h3>
-                        <p data-lang-key="productCorporateGiftDesc">Customizable premium gift sets with company branding. Ideal for client appreciation, employee recognition, and special events.</p>
-                        <a href="#contact" class="btn" data-lang-key="getQuoteBtn">Get Quote</a>
+                    <div class="product-card">
+                        <img src="product_honey.jpg" alt="Buram Honey" class="product-img" onerror="this.onerror=null;this.src='https://placehold.co/400x300/5A4A3C/56a0d3?text=Buram+Honey';">
+                        <div class="product-info">
+                            <h3 data-lang-key="productBuramHoneyTitle">Buram Honey</h3>
+                            <p data-lang-key="productBuramHoneyDesc">Raw floral honey from Europe, minimally processed and packed in jars & squeezers, perfect for health-conscious families. Strong seasonal sales when paired with tea sets.</p>
+                            <a href="manly_honey_website_video_7s.html" class="btn" target="_blank" data-lang-key="exploreBtn">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1734,7 +1732,7 @@
             <div class="testimonial-slider">
                 <div id="testimonialWrapper" class="testimonial-wrapper">
                     <div class="testimonial">
-                        <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=SL" alt="Testimonial Avatar" class="testimonial-avatar">
+                        <img src="https://placehold.co/80x80/56a0d3/5A4A3C?text=SL" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial1Content">
                             "MANLY FOODS has been our trusted supplier for corporate gifts for 3 years. Their products consistently impress our clients and their team makes the process seamless, always delivering on time and with exceptional quality. We highly recommend them for any corporate gifting needs."
                         </p>
@@ -1742,7 +1740,7 @@
                         <p class="testimonial-role" data-lang-key="testimonial1Role">Marketing Director, Tech Solutions Pte Ltd</p>
                     </div>
                     <div class="testimonial">
-                        <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=AR" alt="Testimonial Avatar" class="testimonial-avatar">
+                        <img src="https://placehold.co/80x80/56a0d3/5A4A3C?text=AR" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial2Content">
                             "The Halal-certified products from MANLY FOODS are a huge hit with our international customers. Their unique Singapore-themed gifts are especially popular, and the quality is always top-notch. A fantastic partner for travel retail."
                         </p>
@@ -1750,7 +1748,7 @@
                         <p class="testimonial-role" data-lang-key="testimonial2Role">Retail Manager, Changi Airport Duty-Free</p>
                     </div>
                     <div class="testimonial">
-                        <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=ET" alt="Testimonial Avatar" class="testimonial-avatar">
+                        <img src="https://placehold.co/80x80/56a0d3/5A4A3C?text=ET" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial3Content">
                             "We appreciate the flexibility and customization options MANLY FOODS offers for our annual corporate events. Their team is professional and a pleasure to work with, always going the extra mile to meet our specific requirements."
                         </p>
@@ -1758,7 +1756,7 @@
                         <p class="testimonial-role" data-lang-key="testimonial3Role">HR Manager, Global Innovations Inc.</p>
                     </div>
                     <div class="testimonial">
-                        <img src="https://placehold.co/80x80/D4AF37/5A4A3C?text=DW" alt="Testimonial Avatar" class="testimonial-avatar">
+                        <img src="https://placehold.co/80x80/56a0d3/5A4A3C?text=DW" alt="Testimonial Avatar" class="testimonial-avatar">
                         <p class="testimonial-content" data-lang-key="testimonial4Content">
                             "As an online reseller, partnering with MANLY FOODS has been incredibly beneficial. Their fast stock handling and branded marketing visuals have significantly boosted our sales and customer satisfaction."
                         </p>
@@ -1839,7 +1837,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <p>sales@manlyfoods.com</p>
+                                <p>allen@manlyfoods.com</p>
                             </div>
                         </div>
                         
@@ -1903,7 +1901,7 @@
                         <a href="https://wa.me/6562750603" class="contact-social-link" target="_blank" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="mailto:sales@manlyfoods.com" class="contact-social-link" aria-label="Email">
+                        <a href="mailto:allen@manlyfoods.com" class="contact-social-link" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
                         <a href="https://shopee.sg/manlyfoods" class="contact-social-link" target="_blank" aria-label="Shopee">
@@ -1966,7 +1964,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" class="footer-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x60/5A4A3C/D4AF37?text=MANLY+FOODS';">
+                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" class="footer-logo" onerror="this.onerror=null;this.src='https://placehold.co/150x60/5A4A3C/56a0d3?text=MANLY+FOODS';">
                     <div class="footer-values">
                         <p class="text-white fw-semibold mb-2" style="letter-spacing: 0.5px;" data-lang-key="footerValuesTitle">Our Values</p>
                         <ul class="list-unstyled text-white small" style="line-height: 1.8;">
@@ -2006,7 +2004,6 @@
             
             <div class="copyright-area">
                 <p data-lang-key="copyrightText">© 2025 MANLY PTE LTD. All Rights Reserved.</p>
-                <p class="developer-info" data-lang-key="developerInfo">本网站由Eddie倾情制作呈现。</p>
             </div>
         </div>
     </footer>
@@ -2077,6 +2074,9 @@
                 filterHoney: "Honey",
                 filterChocolate: "Chocolate",
                 filterGifts: "Gift Sets",
+                categoryTea: "Tea Collections",
+                categoryChocolate: "Chocolate Collections",
+                categoryHoney: "Honey Collections",
                 productManlyTeaTitle: "MANLY SG WOODEN BOX TEA",
                 productManlyTeaDesc: "Singapore landmark design, specially crafted for tourists.",
                 visitWebsiteBtn: "Visit Website",
@@ -2250,6 +2250,9 @@
                 filterHoney: "蜂蜜",
                 filterChocolate: "巧克力",
                 filterGifts: "礼品套装",
+                categoryTea: "茶叶系列",
+                categoryChocolate: "巧克力系列",
+                categoryHoney: "蜂蜜系列",
                 productManlyTeaTitle: "万利新加坡木盒茶",
                 productManlyTeaDesc: "新加坡地标设计，专为游客精心制作。",
                 visitWebsiteBtn: "访问网站",

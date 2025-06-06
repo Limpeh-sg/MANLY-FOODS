@@ -3,7 +3,7 @@
             --primary-wood-dark: #5A4A3C; /* 深木棕色，用于头部、底部、按钮等 */
             --primary-wood-medium: #8D7B6A; /* 中等木棕色 */
             --primary-wood-light: #F5E8D7; /* 米白色，主背景色 */
-            --accent-gold: rgba(135, 206, 235, 0.5); /* 金色，强调色 */
+            --accent-gold: #56a0d3; /* 天藍色，強調色 */
             --text-dark: #333333; /* 深色文本 */
             --text-light: #f8f8f8; /* 浅色文本 */
             --card-bg: rgba(255, 255, 255, 0.85); /* 卡片背景，半透明白色 */
@@ -81,7 +81,7 @@ i[class^="fa"] {
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: var(--box-shadow);
-            background-color: #c29d30; /* 鼠标悬停时金色变深 */
+            background-color: #3b89bc; /* 鼠標懸停時天藍色加深 */
         }
 
         .btn-outline {
@@ -503,6 +503,17 @@ i[class^="fa"] {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
+        }
+
+        .collection-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .product-category {
+            margin-bottom: 50px;
         }
 
         .product-card {
