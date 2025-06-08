@@ -593,6 +593,13 @@
         });
         
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
         
         document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', (e) => setLanguage(e.target.dataset.lang)));
         
