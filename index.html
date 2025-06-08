@@ -194,20 +194,44 @@
             <style>.feature-card { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--box-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; } .feature-card:hover { transform: translateY(-10px); } .feature-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1.5rem; } .feature-card h3 { font-weight: bold; margin-bottom: 1rem; color: var(--primary-wood-dark); font-size:1.1rem; flex-grow: 1; } .feature-card p { font-size: 0.9rem; color: #555; }</style>
         </section>
 
-        <!-- 獨家品牌 -->
-        <section id="brands" class="py-20" style="background-image: url('wooden bg4.png'); background-color: rgba(141, 123, 106, 0.85); background-blend-mode: overlay; background-size: cover; background-attachment: fixed;">
+        <!-- =======================
+        独家品牌
+        ======================== -->
+        <section id="brands" class="bg-primary-wood-dark py-20 lg:py-24 overflow-hidden">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="section-title !text-white" data-lang-key="brandsTitle"></h2>
-                <p class="text-lg text-gray-200 max-w-3xl mx-auto mb-12" data-lang-key="brandsIntro"></p>
-                <div class="relative max-w-2xl mx-auto bg-white/20 p-5 rounded-lg">
-                    <div id="brands-carousel" class="overflow-hidden">
-                        <div id="brands-wrapper" class="flex transition-transform duration-500 ease-in-out">
-                             <!-- JS Populates This -->
-                        </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-lang-key="brandsTitle"></h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12" data-lang-key="brandsIntro"></p>
+                <div class="relative w-full h-24 overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-wood-dark via-transparent to-primary-wood-dark z-10"></div>
+                     <div class="brand-carousel-container">
+                        <!-- Logos duplicated for seamless loop -->
+                        <div class="brand-logo"><img src="https://logolook.net/wp-content/uploads/2021/11/Ahmad-Tea-Logo.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Wooden+Box" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Fulmer" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Buram" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Merlion+Choc" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://logolook.net/wp-content/uploads/2021/11/Ahmad-Tea-Logo.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Wooden+Box" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <!-- Duplicate set for looping -->
+                        <div class="brand-logo"><img src="https://logolook.net/wp-content/uploads/2021/11/Ahmad-Tea-Logo.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Wooden+Box" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Fulmer" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Buram" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Merlion+Choc" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://logolook.net/wp-content/uploads/2021/11/Ahmad-Tea-Logo.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                        <div class="brand-logo"><img src="https://placehold.co/150x60/FFFFFF/3A2D21?text=Wooden+Box" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
                     </div>
-                    <div id="brands-dots" class="flex justify-center gap-3 mt-4"></div>
                 </div>
             </div>
+             <style>
+                .brand-carousel-container { display: flex; animation: scroll-brands 30s linear infinite; width: calc(150px * 14); }
+                .brand-logo { flex-shrink: 0; width: 150px; display: flex; align-items: center; justify-content: center; margin: 0 2rem; }
+                .brand-logo img { max-height: 60px; object-fit: contain; }
+                @keyframes scroll-brands {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(calc(-150px * 7)); }
+                }
+            </style>
         </section>
 
         <!-- 產品系列 -->
@@ -603,33 +627,6 @@
         }, 5000);
 
 
-        // --- 品牌輪播 ---
-        const brands = [
-            'logo_1.png', 'logo.4.png', 'logo_3.png', 'logo_2.png', 'logo_5.png'
-        ];
-        const brandsWrapper = document.getElementById('brands-wrapper');
-        const brandsDots = document.getElementById('brands-dots');
-        let currentBrandIndex = 0;
-        
-        brands.forEach((src, index) => {
-            const slide = document.createElement('div');
-            slide.className = 'flex-shrink-0 w-full flex justify-center items-center p-4';
-            slide.innerHTML = `<img src="${src}" class="h-16 md:h-24 object-contain" alt="Brand Logo ${index+1}">`;
-            brandsWrapper.appendChild(slide);
-
-            const dot = document.createElement('div');
-            dot.className = 'w-3 h-3 rounded-full cursor-pointer transition-all bg-white/50';
-            dot.addEventListener('click', () => showBrand(index));
-            brandsDots.appendChild(dot);
-        });
-
-        const showBrand = (index) => {
-            currentBrandIndex = index;
-            brandsWrapper.style.transform = `translateX(-${index * 100}%)`;
-            document.querySelectorAll('#brands-dots > div').forEach((d, i) => d.classList.toggle('!bg-accent-gold', i === index));
-        };
-        setInterval(() => showBrand((currentBrandIndex + 1) % brands.length), 4000);
-        showBrand(0);
 
         // --- 產品篩選 ---
         document.querySelectorAll('.filter-btn').forEach(btn => {
