@@ -57,17 +57,6 @@
         .sticky-nav { background-color: rgba(90, 74, 60, 0.95) !important; backdrop-filter: blur(10px); }
         .btn { display: inline-block; padding: 12px 24px; background-color: var(--accent-gold); color: var(--text-dark); border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-align: center; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background-color: var(--accent-gold-hover); }
-        .gemini-btn { background-color: var(--primary-wood-dark); color: var(--accent-gold); border: 1px solid var(--accent-gold); }
-        .gemini-btn:hover { background-color: var(--accent-gold); color: var(--primary-wood-dark); }
-        .loader {
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--accent-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-        }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
@@ -141,7 +130,6 @@
                 <h1 class="text-4xl md:text-6xl font-bold mb-6" data-lang-key="heroTitle"></h1>
                 <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8" data-lang-key="heroSubtitle"></p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#products" class="btn" data-lang-key="cta_explore"></a>
                     <a href="#contact" class="btn !bg-transparent border-2 border-accent-gold !text-white hover:!bg-accent-gold hover:!text-text-dark" data-lang-key="cta_contact"></a>
                 </div>
             </div>
@@ -246,12 +234,12 @@
                     <button class="filter-btn" data-filter="gifts" data-lang-key="filterGifts"></button>
                 </div>
                 <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <div class="product-card" data-category="tea"><img src="product_tea.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productManlyTeaTitle"></h3><p data-lang-key="productManlyTeaDesc"></p><div class="flex gap-2 mt-4"><a href="manly_tea_website_video_7s.html" target="_blank" class="btn text-sm flex-1" data-lang-key="exploreBtn"></a><button class="btn gemini-btn text-sm flex-1 generate-recipe-btn" data-product-key="productManlyTeaTitle">✨ <span data-lang-key="generateRecipe"></span></button></div></div></div>
-                    <div class="product-card" data-category="honey"><img src="product_honey.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productFulmerHoneyTitle"></h3><p data-lang-key="productFulmerHoneyDesc"></p><div class="flex gap-2 mt-4"><a href="manly_honey_website_video_7s.html" target="_blank" class="btn text-sm flex-1" data-lang-key="exploreBtn"></a><button class="btn gemini-btn text-sm flex-1 generate-recipe-btn" data-product-key="productFulmerHoneyTitle">✨ <span data-lang-key="generateRecipe"></span></button></div></div></div>
-                    <div class="product-card" data-category="honey"><img src="Buram Honey.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productBuramHoneyTitle"></h3><p data-lang-key="productBuramHoneyDesc"></p><div class="flex gap-2 mt-4"><a href="manly_honey_website_video_7s.html" target="_blank" class="btn text-sm flex-1" data-lang-key="exploreBtn"></a><button class="btn gemini-btn text-sm flex-1 generate-recipe-btn" data-product-key="productBuramHoneyTitle">✨ <span data-lang-key="generateRecipe"></span></button></div></div></div>
-                    <div class="product-card" data-category="chocolate"><img src="product_chocolate.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productMerlionChocolateTitle"></h3><p data-lang-key="productMerlionChocolateDesc"></p><a href="manly_chocolate_website_video_7s.html" target="_blank" class="btn w-full" data-lang-key="exploreBtn"></a></div></div>
-                    <div class="product-card" data-category="gifts"><img src="product_ramadan_gift_set.png" class="product-img"><div class="product-info"><h3 data-lang-key="productRamadanGiftTitle"></h3><p data-lang-key="productRamadanGiftDesc"></p><a href="https://shopee.sg/manlyfoodenterprise?entryPoint=ShopBySearch&searchKeyword=manly" target="_blank" rel="noopener noreferrer" class="btn w-full" data-lang-key="exploreBtn"></a></div></div>
-                    <div class="product-card" data-category="tea"><img src="ahmad_tea_collection.png" class="product-img"><div class="product-info"><h3 data-lang-key="productAhmadTeaTitle"></h3><p data-lang-key="productAhmadTeaDesc"></p><div class="flex gap-2 mt-4"><a href="#products" class="btn text-sm flex-1" data-lang-key="exploreBtn"></a><button class="btn gemini-btn text-sm flex-1 generate-recipe-btn" data-product-key="productAhmadTeaTitle">✨ <span data-lang-key="generateRecipe"></span></button></div></div></div>
+                    <div class="product-card" data-category="tea"><img src="product_tea.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productManlyTeaTitle"></h3><p data-lang-key="productManlyTeaDesc"></p></div></div>
+                    <div class="product-card" data-category="honey"><img src="product_honey.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productFulmerHoneyTitle"></h3><p data-lang-key="productFulmerHoneyDesc"></p></div></div>
+                    <div class="product-card" data-category="honey"><img src="Buram Honey.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productBuramHoneyTitle"></h3><p data-lang-key="productBuramHoneyDesc"></p></div></div>
+                    <div class="product-card" data-category="chocolate"><img src="product_chocolate.jpg" class="product-img"><div class="product-info"><h3 data-lang-key="productMerlionChocolateTitle"></h3><p data-lang-key="productMerlionChocolateDesc"></p></div></div>
+                    <div class="product-card" data-category="gifts"><img src="product_ramadan_gift_set.png" class="product-img"><div class="product-info"><h3 data-lang-key="productRamadanGiftTitle"></h3><p data-lang-key="productRamadanGiftDesc"></p></div></div>
+                    <div class="product-card" data-category="tea"><img src="ahmad_tea_collection.png" class="product-img"><div class="product-info"><h3 data-lang-key="productAhmadTeaTitle"></h3><p data-lang-key="productAhmadTeaDesc"></p></div></div>
                     <div class="product-card" data-category="gifts"><img src="gift_set_corporate.png" class="product-img"><div class="product-info"><h3 data-lang-key="productCorporateGiftTitle"></h3><p data-lang-key="productCorporateGiftDesc"></p><a href="#contact" class="btn w-full" data-lang-key="getQuoteBtn"></a></div></div>
                 </div>
             </div>
@@ -263,11 +251,10 @@
             <div class="container mx-auto px-4">
                 <h2 class="section-title" data-lang-key="b2bTitle"></h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="b2b-card"><img src="b2b_corporate_gifting.png" alt="Corporate Gifting"><h3 data-lang-key="b2bFeature1Title"></h3><p data-lang-key="b2bFeature1Content"></p><div class="flex gap-2 mt-4"><a href="#contact" class="btn flex-1" data-lang-key="enquireNowBtn"></a> <button id="generate-gift-ideas" class="btn gemini-btn flex-1">✨ <span data-lang-key="getInspiration"></span></button></div></div>
+                    <div class="b2b-card"><img src="b2b_corporate_gifting.png" alt="Corporate Gifting"><h3 data-lang-key="b2bFeature1Title"></h3><p data-lang-key="b2bFeature1Content"></p><div class="flex gap-2 mt-4"><a href="#contact" class="btn flex-1" data-lang-key="enquireNowBtn"></a></div></div>
                     <div class="b2b-card"><img src="b2b_travel_retail.png" alt="Travel Retail"><h3 data-lang-key="b2bFeature2Title"></h3><p data-lang-key="b2bFeature2Content"></p><a href="#contact" class="btn w-full" data-lang-key="learnMoreBtn"></a></div>
                     <div class="b2b-card"><img src="b2b_gift_pairing.png" alt="Gift Package Pairing"><h3 data-lang-key="b2bFeature3Title"></h3><p data-lang-key="b2bFeature3Content"></p><a href="#contact" class="btn w-full" data-lang-key="getSamplesBtn"></a></div>
                 </div>
-                <div id="gift-ideas-output" class="hidden mt-8 max-w-4xl mx-auto p-6 bg-light-bg rounded-lg shadow-inner prose"></div>
             </div>
             <style>.b2b-card { text-align: center; display: flex; flex-direction: column; } .b2b-card img { width:100%; height: 250px; object-fit:cover; border-radius: 8px; margin-bottom: 1.5rem; } .b2b-card h3 { font-size: 1.5rem; margin-bottom: 1rem; } .b2b-card p { margin-bottom: 1.5rem; flex-grow: 1; } </style>
         </section>
@@ -345,7 +332,6 @@
                             <div class="mb-4"><select class="form-input" required id="enquiryNatureSelect"></select></div>
                             <div class="relative mb-4">
                                 <textarea id="form-message" rows="5" class="form-input" required data-lang-placeholder="formMessagePlaceholder"></textarea>
-                                <button type="button" id="ai-helper-btn" class="absolute bottom-2 right-2 text-xs gemini-btn !py-1 !px-2" data-lang-key="aiAssistantBtn">✨</button>
                             </div>
                             <button type="submit" class="btn w-full" data-lang-key="sendMessageBtn"></button>
                         </form>
@@ -418,7 +404,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         const translations = {
             en: {
-                heroTitle: "Premium Halal-Certified Food Distributor", heroSubtitle: "Trusted for Quality & Excellence Since 1986", cta_explore: "Explore Products", cta_contact: "Contact Us",
                 navHome: "Home", navAbout: "About Us", navBrands: "Our Brands", navProducts: "Products", navB2B: "B2B Services", navContact: "Contact",
                 shopWithUsTitle: "Shop With Us", socialShopee: "Shopee", socialLazada: "Lazada", socialTikTokShop: "TikTok Shop",
                 followUsTitle: "Follow Us Online", socialManlyFoods: "MANLY FOODS IG", socialAhmadTeaIG: "Ahmad Tea IG", socialFacebook: "Facebook", socialLinkedIn: "LinkedIn",
@@ -480,7 +465,6 @@
                 copyrightText: "© 2025 MANLY PTE LTD. All Rights Reserved.", developerInfo: "Website developed and built by Eddie工作室."
             },
             zh: {
-                heroTitle: "卓越的清真认证食品分销商", heroSubtitle: "自1986年以来，以品质与卓越赢得信赖", cta_explore: "探索产品", cta_contact: "联系我们",
                 navHome: "首页", navAbout: "关于我们", navBrands: "独家品牌", navProducts: "产品系列", navB2B: "B2B服务", navContact: "联系我们",
                 shopWithUsTitle: "在以下平台购物", socialShopee: "虾皮", socialLazada: "来赞达", socialTikTokShop: "TikTok 商城",
                 followUsTitle: "在线关注我们", socialManlyFoods: "万利食品 IG", socialAhmadTeaIG: "Ahmad 茶 IG", socialFacebook: "脸书", socialLinkedIn: "领英",
@@ -640,112 +624,12 @@
             });
         });
         
-        // --- Gemini AI 功能 ---
+        // --- Modal Setup ---
         const globalModal = document.getElementById('global-modal');
         const modalTitle = document.getElementById('global-modal-title');
         const modalContent = document.getElementById('global-modal-content');
         const modalCloseBtn = document.getElementById('global-modal-close');
 
-        async function callGemini(prompt, button) {
-            const originalText = button.innerHTML;
-            button.innerHTML = '<span class="loader"></span>';
-            button.disabled = true;
-
-            try {
-                const apiKey = ""; // Canvas will provide this
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                
-                const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }]
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates[0] && result.candidates[0].content.parts[0]) {
-                    return result.candidates[0].content.parts[0].text;
-                } else {
-                    return currentLang === 'zh' ? '抱歉，無法生成內容。' : 'Sorry, could not generate content.';
-                }
-
-            } catch (error) {
-                console.error("Gemini API call failed:", error);
-                return currentLang === 'zh' ? `發生錯誤：${error.message}` : `Error: ${error.message}`;
-            } finally {
-                button.innerHTML = originalText;
-                button.disabled = false;
-            }
-        }
-        
-        // 1. 禮品策劃師
-        const giftIdeaBtn = document.getElementById('generate-gift-ideas');
-        const giftIdeaOutput = document.getElementById('gift-ideas-output');
-        
-        giftIdeaBtn.addEventListener('click', async () => {
-            giftIdeaOutput.classList.remove('hidden');
-            giftIdeaOutput.innerHTML = `<div class="flex justify-center items-center"><div class="loader"></div><p class="ml-4">${currentLang === 'zh' ? '正在生成靈感...' : 'Generating ideas...'}</p></div>`;
-            
-            const prompt = currentLang === 'zh' ?
-                "你是一位禮品策劃專家。基於一家提供優質清真認證的茶葉、蜂蜜和巧克力的公司，請生成3個創意企業禮品組合方案。每個方案請包含一個吸引人的主題名稱、建議包含的產品，以及一句話的推薦語。請用Markdown格式返回，使用標題和列表。" :
-                "You are a gift curation expert. For a company that offers premium Halal-certified teas, honey, and chocolates, generate 3 creative corporate gift package ideas. For each idea, provide a catchy theme name, suggest which products to include, and a one-sentence recommendation. Please return the response in Markdown format with headings and lists.";
-
-            const ideas = await callGemini(prompt, giftIdeaBtn);
-            // Simple Markdown to HTML
-            let html = ideas.replace(/### (.*)/g, '<h3 class="text-lg font-bold mt-4">$1</h3>')
-                            .replace(/\* \*\*(.*?)\*\*:/g, '<p class="mt-2"><strong>$1:</strong>')
-                            .replace(/\* (.*)/g, '<li>$1</li>')
-                            .replace(/(\<\/li\>)/g, '$1\n<ul>')
-                            .replace(/(\<\/ul\>)/g, '</ul>');
-            
-            giftIdeaOutput.innerHTML = `<ul>${html}</ul>`;
-        });
-        
-        // 2. 食譜生成器
-        document.querySelectorAll('.generate-recipe-btn').forEach(button => {
-            button.addEventListener('click', async (e) => {
-                const productKey = e.currentTarget.dataset.productKey;
-                const productName = translations[currentLang][productKey];
-
-                modalTitle.textContent = `${productName} - ${currentLang === 'zh' ? 'AI 創意食譜' : 'AI Creative Recipe'}`;
-                modalContent.innerHTML = `<div class="flex justify-center items-center"><div class="loader"></div><p class="ml-4">${currentLang === 'zh' ? '正在生成食譜...' : 'Generating recipe...'}</p></div>`;
-                globalModal.classList.remove('opacity-0', 'pointer-events-none');
-                
-                const prompt = currentLang === 'zh' ?
-                    `請為 "${productName}" 創作一個簡單又創意的食譜或飲用建議。請保持簡短易懂，步驟清晰。` :
-                    `Create a simple and creative recipe or serving suggestion using "${productName}". Keep it short and easy to follow with clear steps.`;
-
-                const recipe = await callGemini(prompt, button);
-                modalContent.innerHTML = recipe.replace(/\n/g, '<br>');
-            });
-        });
-
-        // 3. 聯繫表單 AI 助理
-        const aiHelperBtn = document.getElementById('ai-helper-btn');
-        const messageTextarea = document.getElementById('form-message');
-        
-        aiHelperBtn.addEventListener('click', async () => {
-            const userInput = messageTextarea.value;
-            if (userInput.trim().length < 5) {
-                alert(currentLang === 'zh' ? '請至少輸入5個字以便AI協助。' : 'Please enter at least 5 characters for the AI to assist.');
-                return;
-            }
-
-            const prompt = currentLang === 'zh' ?
-                `你是一位專業的商務助理。請根據以下用戶為食品批發公司寫的初步諮詢內容，協助潤色並補完一封語氣專業、意圖清晰的完整郵件。用戶輸入：“${userInput}”` :
-                `You are a professional business assistant. Based on the following initial user input for an inquiry to a food wholesale company, please polish and complete it into a professional and clear message. User input: "${userInput}"`;
-
-            const suggestedText = await callGemini(prompt, aiHelperBtn);
-            messageTextarea.value = suggestedText;
-        });
         
         modalCloseBtn.addEventListener('click', () => {
              globalModal.classList.add('opacity-0', 'pointer-events-none');
