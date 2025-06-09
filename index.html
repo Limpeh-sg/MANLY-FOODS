@@ -44,12 +44,12 @@
             --primary-wood-dark: #5A4A3C;
             --primary-wood-medium: #8D7B6A;
             --accent-gold: #D4AF37;
-            --light-bg: #F5E8D7;
+            --light-bg: '#F5E8D7';
             --text-dark: #333333;
             --text-light: #f8f8f8;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood-pattern.png'); background-attachment: fixed; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); background-image: url('wooden bg1.png'); background-attachment: fixed; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
         .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-wood-dark); position: relative; font-size: 2.25rem; line-height: 2.5rem; }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--accent-gold); margin: 15px auto 0; }
@@ -191,7 +191,7 @@
         <i class="fab fa-whatsapp text-xl"></i>
         <span class="font-semibold text-sm" data-lang-key="chatWithUs"></span>
     </a>
-    <button id="back-to-top" class="fixed bottom-5 right-5 z-50 w-12 h-12 bg-accent-gold text-white rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 opacity-0 hover:bg-accent-gold-hover">
+    <button id="back-to-top" class="fixed bottom-5 right-5 z-[990] w-12 h-12 bg-accent-gold text-white rounded-full flex items-center justify-center shadow-lg transition-opacity duration-300 opacity-0 hover:bg-accent-gold-hover">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -569,7 +569,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Contact Section with Map and Feedback -->
                         <div class="mt-8 pt-6 border-t border-gray-200">
                              <div style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
                                 <iframe
@@ -609,7 +608,7 @@
         </section>
     </main>
     
-    <footer class="bg-primary-wood-dark text-text-light pt-16 pb-8">
+    <footer class="bg-primary-wood-dark text-text-light pt-16 pb-8 relative">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
@@ -653,16 +652,15 @@
                 <p data-lang-key="copyrightText"></p>
             </div>
         </div>
+        <p id="developer-info" class="absolute bottom-4 right-4 text-[9px] text-gray-500 opacity-60">™ <span data-lang-key="developerInfo"></span></p>
         <style>.footer-link { color: #ccc; transition: all 0.3s; } .footer-link:hover { color: var(--accent-gold); padding-left: 5px; } .social-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid #777; border-radius:50%; color:#ccc; transition:all .3s;} .social-icon:hover { background-color:var(--accent-gold); color:var(--primary-wood-dark); border-color:var(--accent-gold);}</style>
     </footer>
-
-    <p id="developer-info" class="fixed bottom-1 right-2 text-[9px] text-gray-400 opacity-30 pointer-events-none">™ <span data-lang-key="developerInfo"></span></p>
 
     <div id="global-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[1000] opacity-0 pointer-events-none transition-opacity duration-300">
         <div id="modal-content-wrapper" class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-11/12 transform transition-transform duration-300 scale-95">
             <div class="flex justify-between items-start">
                 <h3 id="global-modal-title" class="text-2xl font-bold mb-4 text-primary-wood-dark"></h3>
-                <button id="global-modal-close" class="text-2xl text-gray-500 hover:text-gray-800">&times;</button>
+                <button id="global-modal-close" class="text-2xl text-gray-500 hover:text-gray-800">×</button>
             </div>
             <div id="global-modal-content" class="text-gray-600 mb-6 prose max-w-none prose-p:my-2 prose-headings:text-primary-wood-dark prose-strong:text-primary-wood-dark" style="max-height: 60vh; overflow-y: auto;"></div>
             <div id="global-modal-actions" class="mt-6 text-right">
@@ -671,7 +669,6 @@
         </div>
     </div>
     
-    <!-- Chatbot Elements -->
     <style>
       #chatbot-toggle {
         position: fixed;
@@ -784,11 +781,10 @@
     <div id="chatbot-window">
         <div class="chatbot-header">
             <span data-lang-key="chatbotTitle">AI Assistant</span>
-            <button id="chatbot-close" class="text-xl">&times;</button>
+            <button id="chatbot-close" class="text-xl">×</button>
         </div>
         <div id="chatbot-body" class="chatbot-body">
-            <!-- Messages will be appended here -->
-        </div>
+            </div>
         <div class="chatbot-footer">
             <input type="text" id="chatbot-input" data-lang-placeholder="chatbotPlaceholder">
             <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
@@ -868,12 +864,8 @@
                 aiError: "Sorry, the AI assistant is currently unavailable. Please try again later.",
                 chatbotTitle: "AI Assistant",
                 chatbotPlaceholder: "Type your message...",
-                botWelcome: "Hello! I'm Manly's AI Assistant. How can I help you with our products or services today?",
-                botDefaultReply: "I'm sorry, I can only answer questions about our MOQ, address, contact number, and services for now. How can I assist with those?",
-                moqAnswer: "Our Minimum Order Quantity (MOQ) for corporate or bulk orders is S$300.",
-                addressAnswer: "You can find us at: 221 Henderson Rd, #07-11 Henderson Building, Singapore 159557.",
-                phoneAnswer: "Our contact number is +65 6275 0603.",
-                servicesAnswer: "We specialize in several areas: 1) Corporate & Festive Gifting with customization. 2) Supplying to Travel Retail locations like airports. 3) Gift Package Pairing and co-branding for businesses. We focus on premium Halal-certified products like tea, honey, and chocolates."
+                botWelcome: "Hello! I am your AI assistant. Feel free to ask me about our products, services, delivery, or payment methods!",
+                botDefaultReply: "Thank you for your question! For detailed inquiries, please use the contact form or call us. However, I can help with general questions about our products and services. What would you like to know?"
             },
             zh: {
                 navHome: "首頁", navAbout: "關於我們", navBrands: "獨家品牌", navProducts: "產品系列", navB2B: "B2B服務", navContact: "聯繫我們",
@@ -892,7 +884,7 @@
                 whyUsTitle: "為何選擇我們",
                 feature1Title: "優質合作", feature1Content: "擁有清真認證的世界知名食品品牌的獨家分銷商。",
                 feature2Title: "禮品方案", feature2Content: "為所有場合訂製禮品套裝，提供優質包裝選擇。",
-                feature3Title: "全球網絡", feature3Content: "在亞洲和中東地區建立了完善的分銷網絡。",
+                feature3Title: "全球網絡", feature3Content: "在亞洲和中東地区建立了完善的分銷網絡。",
                 feature4Title: "清真認證", feature4Content: "確保所有產品符合嚴格的清真標準，以滿足多元化市場。",
                 feature5Title: "高效物流", feature5Content: "在新加坡及其他地區提供快速可靠的配送服務。",
                 brandsTitle: "我們的獨家品牌",
@@ -944,16 +936,39 @@
                 aiError: "抱歉，AI 助理目前無法使用，請稍後再試。",
                 chatbotTitle: "AI 小助理",
                 chatbotPlaceholder: "輸入您的訊息...",
-                botWelcome: "您好！我是萬利的 AI 助理。請問今天需要哪些關於我們產品或服務的資訊？",
-                botDefaultReply: "抱歉，我目前主要能回答關於最低訂購量、公司地址、聯絡電話以及服務範圍的問題。請問需要這些資訊嗎？",
-                moqAnswer: "我們公司或批量訂單的最低訂購量 (MOQ) 為 300 新幣。",
-                addressAnswer: "我們的地址是：221 Henderson Rd, #07-11 Henderson Building, Singapore 159557。",
-                phoneAnswer: "我們的聯絡電話是 +65 6275 0603。",
-                servicesAnswer: "我們專注於多個領域：1) 可客製化的企業及節日禮贈。2) 為機場等旅遊零售點供貨。3) 為企業提供禮品搭配和聯合品牌服務。我們的核心產品是經過清真認證的優質茶葉、蜂蜜和巧克力。"
+                botWelcome: "您好！我是您的 AI 小助理。歡迎隨時詢問關於產品、服務、配送或付款方式的問題！",
+                botDefaultReply: "感謝您的提問！若需詳細資訊，建議您使用聯絡表單或直接致電我們。不過，我很樂意回答關於我們產品和服務的一般性問題。請問您想了解什麼？"
             }
         };
 
         let currentLang = localStorage.getItem('manlyfoods_lang') || 'en';
+        
+        // --- 植入的 FAQ 知識庫 ---
+        const knowledgeBase = [
+            {"category":"B2B/企業合作","question":"請問你們有提供企業禮品訂製服務嗎？大量採購有折扣嗎？","tags":"B2B, 企業, 公司, 禮品, 訂製, 大量, 採購, 折扣, 合作, business, corporate, gift, custom, bulk, discount","answer_en":"Yes, we offer comprehensive B2B and corporate gifting services, including customization options. We provide attractive discounts for bulk purchases. Please contact our sales team through the form for a detailed quote.","answer_zh":"是的，我們提供全面的 B2B 及企業禮品服務，包含客製化選項。大量採購我們也提供具吸引力的折扣，歡迎您透過聯絡表單與我們的業務團隊聯繫，以獲取詳細報價。"},
+            {"category":"B2B/企業合作","question":"我想和你們談合作，請問窗口是哪位？","tags":"合作, 窗口, 聯繫, contact, partnership, business","answer_en":"We are delighted to discuss potential partnerships! Please send your proposal or inquiry to allen@manlyfoods.com, and our business development team will get back to you promptly.","answer_zh":"我們非常樂意探討任何合作可能性！請將您的合作提案或問題寄至 allen@manlyfoods.com，我們的商務開發團隊將會盡快與您聯繫。"},
+            {"category":"公司資訊","question":"請問你們公司的地址在哪裡？可以現場選購嗎？","tags":"地址, 地點, 位置, 門市, 現場, address, location, store, visit","answer_en":"Our office is located at 221 Henderson Rd, #07-11 Henderson Building, Singapore 159557. We operate as a distributor and do not have a retail storefront for on-site purchases at this location.","answer_zh":"我們的辦公室地址在 221 Henderson Rd, #07-11 Henderson Building, Singapore 159557。請注意，我們是分銷商，該地址為辦公地點，未開放現場零售選購。"},
+            {"category":"公司資訊","question":"你們的營業時間是幾點到幾點？","tags":"營業時間, 上班時間, 時間, hours, open, business hours","answer_en":"Our operating hours are Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 9:00 AM to 12:00 PM. We are closed on Sundays and Public Holidays.","answer_zh":"我們的營業時間是週一至週五上午 9:00 至下午 6:00，週六上午 9:00 至中午 12:00。週日及公眾假期休息。"},
+            {"category":"公司資訊","question":"你們公司的電話是幾號？","tags":"電話, 聯絡電話, phone, contact number, telephone","answer_en":"You can reach us at +65 6275 0603 during our operating hours.","answer_zh":"您可以在我們的營業時間內撥打 +65 6275 0603 聯繫我們。"},
+            {"category":"付款與配送","question":"請問你們接受哪些付款方式？","tags":"付款, 付錢, 信用卡, pay, payment, credit card, method","answer_en":"For online retail purchases on platforms like Shopee and Lazada, please refer to the payment options available on those platforms. For corporate orders, we typically accept bank transfers and PayNow.","answer_zh":"在蝦皮、Lazada 等線上平台的零售購買，請參考該平台支援的付款方式。企業訂單部分，我們主要接受銀行轉帳和 PayNow。"},
+            {"category":"付款與配送","question":"請問訂購後多久可以收到貨？","tags":"多久, 收到, 貨, 配送, 送貨, delivery, shipping, time","answer_en":"For local deliveries in Singapore, it typically takes 3-5 working days. For bulk corporate orders, the delivery timeline will be coordinated with you by our sales team.","answer_zh":"新加坡本地的配送，一般需要 3-5 個工作天。若是企業大宗訂單，我們的業務團隊將會與您協調具體的配送時程。"},
+            {"category":"付款與配送","question":"你們有海外寄送服務嗎？","tags":"海外, 寄送, 國際, international, overseas, shipping","answer_en":"Currently, our direct-to-consumer online stores primarily serve Singapore. For international B2B inquiries, please contact us at allen@manlyfoods.com to discuss possibilities.","answer_zh":"目前我們的直營線上商店主要服務新加坡地區。若您有國際 B2B 業務需求，歡迎來信 allen@manlyfoods.com 與我們詳談。"},
+            {"category":"付款與配送","question":"請問運費怎麼計算？有免運嗎？","tags":"運費, 免運, shipping fee, free delivery","answer_en":"Shipping fees for online platforms are determined by Shopee or Lazada. For corporate orders, delivery fees may apply depending on the order size and location. We often provide free delivery for orders above a certain value, which our sales team can confirm for you.","answer_zh":"線上平台的運費由蝦皮或 Lazada 平台計算。企業訂單的運費則視訂單金額與地點而定，我們通常會為達到特定金額的訂單提供免費配送服務，詳情可與我們的業務團隊確認。"},
+            {"category":"產品資訊","question":"請問你們的產品都是清真 (Halal) 的嗎？","tags":"清真, halal, muslim, 穆斯林","answer_en":"A majority of our core products, including Ahmad Tea and Fulmer Honey, are Halal-certified. We are committed to providing high-quality Halal options. You can find the Halal logo on the packaging of certified products.","answer_zh":"我們大部分的核心產品，包括 Ahmad Tea、Fulmer Honey 等，都經過清真 (Halal) 認證。我們致力於提供高品質的清真選擇，您可以在認證產品的包裝上找到清真標誌。"},
+            {"category":"產品資訊","question":"你們的茶葉是哪裡來的？","tags":"茶葉, 產地, 來源, tea, origin","answer_en":"Our flagship brand, Ahmad Tea, is a renowned UK-based brand that sources high-quality teas from around the world, including Sri Lanka, India, and Kenya, blended and packed in their facilities to ensure quality.","answer_zh":"我們的主力品牌 Ahmad Tea 是來自英國的知名品牌，他們從世界各地（如斯里蘭卡、印度、肯亞）採購最優質的茶葉，並在其設施中進行混合與包裝，以確保品質。"},
+            {"category":"產品資訊","question":"蜂蜜是真的純蜂蜜嗎？有沒有加糖？","tags":"蜂蜜, 純, 加糖, honey, pure, sugar","answer_en":"Yes, our honey brands like Fulmer and Buram are 100% pure and natural, without any added sugar or additives. We pride ourselves on offering authentic, high-quality honey.","answer_zh":"是的，我們旗下的蜂蜜品牌如 Fulmer 和 Buram 皆為 100% 純天然蜂蜜，絕無添加糖或任何添加物。我們對提供純正高品質的蜂蜜感到自豪。"},
+            {"category":"產品資訊","question":"巧克力的可可含量是多少？","tags":"巧克力, 可可, 含量, chocolate, cocoa, percentage","answer_en":"The cocoa content varies by product. Our Merlion Chocolate is a premium milk chocolate blend designed for a smooth and rich taste. For specific percentages, please refer to the product packaging.","answer_zh":"不同產品的可可含量各異。我們的魚尾獅巧克力是為滑順濃郁口感而設計的優質牛奶巧克力。具體的百分比資訊，請參考產品包裝上的標示。"},
+            {"category":"產品資訊","question":"我想看你們的產品目錄","tags":"產品, 目錄, catalog, product list, brochure","answer_en":"You can explore our main product lines right here on our website under the 'Products' and 'Our Brands' sections. For a detailed B2B catalog, please get in touch with us through the contact form.","answer_zh":"您可以在我們網站的「產品系列」和「獨家品牌」區塊探索我們的主要產品線。如需詳細的 B2B 產品目錄，歡迎透過聯絡表單與我們聯繫。"},
+            {"category":"產品資訊","question":"保存期限大概多久？","tags":"保存期限, 有效期限, expiry, shelf life, best before","answer_en":"The shelf life varies for each product. Teas and honey generally have a long shelf life, often 2-3 years. Chocolates are typically best consumed within one year. Please always refer to the specific expiry date printed on the product packaging.","answer_zh":"每種產品的保存期限都不同。茶葉和蜂蜜的保存期通常較長，約 2-3 年；巧克力則建議在一年內食用完畢。最準確的資訊請參考產品包裝上打印的有效期限。"},
+            {"category":"產品資訊","question":"Ahmad Tea 有哪些推薦的口味？","tags":"Ahmad Tea, 推薦, 口味, ahmad, recommend, flavor","answer_en":"For a classic choice, our English Breakfast is highly recommended. If you prefer something aromatic, Earl Grey is a popular option. For a non-caffeinated choice, our fruit-flavored infusions like Peach & Passion Fruit are delightful.","answer_zh":"若您喜歡經典口味，我們非常推薦「英式早餐茶」。若您偏好帶有香氣的茶款，「伯爵茶」是廣受歡迎的選擇。如果想嘗試無咖啡因的，我們的「蜜桃百香果」等水果風味茶非常棒。"},
+            {"category":"B2B/企業合作","question":"MOQ是多少？","tags":"MOQ, minimum, order, quantity, 最低訂購量","answer_en":"Our Minimum Order Quantity (MOQ) for corporate or bulk orders is S$300.","answer_zh":"我們公司或批量訂單的最低訂購量 (MOQ) 為 300 新幣。"},
+            {"category":"退換貨政策","question":"如果產品有問題可以退貨或換貨嗎？","tags":"退貨, 換貨, 政策, return, exchange, policy, faulty","answer_en":"Yes, if you receive a product that is defective or damaged, please contact us within 7 days of receipt with your order details and a photo of the issue. We will arrange for a replacement or a refund.","answer_zh":"可以的，若您收到的產品有瑕疵或損壞，請在收到貨的 7 天內，憑訂單詳情與問題照片與我們聯繫，我們將為您安排換貨或退款事宜。"},
+            {"category":"退換貨政策","question":"我買錯了，可以換成別的商品嗎？","tags":"買錯, 換, exchange, wrong item","answer_en":"For hygiene and food safety reasons, we generally do not accept exchanges for items due to a change of mind. Please double-check your order before purchasing. If you have any concerns, feel free to ask us before you buy.","answer_zh":"基於衛生與食品安全考量，因個人因素（如買錯、不喜歡）的換貨申請，我們通常無法受理。建議您在購買前再三確認訂單內容。若有任何疑慮，歡迎在購買前隨時詢問我們。"},
+            {"category":"公司資訊","question":"你們是新加坡本地公司嗎？","tags":"本地, 新加坡, local, singapore","answer_en":"Yes, Manly Pte Ltd was founded in Singapore in 1986. We are a proud local company with a deep understanding of the Singaporean market.","answer_zh":"是的，Manly Pte Ltd (萬利私人有限公司) 於1986年在新加坡成立，我們是一家自豪的本地公司，對新加坡市場有著深刻的理解。"},
+            {"category":"產品資訊","question":"你們有賣茶包(tea bag)還是散茶(loose leaf)？","tags":"茶包, 散茶, tea bag, loose leaf","answer_en":"We offer both! Many of our popular Ahmad Tea blends are available in both convenient tea bags and as loose-leaf tea for those who prefer a more traditional brewing experience.","answer_zh":"兩種我們都有！我們許多熱門的 Ahmad Tea 口味，同時提供方便的茶包裝，以及適合喜愛傳統泡茶體驗的散茶裝。"},
+            {"category":"B2B/企業合作","question":"婚禮小物可以找你們訂嗎？","tags":"婚禮, 小禮物, wedding, favors, door gift","answer_en":"Absolutely! Our elegantly packaged products like the MANLY Wooden Box Tea and premium chocolates make for perfect wedding favors. We can work with you to create a memorable gift for your guests.","answer_zh":"當然可以！我們包裝典雅的產品，例如「萬利木盒茶」和優質巧克力，都非常適合作為婚禮小物。我們可以與您一同為您的賓客打造一份難忘的禮物。"},
+            {"category":"產品資訊","question":"你們的蜂蜜結晶了是正常的嗎？","tags":"蜂蜜, 結晶, honey, crystal, crystallisation","answer_en":"Yes, crystallization is a natural process for pure, raw honey and it does not mean the honey has gone bad. It's actually a sign of high quality! You can gently warm the jar in a bowl of warm water to return it to a liquid state.","answer_zh":"是的，結晶是純天然蜂蜜的正常物理現象，並不代表蜂蜜變質了，這反而是高品質的象徵！您只需要將蜂蜜罐隔水溫熱，就可以讓它恢復液態。"}
+        ];
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -996,6 +1011,14 @@
                 btn.classList.toggle('!text-text-dark', btn.dataset.lang === lang);
                 btn.classList.toggle('border-white', btn.dataset.lang !== lang);
             });
+            // Update chatbot welcome message on language switch if chat is open
+            const chatbotBody = document.getElementById('chatbot-body');
+            if (chatbotWindow.classList.contains('active') && chatbotBody.children.length > 0) {
+                 const firstBotMessage = chatbotBody.querySelector('.bot-message');
+                 if(firstBotMessage.dataset.welcome) {
+                    firstBotMessage.textContent = translations[lang].botWelcome;
+                 }
+            }
         }
         
         // --- Gemini AI API 功能 ---
@@ -1240,7 +1263,8 @@
             if(chatbotWindow.classList.contains('active')) {
                 // Display welcome message if it's the first time opening
                 if(chatbotBody.children.length === 0) {
-                    displayMessage(translations[currentLang].botWelcome, 'bot');
+                    const welcomeMsg = displayMessage(translations[currentLang].botWelcome, 'bot');
+                    welcomeMsg.dataset.welcome = "true";
                 }
             }
         }
@@ -1254,25 +1278,23 @@
             messageElement.textContent = message;
             chatbotBody.appendChild(messageElement);
             chatbotBody.scrollTop = chatbotBody.scrollHeight;
+            return messageElement;
         }
 
         function getBotResponse(userInput) {
             const lowerCaseInput = userInput.toLowerCase();
             const lang = currentLang;
+            
+            for (const item of knowledgeBase) {
+                const tags = item.tags.split(',').map(t => t.trim().toLowerCase());
+                const foundTag = tags.some(tag => lowerCaseInput.includes(tag));
+                
+                if (foundTag) {
+                    return lang === 'zh' ? item.answer_zh : item.answer_en;
+                }
+            }
 
-            // Keyword matching for both English and Chinese
-            if (lowerCaseInput.includes('moq') || lowerCaseInput.includes('minimum order') || lowerCaseInput.includes('最低')) {
-                return translations[lang].moqAnswer;
-            }
-            if (lowerCaseInput.includes('address') || lowerCaseInput.includes('location') || lowerCaseInput.includes('地址') || lowerCaseInput.includes('地點')) {
-                return translations[lang].addressAnswer;
-            }
-            if (lowerCaseInput.includes('phone') || lowerCaseInput.includes('contact') || lowerCaseInput.includes('電話') || lowerCaseInput.includes('聯絡')) {
-                return translations[lang].phoneAnswer;
-            }
-            if (lowerCaseInput.includes('service') || lowerCaseInput.includes('gifting') || lowerCaseInput.includes('b2b') || lowerCaseInput.includes('服務') || lowerCaseInput.includes('禮品')) {
-                return translations[lang].servicesAnswer;
-            }
+            // Fallback if no specific tag is matched
             if (lowerCaseInput.includes('hello') || lowerCaseInput.includes('hi') || lowerCaseInput.includes('你好')) {
                 return translations[lang].botWelcome;
             }
