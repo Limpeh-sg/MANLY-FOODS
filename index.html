@@ -49,12 +49,12 @@
             --text-light: #f8f8f8;
         }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); background-image: url('wooden bg1.png'); background-size: cover; background-attachment: fixed; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood-pattern.png'); background-attachment: fixed; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
         .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-wood-dark); position: relative; font-size: 2.25rem; line-height: 2.5rem; }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--accent-gold); margin: 15px auto 0; }
         .sticky-nav { background-color: rgba(90, 74, 60, 0.95) !important; backdrop-filter: blur(10px); will-change: background-color, backdrop-filter; }
-        .btn { display: inline-block; padding: 12px 24px; background-color: var(--accent-gold); color: var(--text-dark); border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-align: center; }
+        .btn { display: inline-flex; justify-content: center; align-items: center; padding: 12px 24px; background-color: var(--accent-gold); color: var(--text-dark); border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-align: center; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background-color: var(--accent-gold-hover); }
         .btn-secondary { background-color: transparent; border: 2px solid var(--accent-gold); color: white; }
         .btn-secondary:hover { background-color: var(--accent-gold); color: var(--text-dark); }
@@ -76,30 +76,16 @@
         }
     </style>
     <style>
-    /* 磨砂玻璃面板樣式 */
-    body {
-        background: url('https://images.unsplash.com/photo-1507525428034-b723a9ce6ad3?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
-    }
-
-    .hero-slide {
-        background-image: none !important;
-        background-color: rgba(44, 36, 27, 0.35); /* 半透明深色背景，與主題匹配 */
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px); /* 兼容 Safari 瀏覽器 */
-        border: 1px solid rgba(255, 255, 255, 0.1); /* 細微邊框增加立體感 */
-    }
-
-    .hero-slide::before {
-        background-color: rgba(0, 0, 0, 0.4); /* 調整遮罩透明度 */
-    }
-
-    /* 原有的 Hero 區塊樣式 */
+    /* 修正英雄區背景 */
     .hero {
+        position: relative;
         height: 100vh;
         min-height: 700px;
-        position: relative;
         overflow: hidden;
         margin-top: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .hero-slide {
@@ -120,13 +106,15 @@
         opacity: 1;
     }
     
-    .hero-slide::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    /* 移除深色背景，使用磨砂效果 */
+    .hero-content-wrapper {
+        background-color: rgba(44, 36, 27, 0.25); /* 更淡的半透明背景 */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); /* 兼容 Safari */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     }
     
     .hero-content {
@@ -135,17 +123,18 @@
         text-align: center;
         color: var(--text-light);
         max-width: 800px;
-        padding: 0 20px;
     }
     
     .hero-content h1 {
         font-size: 3.5rem;
         margin-bottom: 20px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
     
     .hero-content p {
         font-size: 1.2rem;
         margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
     
     .hero-btns {
@@ -180,6 +169,20 @@
         background-color: var(--accent-gold);
         transform: scale(1.2);
     }
+
+    /* 修正 About Us 區塊背景 */
+    #about {
+        background-color: transparent; /* 移除不透明背景色 */
+    }
+
+    .about-content-card {
+        background-color: rgba(245, 232, 215, 0.85); /* 使用半透明的 light-bg */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        padding: 2rem;
+        border-radius: 12px;
+    }
+
 </style>
 </head>
 <body class="text-text-dark">
@@ -235,67 +238,79 @@
     <main>
         <section class="hero" id="home">
             <div class="hero-slide active">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title1">Premium Halal-Certified Food Distributor</h1>
-                    <p data-lang-key="hero.subtitle1">Trusted for Quality & Excellence Since 1986</p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title1"></h1>
+                        <p data-lang-key="hero.subtitle1"></p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn" data-lang-key="hero.btn1"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-slide">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title2">Gourmet Teas & Infusions</h1>
-                    <p data-lang-key="hero.subtitle2">Discover Our Exquisite Tea Collections</p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title2"></h1>
+                        <p data-lang-key="hero.subtitle2"></p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn" data-lang-key="hero.btn1"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-slide">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title3">Exquisite Chocolates & Confections</h1>
-                    <p data-lang-key="hero.subtitle3">Indulge in Rich Flavors & Unique Gifts</p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title3"></h1>
+                        <p data-lang-key="hero.subtitle3"></p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn" data-lang-key="hero.btn1"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-slide">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title4">Pure & Natural Honey Selections</h1>
-                    <p data-lang-key="hero.subtitle4">From Our Hives to Your Home</p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title4"></h1>
+                        <p data-lang-key="hero.subtitle4"></p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn" data-lang-key="hero.btn1"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-slide">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title5">Corporate Gifting & B2B Solutions</h1>
-                    <p data-lang-key="hero.subtitle5">Tailored Food Solutions for Your Business Needs</p>
-                    <div class="hero-btns">
-                        <a href="#b2b" class="btn" data-lang-key="hero.btn1.b2b">Explore Services</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title5"></h1>
+                        <p data-lang-key="hero.subtitle5"></p>
+                        <div class="hero-btns">
+                            <a href="#b2b" class="btn" data-lang-key="hero.btn1.b2b"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-slide">
-                <div class="hero-content">
-                    <h1 data-lang-key="hero.title6">Singapore's Premier FMCG Distributor</h1>
-                    <p data-lang-key="hero.subtitle6">Connecting Quality Brands with Local Markets</p>
-                    <div class="hero-btns">
-                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
-                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                 <div class="hero-content-wrapper">
+                    <div class="hero-content">
+                        <h1 data-lang-key="hero.title6"></h1>
+                        <p data-lang-key="hero.subtitle6"></p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn" data-lang-key="hero.btn1"></a>
+                            <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -310,7 +325,7 @@
             </div>
         </section>
 
-        <section class="py-5" style="background-image: url('wooden bg2.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: cover;">
+        <section class="py-5" style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood-pattern.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: auto; background-attachment: fixed;">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-8 text-white">
                     <div>
@@ -335,23 +350,25 @@
             <style>.social-btn { display: inline-flex; align-items: center; background-color: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; } .social-btn:hover { background-color: var(--accent-gold); color: var(--text-dark); }</style>
         </section>
 
-        <section id="about" class="py-20 bg-light-bg">
+        <section id="about" class="py-20">
             <div class="container mx-auto px-4">
-                <h2 class="section-title" data-lang-key="aboutTitle"></h2>
-                <div class="text-center max-w-4xl mx-auto mb-12">
-                    <img src="image_00.png" alt="About Us - MANLY FOODS" class="rounded-lg shadow-lg mb-8" onerror="this.src='https://placehold.co/800x500/cccccc/333333?text=Our+Story'">
-                    <p class="text-lg text-gray-700 leading-relaxed" data-lang-key="aboutContent"></p>
-                </div>
-                <h2 class="section-title mt-20" data-lang-key="whyUsTitle"></h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-                    <div class="feature-card"><i class="fas fa-award"></i><h3 data-lang-key="feature1Title"></h3><p data-lang-key="feature1Content"></p></div>
-                    <div class="feature-card"><i class="fas fa-gift"></i><h3 data-lang-key="feature2Title"></h3><p data-lang-key="feature2Content"></p></div>
-                    <div class="feature-card"><i class="fas fa-globe-asia"></i><h3 data-lang-key="feature3Title"></h3><p data-lang-key="feature3Content"></p></div>
-                    <div class="feature-card"><i class="fas fa-certificate"></i><h3 data-lang-key="feature4Title"></h3><p data-lang-key="feature4Content"></p></div>
-                    <div class="feature-card"><i class="fas fa-truck-fast"></i><h3 data-lang-key="feature5Title"></h3><p data-lang-key="feature5Content"></p></div>
+                <div class="about-content-card">
+                    <h2 class="section-title" data-lang-key="aboutTitle"></h2>
+                    <div class="text-center max-w-4xl mx-auto mb-12">
+                        <img src="image_00.png" alt="About Us - MANLY FOODS" class="rounded-lg shadow-lg mb-8" onerror="this.src='https://placehold.co/800x500/cccccc/333333?text=Our+Story'">
+                        <p class="text-lg text-gray-700 leading-relaxed" data-lang-key="aboutContent"></p>
+                    </div>
+                    <h2 class="section-title mt-20" data-lang-key="whyUsTitle"></h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                        <div class="feature-card"><i class="fas fa-award"></i><h3 data-lang-key="feature1Title"></h3><p data-lang-key="feature1Content"></p></div>
+                        <div class="feature-card"><i class="fas fa-gift"></i><h3 data-lang-key="feature2Title"></h3><p data-lang-key="feature2Content"></p></div>
+                        <div class="feature-card"><i class="fas fa-globe-asia"></i><h3 data-lang-key="feature3Title"></h3><p data-lang-key="feature3Content"></p></div>
+                        <div class="feature-card"><i class="fas fa-certificate"></i><h3 data-lang-key="feature4Title"></h3><p data-lang-key="feature4Content"></p></div>
+                        <div class="feature-card"><i class="fas fa-truck-fast"></i><h3 data-lang-key="feature5Title"></h3><p data-lang-key="feature5Content"></p></div>
+                    </div>
                 </div>
             </div>
-            <style>.feature-card { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--box-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; } .feature-card:hover { transform: translateY(-10px); } .feature-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1.5rem; } .feature-card h3 { font-weight: bold; margin-bottom: 1rem; color: var(--primary-wood-dark); font-size:1.1rem; flex-grow: 1; } .feature-card p { font-size: 0.9rem; color: #555; }</style>
+            <style>.feature-card { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--subtle); transition: all 0.3s ease; display: flex; flex-direction: column; } .feature-card:hover { transform: translateY(-10px); } .feature-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1.5rem; } .feature-card h3 { font-weight: bold; margin-bottom: 1rem; color: var(--primary-wood-dark); font-size:1.1rem; flex-grow: 1; } .feature-card p { font-size: 0.9rem; color: #555; }</style>
         </section>
 
         <section id="brands" class="bg-primary-wood-dark py-20 lg:py-24 overflow-hidden">
@@ -489,7 +506,7 @@
             </div>
         </section>
 
-        <section id="testimonials" class="py-20" style="background-image: url('wooden bg2.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: cover; background-attachment: fixed;">
+        <section id="testimonials" class="py-20" style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/wood-pattern.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: auto; background-attachment: fixed;">
             <div class="container mx-auto px-4">
                 <h2 class="section-title !text-white" data-lang-key="testimonialsTitle"></h2>
                 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -499,7 +516,7 @@
                     <div class="testimonial"><p class="content" data-lang-key="testimonial4Content"></p><div><p class="author" data-lang-key="testimonial4Author"></p><p class="role" data-lang-key="testimonial4Role"></p></div></div>
                 </div>
             </div>
-            <style>.testimonial { background-color: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; text-align: center; color: white; display: flex; flex-direction: column; } .testimonial .content { font-style: italic; margin-bottom: 1.5rem; flex-grow: 1;} .testimonial .author { font-weight: bold; color: var(--accent-gold); } .testimonial .role { font-size: 0.9rem; opacity: 0.8; }</style>
+            <style>.testimonial { background-color: rgba(255,255,255,0.1); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); padding: 2rem; border-radius: 8px; text-align: center; color: white; display: flex; flex-direction: column; } .testimonial .content { font-style: italic; margin-bottom: 1.5rem; flex-grow: 1;} .testimonial .author { font-weight: bold; color: var(--accent-gold); } .testimonial .role { font-size: 0.9rem; opacity: 0.8; }</style>
         </section>
 
         <section id="social-updates" class="py-20 bg-white">
@@ -583,7 +600,7 @@
                              <div class="text-right">
                                  <button type="button" id="ai-assistant-btn" class="text-sm text-primary-wood-medium hover:text-accent-gold" data-lang-key="aiAssistantBtn">✨ AI Assistant</button>
                              </div>
-                            <button type="submit" class="w-full bg-accent-gold text-primary-wood-dark font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 hover:bg-accent-gold-hover"><span class="btn-text" data-lang-key="form_submit"></span><span class="spinner"></span></button>
+                            <button type="submit" class="w-full btn"><span class="btn-text" data-lang-key="form_submit"></span><span class="spinner"></span></button>
                          </form>
                     </div>
                 </div>
@@ -653,6 +670,131 @@
             </div>
         </div>
     </div>
+    
+    <!-- Chatbot Elements -->
+    <style>
+      #chatbot-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-wood-dark);
+        color: var(--accent-gold);
+        border-radius: 50%;
+        border: 2px solid var(--accent-gold);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+      }
+      #chatbot-toggle:hover {
+        transform: scale(1.1);
+      }
+      #chatbot-window {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        max-width: 90vw;
+        height: 500px;
+        max-height: 70vh;
+        background-color: var(--light-bg);
+        border: 1px solid var(--primary-wood-dark);
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.95);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        pointer-events: none;
+      }
+      #chatbot-window.active {
+        transform: scale(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .chatbot-header {
+        background-color: var(--primary-wood-dark);
+        color: white;
+        padding: 1rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .chatbot-body {
+        flex-grow: 1;
+        padding: 1rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .chat-message {
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        max-width: 80%;
+        line-height: 1.5;
+      }
+      .user-message {
+        background-color: var(--accent-gold);
+        color: var(--primary-wood-dark);
+        align-self: flex-end;
+        border-bottom-right-radius: 0;
+      }
+      .bot-message {
+        background-color: #ffffff;
+        color: var(--text-dark);
+        align-self: flex-start;
+        border-bottom-left-radius: 0;
+      }
+      .chatbot-footer {
+        display: flex;
+        padding: 0.5rem;
+        border-top: 1px solid #ddd;
+      }
+      #chatbot-input {
+        flex-grow: 1;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 6px;
+        background-color: white;
+      }
+      #chatbot-input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--accent-gold);
+      }
+      #chatbot-send {
+        background: none;
+        border: none;
+        color: var(--primary-wood-dark);
+        font-size: 1.5rem;
+        padding: 0 0.75rem;
+        cursor: pointer;
+      }
+    </style>
+    
+    <button id="chatbot-toggle">
+        <i class="fas fa-robot text-2xl"></i>
+    </button>
+
+    <div id="chatbot-window">
+        <div class="chatbot-header">
+            <span data-lang-key="chatbotTitle">AI Assistant</span>
+            <button id="chatbot-close" class="text-xl">&times;</button>
+        </div>
+        <div id="chatbot-body" class="chatbot-body">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbot-input" data-lang-placeholder="chatbotPlaceholder">
+            <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -724,6 +866,14 @@
                 aiPromptInsert: "Insert into Form",
                 aiPromptGenerating: "Generating...",
                 aiError: "Sorry, the AI assistant is currently unavailable. Please try again later.",
+                chatbotTitle: "AI Assistant",
+                chatbotPlaceholder: "Type your message...",
+                botWelcome: "Hello! I'm Manly's AI Assistant. How can I help you with our products or services today?",
+                botDefaultReply: "I'm sorry, I can only answer questions about our MOQ, address, contact number, and services for now. How can I assist with those?",
+                moqAnswer: "Our Minimum Order Quantity (MOQ) for corporate or bulk orders is S$300.",
+                addressAnswer: "You can find us at: 221 Henderson Rd, #07-11 Henderson Building, Singapore 159557.",
+                phoneAnswer: "Our contact number is +65 6275 0603.",
+                servicesAnswer: "We specialize in several areas: 1) Corporate & Festive Gifting with customization. 2) Supplying to Travel Retail locations like airports. 3) Gift Package Pairing and co-branding for businesses. We focus on premium Halal-certified products like tea, honey, and chocolates."
             },
             zh: {
                 navHome: "首頁", navAbout: "關於我們", navBrands: "獨家品牌", navProducts: "產品系列", navB2B: "B2B服務", navContact: "聯繫我們",
@@ -792,6 +942,14 @@
                 aiPromptInsert: "填入表單",
                 aiPromptGenerating: "正在生成中...",
                 aiError: "抱歉，AI 助理目前無法使用，請稍後再試。",
+                chatbotTitle: "AI 小助理",
+                chatbotPlaceholder: "輸入您的訊息...",
+                botWelcome: "您好！我是萬利的 AI 助理。請問今天需要哪些關於我們產品或服務的資訊？",
+                botDefaultReply: "抱歉，我目前主要能回答關於最低訂購量、公司地址、聯絡電話以及服務範圍的問題。請問需要這些資訊嗎？",
+                moqAnswer: "我們公司或批量訂單的最低訂購量 (MOQ) 為 300 新幣。",
+                addressAnswer: "我們的地址是：221 Henderson Rd, #07-11 Henderson Building, Singapore 159557。",
+                phoneAnswer: "我們的聯絡電話是 +65 6275 0603。",
+                servicesAnswer: "我們專注於多個領域：1) 可客製化的企業及節日禮贈。2) 為機場等旅遊零售點供貨。3) 為企業提供禮品搭配和聯合品牌服務。我們的核心產品是經過清真認證的優質茶葉、蜂蜜和巧克力。"
             }
         };
 
@@ -841,15 +999,20 @@
         }
         
         // --- Gemini AI API 功能 ---
-        const API_KEY = "AIzaSyA-9lrBSUaOBVoLCVuJBS6CNkccruPMVFI"; // 將由環境提供
+        const API_KEY = ""; // 將由環境提供
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
         
         async function callGeminiAPI(prompt, button) {
             if (button) button.classList.add('loading');
 
+            let finalPrompt = prompt;
+            if (currentLang === 'zh') {
+                finalPrompt += " \n\nPlease provide the entire response in Traditional Chinese (繁體中文).";
+            }
+
             try {
                 const payload = {
-                    contents: [{ role: "user", parts: [{ text: prompt }] }],
+                    contents: [{ role: "user", parts: [{ text: finalPrompt }] }],
                     generationConfig: {
                         temperature: 0.7,
                         topK: 1,
@@ -1062,6 +1225,79 @@
                 showModal(translations[currentLang].messageBoxTitle, translations[currentLang].messageBoxContent);
                 contactForm.reset();
             }, 1000);
+        });
+
+        // --- Chatbot Logic ---
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotClose = document.getElementById('chatbot-close');
+        const chatbotBody = document.getElementById('chatbot-body');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+
+        const toggleChatbot = () => {
+            chatbotWindow.classList.toggle('active');
+            if(chatbotWindow.classList.contains('active')) {
+                // Display welcome message if it's the first time opening
+                if(chatbotBody.children.length === 0) {
+                    displayMessage(translations[currentLang].botWelcome, 'bot');
+                }
+            }
+        }
+
+        chatbotToggle.addEventListener('click', toggleChatbot);
+        chatbotClose.addEventListener('click', toggleChatbot);
+
+        function displayMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', sender === 'user' ? 'user-message' : 'bot-message');
+            messageElement.textContent = message;
+            chatbotBody.appendChild(messageElement);
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+
+        function getBotResponse(userInput) {
+            const lowerCaseInput = userInput.toLowerCase();
+            const lang = currentLang;
+
+            // Keyword matching for both English and Chinese
+            if (lowerCaseInput.includes('moq') || lowerCaseInput.includes('minimum order') || lowerCaseInput.includes('最低')) {
+                return translations[lang].moqAnswer;
+            }
+            if (lowerCaseInput.includes('address') || lowerCaseInput.includes('location') || lowerCaseInput.includes('地址') || lowerCaseInput.includes('地點')) {
+                return translations[lang].addressAnswer;
+            }
+            if (lowerCaseInput.includes('phone') || lowerCaseInput.includes('contact') || lowerCaseInput.includes('電話') || lowerCaseInput.includes('聯絡')) {
+                return translations[lang].phoneAnswer;
+            }
+            if (lowerCaseInput.includes('service') || lowerCaseInput.includes('gifting') || lowerCaseInput.includes('b2b') || lowerCaseInput.includes('服務') || lowerCaseInput.includes('禮品')) {
+                return translations[lang].servicesAnswer;
+            }
+            if (lowerCaseInput.includes('hello') || lowerCaseInput.includes('hi') || lowerCaseInput.includes('你好')) {
+                return translations[lang].botWelcome;
+            }
+
+            return translations[lang].botDefaultReply;
+        }
+
+        function handleUserMessage() {
+            const userInput = chatbotInput.value.trim();
+            if (userInput === '') return;
+
+            displayMessage(userInput, 'user');
+            chatbotInput.value = '';
+
+            setTimeout(() => {
+                const botResponse = getBotResponse(userInput);
+                displayMessage(botResponse, 'bot');
+            }, 500);
+        }
+
+        chatbotSend.addEventListener('click', handleUserMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserMessage();
+            }
         });
         
         // --- 初始化 ---
