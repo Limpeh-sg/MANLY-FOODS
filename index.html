@@ -8,7 +8,6 @@
     <meta name="keywords" content="Singapore food wholesaler, Halal certified gifts, premium tea, gourmet chocolate, corporate gifts, FMCG distributor, AI gift ideas">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- 外部資源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -52,18 +51,140 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--light-bg); color: var(--text-dark); background-image: url('wooden bg1.png'); background-size: cover; background-attachment: fixed; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
-        .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-wood-dark); position: relative; }
+        .section-title { text-align: center; margin-bottom: 50px; color: var(--primary-wood-dark); position: relative; font-size: 2.25rem; line-height: 2.5rem; }
         .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: var(--accent-gold); margin: 15px auto 0; }
-        .sticky-nav { background-color: rgba(90, 74, 60, 0.95) !important; backdrop-filter: blur(10px); }
+        .sticky-nav { background-color: rgba(90, 74, 60, 0.95) !important; backdrop-filter: blur(10px); will-change: background-color, backdrop-filter; }
         .btn { display: inline-block; padding: 12px 24px; background-color: var(--accent-gold); color: var(--text-dark); border-radius: 4px; font-weight: 600; transition: all 0.3s ease; text-align: center; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background-color: var(--accent-gold-hover); }
+        .btn-secondary { background-color: transparent; border: 2px solid var(--accent-gold); color: white; }
+        .btn-secondary:hover { background-color: var(--accent-gold); color: var(--text-dark); }
+        .btn.loading { cursor: not-allowed; }
+        .btn .spinner { display: none; }
+        .btn.loading .spinner { display: inline-block; }
+        .btn.loading .btn-text { display: none; }
+
+        #back-to-top { will-change: opacity; }
+        .brand-carousel-container { will-change: transform; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--primary-wood-dark);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
     </style>
+    <style>
+    /* 磨砂玻璃面板樣式 */
+    body {
+        background: url('https://images.unsplash.com/photo-1507525428034-b723a9ce6ad3?q=80&w=2070&auto=format&fit=crop') center/cover fixed;
+    }
+
+    .hero-slide {
+        background-image: none !important;
+        background-color: rgba(44, 36, 27, 0.35); /* 半透明深色背景，與主題匹配 */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); /* 兼容 Safari 瀏覽器 */
+        border: 1px solid rgba(255, 255, 255, 0.1); /* 細微邊框增加立體感 */
+    }
+
+    .hero-slide::before {
+        background-color: rgba(0, 0, 0, 0.4); /* 調整遮罩透明度 */
+    }
+
+    /* 原有的 Hero 區塊樣式 */
+    .hero {
+        height: 100vh;
+        min-height: 700px;
+        position: relative;
+        overflow: hidden;
+        margin-top: 90px;
+    }
+    
+    .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        will-change: opacity;
+    }
+    
+    .hero-slide.active {
+        opacity: 1;
+    }
+    
+    .hero-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        color: var(--text-light);
+        max-width: 800px;
+        padding: 0 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-btns {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+    
+    .hero-dots {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        z-index: 2;
+    }
+    
+    .hero-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--text-light);
+        opacity: 0.5;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .hero-dot.active {
+        opacity: 1;
+        background-color: var(--accent-gold);
+        transform: scale(1.2);
+    }
+</style>
 </head>
 <body class="text-text-dark">
 
-    <!-- 固定懸浮組件 -->
-     <a href="https://wa.me/6562750603" id="whatsapp-float" class="fixed bottom-20 left-5 z-50 rounded-full py-2 px-4 bg-[#25D366] text-white shadow-lg flex items-center gap-2 transition-transform hover:scale-105" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/6562750603" id="whatsapp-float" class="fixed bottom-20 left-5 z-50 rounded-full py-2 px-4 bg-[#25D366] text-white shadow-lg flex items-center gap-2 transition-transform hover:scale-105" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp text-xl"></i>
         <span class="font-semibold text-sm" data-lang-key="chatWithUs"></span>
     </a>
@@ -72,7 +193,6 @@
     </button>
 
 
-    <!-- 頂部導覽列 -->
     <header id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-primary-wood-dark transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-3">
@@ -96,7 +216,6 @@
                 </div>
             </div>
         </div>
-        <!-- 移動端菜單 -->
         <div id="mobile-menu" class="lg:hidden hidden bg-primary-wood-dark absolute w-full left-0 top-full">
             <nav class="flex flex-col items-center space-y-4 p-5">
                 <a href="#home" class="text-text-light hover:text-accent-gold" data-lang-key="navHome"></a>
@@ -114,29 +233,83 @@
     </header>
 
     <main>
-        <!-- 主視覺區 -->
-        <section id="home" class="relative h-screen min-h-[700px] w-full flex items-center justify-center text-center text-white">
-            <div id="hero-carousel-bg" class="absolute inset-0">
-                 <!-- 輪播背景圖 -->
-                <div class="carousel-item active" style="background-image: url('carousel_1_wooden_tea.jpg');"></div>
-                <div class="carousel-item" style="background-image: url('carousel_2_ahmad.jpg');"></div>
-                <div class="carousel-item" style="background-image: url('carousel_3_merlion_chocolate.jpg');"></div>
-                <div class="carousel-item" style="background-image: url('carousel_4_fulmer.jpg');"></div>
-                <div class="carousel-item" style="background-image: url('carousel5.png');"></div>
-                <div class="carousel-item" style="background-image: url('carousel6.png');"></div>
-            </div>
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-            <div class="relative z-10 px-4">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-lang-key="heroTitle"></h1>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8" data-lang-key="heroSubtitle"></p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#contact" class="btn !bg-transparent border-2 border-accent-gold !text-white hover:!bg-accent-gold hover:!text-text-dark" data-lang-key="cta_contact"></a>
+        <section class="hero" id="home">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title1">Premium Halal-Certified Food Distributor</h1>
+                    <p data-lang-key="hero.subtitle1">Trusted for Quality & Excellence Since 1986</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
                 </div>
             </div>
+            
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title2">Gourmet Teas & Infusions</h1>
+                    <p data-lang-key="hero.subtitle2">Discover Our Exquisite Tea Collections</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title3">Exquisite Chocolates & Confections</h1>
+                    <p data-lang-key="hero.subtitle3">Indulge in Rich Flavors & Unique Gifts</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title4">Pure & Natural Honey Selections</h1>
+                    <p data-lang-key="hero.subtitle4">From Our Hives to Your Home</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title5">Corporate Gifting & B2B Solutions</h1>
+                    <p data-lang-key="hero.subtitle5">Tailored Food Solutions for Your Business Needs</p>
+                    <div class="hero-btns">
+                        <a href="#b2b" class="btn" data-lang-key="hero.btn1.b2b">Explore Services</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <h1 data-lang-key="hero.title6">Singapore's Premier FMCG Distributor</h1>
+                    <p data-lang-key="hero.subtitle6">Connecting Quality Brands with Local Markets</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn" data-lang-key="hero.btn1">Explore Products</a>
+                        <a href="#contact" class="btn btn-secondary" data-lang-key="hero.btn2">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-dots">
+                <div class="hero-dot active" data-slide="0"></div>
+                <div class="hero-dot" data-slide="1"></div>
+                <div class="hero-dot" data-slide="2"></div>
+                <div class="hero-dot" data-slide="3"></div>
+                <div class="hero-dot" data-slide="4"></div>
+                <div class="hero-dot" data-slide="5"></div>
+            </div>
         </section>
-        <style>.carousel-item { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out; } .carousel-item.active { opacity: 1; }</style>
 
-        <!-- 社交媒體與電商引流欄 -->
         <section class="py-5" style="background-image: url('wooden bg2.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: cover;">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-8 text-white">
@@ -144,7 +317,7 @@
                         <h3 class="text-xl font-bold mb-4" data-lang-key="shopWithUsTitle"></h3>
                         <div class="flex flex-wrap gap-4">
                             <a href="https://shopee.sg/manlyfoodenterprise?entryPoint=ShopBySearch&searchKeyword=manly" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fas fa-shopping-bag mr-2"></i><span data-lang-key="socialShopee"></span></a>
-                            <a href="https://www.lazada.sg/shop/manly-food1627632387/?spm=a2o42.searchlist.card.1.51593f18prPFGS&path=promotion-435796-0.htm&tab=promotion&from=onesearch_brand_123457" target="_blank" rel="noopener noreferrer" class="social-btn"><img src="https://img.icons8.com/color/48/000000/lazada.png" class="w-5 h-5 mr-2" alt="Lazada"><span data-lang-key="socialLazada"></span></a>
+                            <a href="https://www.lazada.sg/shop/manly-food1627632387/?spm=a2o42.searchlist.card.1.51593f18prPFGS&path=promotion-435796-0.htm&tab=promotion&from=onesearch_brand_123457" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fas fa-shopping-cart mr-2"></i><span data-lang-key="socialLazada"></span></a>
                             <a href="https://www.tiktok.com/@manlyfoods" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fab fa-tiktok mr-2"></i><span data-lang-key="socialTikTokShop"></span></a>
                         </div>
                     </div>
@@ -162,7 +335,6 @@
             <style>.social-btn { display: inline-flex; align-items: center; background-color: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease; } .social-btn:hover { background-color: var(--accent-gold); color: var(--text-dark); }</style>
         </section>
 
-        <!-- 關於我們 -->
         <section id="about" class="py-20 bg-light-bg">
             <div class="container mx-auto px-4">
                 <h2 class="section-title" data-lang-key="aboutTitle"></h2>
@@ -182,79 +354,132 @@
             <style>.feature-card { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; box-shadow: var(--box-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; } .feature-card:hover { transform: translateY(-10px); } .feature-card i { font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1.5rem; } .feature-card h3 { font-weight: bold; margin-bottom: 1rem; color: var(--primary-wood-dark); font-size:1.1rem; flex-grow: 1; } .feature-card p { font-size: 0.9rem; color: #555; }</style>
         </section>
 
-        <!-- =======================
-        独家品牌
-        ======================== -->
         <section id="brands" class="bg-primary-wood-dark py-20 lg:py-24 overflow-hidden">
             <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-lang-key="brandsTitle"></h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4" data-lang-key="brandsTitle"></h2>
                 <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12" data-lang-key="brandsIntro"></p>
                 <div class="relative w-full h-24 overflow-hidden">
                     <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-wood-dark via-transparent to-primary-wood-dark z-10"></div>
                      <div class="brand-carousel-container">
-                        <!-- Logos duplicated for seamless loop -->
-                        <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_3.png" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_2.png" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_5.png" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <!-- Duplicate set for looping -->
-                        <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_3.png" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_2.png" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_5.png" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                        <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
-                    </div>
+                         <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_3.png" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_2.png" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_5.png" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_3.png" alt="Fulmer Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_2.png" alt="Buram Honey" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_5.png" alt="Manly Merlion Chocolate" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_1.png" alt="Ahmad Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                         <div class="brand-logo"><img src="logo_4.png" alt="MANLY Wooden Box Tea" class="h-16 mx-auto filter grayscale hover:grayscale-0 transition-all duration-300"></div>
+                     </div>
                 </div>
             </div>
              <style>
-                .brand-carousel-container { display: flex; animation: scroll-brands 30s linear infinite; width: calc(150px * 14); }
-                .brand-logo { flex-shrink: 0; width: 150px; display: flex; align-items: center; justify-content: center; margin: 0 2rem; }
-                .brand-logo img { max-height: 60px; object-fit: contain; }
-                @keyframes scroll-brands {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(calc(-150px * 7)); }
-                }
-            </style>
+                 .brand-carousel-container { display: flex; animation: scroll-brands 30s linear infinite; width: calc(150px * 14); }
+                 .brand-logo { flex-shrink: 0; width: 150px; display: flex; align-items: center; justify-content: center; margin: 0 2rem; }
+                 .brand-logo img { max-height: 60px; object-fit: contain; }
+                 @keyframes scroll-brands {
+                     0% { transform: translateX(0); }
+                     100% { transform: translateX(calc(-150px * 7)); }
+                 }
+             </style>
         </section>
 
-        <!-- 產品系列 -->
-        <section id="products" class="py-20 bg-light-bg" style="background-image: url('wooden bg3.png'); background-color: rgba(245, 232, 215, 0.8); background-blend-mode: overlay; background-size: cover; background-attachment: fixed;">
+        <style>
+            .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+            .product-card { background: white; border-radius: 8px; box-shadow: var(--subtle); overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column;}
+            .product-card:hover { transform: translateY(-5px); box-shadow: var(--lifted); }
+            .product-img { width: 100%; height: 220px; object-fit: cover; }
+            .product-info { padding: 1.5rem; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+            .product-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary-wood-dark); margin-bottom: 0.5rem; font-size: 1.2rem; }
+            .product-info p { font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 1rem; }
+        </style>
+        <section id="products" class="py-20 bg-light-bg">
             <div class="container mx-auto px-4">
-                <h2 class="section-title" data-lang-key="productsTitle"></h2>
-                <div id="product-filter" class="flex flex-wrap justify-center gap-3 mb-10">
-                    <button class="filter-btn active" data-filter="all" data-lang-key="filterAll"></button>
-                    <button class="filter-btn" data-filter="tea" data-lang-key="filterTea"></button>
-                    <button class="filter-btn" data-filter="honey" data-lang-key="filterHoney"></button>
-                    <button class="filter-btn" data-filter="chocolate" data-lang-key="filterChocolate"></button>
-                    <button class="filter-btn" data-filter="gifts" data-lang-key="filterGifts"></button>
-                </div>
-                <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-
-                    <div class="product-card" data-category="gifts"><img src="gift_set_corporate.png" class="product-img"><div class="product-info"><h3 data-lang-key="productCorporateGiftTitle"></h3><p data-lang-key="productCorporateGiftDesc"></p><a href="#contact" class="btn w-full" data-lang-key="getQuoteBtn"></a></div></div>
+                <h2 class="section-title">Our Product Series</h2>
+                <div class="product-grid">
+                  
+                  <div class="product-card" data-product-name="Ahmad Tea London">
+                    <img src="ahmad-tea.jpg" alt="Ahmad Tea London" class="product-img" onerror="this.src='https://placehold.co/400x300/8D7B6A/FFFFFF?text=Ahmad+Tea'">
+                    <div class="product-info">
+                      <div>
+                        <h3>Ahmad Tea London</h3>
+                        <p>Renowned for its elegant blends and Halal-certified offerings, perfect for daily indulgence or gifting.</p>
+                      </div>
+                      <button class="btn generate-recipe-btn mt-4"><span class="btn-text" data-lang-key="generateRecipe">✨ Generate Recipe</span><span class="spinner"></span></button>
+                    </div>
+                  </div>
+          
+                  <div class="product-card" data-product-name="Fulmer Premium Honey">
+                    <img src="lion-honey.jpg" alt="Fulmer Premium Honey" class="product-img" onerror="this.src='https://placehold.co/400x300/8D7B6A/FFFFFF?text=Fulmer+Honey'">
+                    <div class="product-info">
+                      <div>
+                        <h3>Fulmer Premium Honey</h3>
+                        <p>Imported from Europe, our honey is 100% natural and free from additives, perfect for health-conscious consumers.</p>
+                      </div>
+                      <button class="btn generate-recipe-btn mt-4"><span class="btn-text" data-lang-key="generateRecipe">✨ Generate Recipe</span><span class="spinner"></span></button>
+                    </div>
+                  </div>
+          
+                  <div class="product-card" data-product-name="MANLY Wooden Box Tea">
+                    <img src="wooden-box.jpg" alt="MANLY Wooden Box Tea" class="product-img" onerror="this.src='https://placehold.co/400x300/8D7B6A/FFFFFF?text=Wooden+Box+Tea'">
+                    <div class="product-info">
+                      <div>
+                        <h3>MANLY Wooden Box Tea</h3>
+                        <p>Packaged in iconic wooden boxes with Singapore landmarks, ideal for souvenirs and weddings.</p>
+                      </div>
+                      <button class="btn generate-recipe-btn mt-4"><span class="btn-text" data-lang-key="generateRecipe">✨ Generate Recipe</span><span class="spinner"></span></button>
+                    </div>
+                  </div>
+          
+                  <div class="product-card" data-product-name="Merlion Chocolate">
+                    <img src="merlion-choco.jpg" alt="Merlion Chocolate" class="product-img" onerror="this.src='https://placehold.co/400x300/8D7B6A/FFFFFF?text=Merlion+Chocolate'">
+                    <div class="product-info">
+                      <div>
+                        <h3>Merlion Chocolate</h3>
+                        <p>Exclusive Singapore-themed chocolate with premium ingredients, perfect for festive or corporate gifting.</p>
+                      </div>
+                      <button class="btn generate-recipe-btn mt-4"><span class="btn-text" data-lang-key="generateRecipe">✨ Generate Recipe</span><span class="spinner"></span></button>
+                    </div>
+                  </div>
+          
                 </div>
             </div>
-            <style>.filter-btn { padding: 8px 20px; background-color: var(--card-bg); border: 1px solid #ddd; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; } .filter-btn.active, .filter-btn:hover { background-color: var(--primary-wood-dark); color: white; border-color: var(--primary-wood-dark); } .product-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; display: flex; flex-direction: column; } .product-card:hover { transform: translateY(-10px); } .product-img { height: 250px; width: 100%; object-fit: cover; } .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; } .product-info h3 { margin-bottom: 10px; color: var(--primary-wood-dark); } .product-info p { margin-bottom: 15px; font-size: 0.9rem; flex-grow: 1; } </style>
         </section>
-        
-        <!-- B2B 服務 -->
+
         <section id="b2b" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <h2 class="section-title" data-lang-key="b2bTitle"></h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="b2b-card"><img src="b2b_corporate_gifting.png" alt="Corporate Gifting"><h3 data-lang-key="b2bFeature1Title"></h3><p data-lang-key="b2bFeature1Content"></p><div class="flex gap-2 mt-4"><a href="#contact" class="btn flex-1" data-lang-key="enquireNowBtn"></a></div></div>
-                    <div class="b2b-card"><img src="b2b_travel_retail.png" alt="Travel Retail"><h3 data-lang-key="b2bFeature2Title"></h3><p data-lang-key="b2bFeature2Content"></p><a href="#contact" class="btn w-full" data-lang-key="learnMoreBtn"></a></div>
-                    <div class="b2b-card"><img src="b2b_gift_pairing.png" alt="Gift Package Pairing"><h3 data-lang-key="b2bFeature3Title"></h3><p data-lang-key="b2bFeature3Content"></p><a href="#contact" class="btn w-full" data-lang-key="getSamplesBtn"></a></div>
+                    <div class="b2b-card">
+                        <img src="b2b_corporate_gifting.png" alt="Corporate Gifting" onerror="this.src='https://placehold.co/600x400/F5E8D7/5A4A3C?text=Corporate+Gifting'">
+                        <h3 data-lang-key="b2bFeature1Title"></h3>
+                        <p data-lang-key="b2bFeature1Content"></p>
+                        <div class="flex flex-col sm:flex-row gap-2 mt-4">
+                            <a href="#contact" class="btn flex-1" data-lang-key="enquireNowBtn"></a>
+                            <button id="gift-inspiration-btn" class="btn flex-1 btn-secondary !text-primary-wood-dark hover:!text-white"><span class="btn-text" data-lang-key="getInspiration">✨ Get Inspiration</span><span class="spinner"></span></button>
+                        </div>
+                    </div>
+                    <div class="b2b-card">
+                        <img src="b2b_travel_retail.png" alt="Travel Retail" onerror="this.src='https://placehold.co/600x400/F5E8D7/5A4A3C?text=Travel+Retail'">
+                        <h3 data-lang-key="b2bFeature2Title"></h3><p data-lang-key="b2bFeature2Content"></p>
+                        <a href="#contact" class="btn w-full mt-auto" data-lang-key="learnMoreBtn"></a>
+                    </div>
+                    <div class="b2b-card">
+                        <img src="b2b_gift_pairing.png" alt="Gift Package Pairing" onerror="this.src='https://placehold.co/600x400/F5E8D7/5A4A3C?text=Gift+Pairing'">
+                        <h3 data-lang-key="b2bFeature3Title"></h3>
+                        <p data-lang-key="b2bFeature3Content"></p>
+                        <a href="#contact" class="btn w-full mt-auto" data-lang-key="getSamplesBtn"></a>
+                    </div>
                 </div>
             </div>
             <style>.b2b-card { text-align: center; display: flex; flex-direction: column; } .b2b-card img { width:100%; height: 250px; object-fit:cover; border-radius: 8px; margin-bottom: 1.5rem; } .b2b-card h3 { font-size: 1.5rem; margin-bottom: 1rem; } .b2b-card p { margin-bottom: 1.5rem; flex-grow: 1; } </style>
         </section>
 
-        <!-- 主要客戶 -->
         <section id="clients" class="py-20 bg-light-bg">
             <div class="container mx-auto px-4 text-center">
                  <h2 class="section-title" data-lang-key="clientsTitle"></h2>
@@ -264,12 +489,10 @@
             </div>
         </section>
 
-        <!-- 客戶評價 -->
         <section id="testimonials" class="py-20" style="background-image: url('wooden bg2.png'); background-color: rgba(90, 74, 60, 0.85); background-blend-mode: overlay; background-size: cover; background-attachment: fixed;">
             <div class="container mx-auto px-4">
                 <h2 class="section-title !text-white" data-lang-key="testimonialsTitle"></h2>
                 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Testimonials as per original file - assuming static display is sufficient -->
                     <div class="testimonial"><p class="content" data-lang-key="testimonial1Content"></p><div><p class="author" data-lang-key="testimonial1Author"></p><p class="role" data-lang-key="testimonial1Role"></p></div></div>
                     <div class="testimonial"><p class="content" data-lang-key="testimonial2Content"></p><div><p class="author" data-lang-key="testimonial2Author"></p><p class="role" data-lang-key="testimonial2Role"></p></div></div>
                     <div class="testimonial"><p class="content" data-lang-key="testimonial3Content"></p><div><p class="author" data-lang-key="testimonial3Author"></p><p class="role" data-lang-key="testimonial3Role"></p></div></div>
@@ -279,7 +502,6 @@
             <style>.testimonial { background-color: rgba(255,255,255,0.1); padding: 2rem; border-radius: 8px; text-align: center; color: white; display: flex; flex-direction: column; } .testimonial .content { font-style: italic; margin-bottom: 1.5rem; flex-grow: 1;} .testimonial .author { font-weight: bold; color: var(--accent-gold); } .testimonial .role { font-size: 0.9rem; opacity: 0.8; }</style>
         </section>
 
-        <!-- 最新社交動態 -->
         <section id="social-updates" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <h2 class="section-title" data-lang-key="socialUpdatesTitle"></h2>
@@ -294,12 +516,10 @@
             <style>.social-card a { display: block; text-decoration: none; color: inherit; background: var(--light-bg); padding: 2rem; border-radius: 8px; text-align: center; transition: all 0.3s ease; height: 100%;} .social-card a:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); } .social-card .icon { width: 70px; height: 70px; margin: 0 auto 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; } .social-card h3 { font-size: 1.25rem; font-weight: bold; color: var(--primary-wood-dark); margin-bottom: 1rem; } .social-card p { color: #555; margin-bottom: 1.5rem; } .social-card .link { color: var(--primary-wood-dark); font-weight: bold; } </style>
         </section>
 
-        <!-- 聯繫我們 -->
         <section id="contact" class="py-20 bg-light-bg">
             <div class="container mx-auto px-4">
                 <h2 class="section-title" data-lang-key="contactTitle"></h2>
                 <div class="grid lg:grid-cols-5 gap-12">
-                    <!-- Left side: Info -->
                     <div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-subtle">
                         <h3 class="text-2xl font-bold text-primary-wood-dark mb-6" data-lang-key="contact_info_title"></h3>
                         <div class="space-y-6">
@@ -321,7 +541,7 @@
                                 <i class="fas fa-envelope text-accent-gold text-xl mt-1"></i>
                                 <div>
                                     <h4 class="font-bold" data-lang-key="contact_email_title"></h4>
-                                    <a href="mailto:allen@manly.com.sg" class="text-gray-600 hover:text-accent-gold">allen@manly.com.sg</a>
+                                    <a href="mailto:allen@manlyfoods.com" class="text-gray-600 hover:text-accent-gold">allen@manlyfoods.com</a>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
@@ -332,25 +552,38 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Contact Section with Map and Feedback -->
                         <div class="mt-8 pt-6 border-t border-gray-200">
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.800584742541!2d103.81559931475395!3d1.293671999053916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da199468d6d9e7%3A0x6442c2621f8c144e!2sHenderson%20Building!5e0!3m2!1sen!2ssg!4v1678950000000!5m2!1sen!2ssg" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+                             <div style="border-radius:12px; overflow:hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                                <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7418670623576!2d103.81166131431998!3d1.2899173990619696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19b2b4d14b9d%3A0xc45d5c28b42b26f6!2s221%20Henderson%20Rd%2C%20%2307-11%20Henderson%20Building%2C%20Singapore%20159557!5e0!3m2!1sen!2ssg!4v1717927520301!5m2!1sen!2ssg"
+                                width="100%"
+                                height="250"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
+                             </div>
                         </div>
                     </div>
-                    <!-- Right side: Form -->
                     <div class="lg:col-span-3 bg-white p-8 rounded-lg shadow-subtle">
                          <h3 class="text-2xl font-bold text-primary-wood-dark mb-6" data-lang-key="contact_form_title"></h3>
                          <form id="contact-form" class="space-y-5">
-                            <input type="text" name="name" placeholder="Your Name" class="form-input" required data-lang-placeholder="form_name">
-                            <input type="email" name="email" placeholder="Your Email" class="form-input" required data-lang-placeholder="form_email">
-                            <input type="text" name="company" placeholder="Company Name" class="form-input" data-lang-placeholder="form_company">
+                            <input type="text" name="name" class="form-input" required data-lang-placeholder="form_name">
+                            <input type="email" name="email" class="form-input" required data-lang-placeholder="form_email">
+                            <input type="text" name="company" class="form-input" data-lang-placeholder="form_company">
                             <select name="enquiry" class="form-input" required>
                                 <option value="" data-lang-key="form_enquiry_option_1"></option>
                                 <option value="general" data-lang-key="form_enquiry_option_2"></option>
                                 <option value="b2b" data-lang-key="form_enquiry_option_3"></option>
                                 <option value="product" data-lang-key="form_enquiry_option_4"></option>
                             </select>
-                            <textarea name="message" rows="5" placeholder="Your Message" class="form-input" required data-lang-placeholder="form_message"></textarea>
-                            <button type="submit" class="w-full bg-accent-gold text-primary-wood-dark font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 hover:bg-accent-gold-hover" data-lang-key="form_submit"></button>
+                            <textarea name="message" id="contact-message" rows="5" class="form-input" required data-lang-placeholder="form_message"></textarea>
+                             <div class="text-right">
+                                 <button type="button" id="ai-assistant-btn" class="text-sm text-primary-wood-medium hover:text-accent-gold" data-lang-key="aiAssistantBtn">✨ AI Assistant</button>
+                             </div>
+                            <button type="submit" class="w-full bg-accent-gold text-primary-wood-dark font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 hover:bg-accent-gold-hover"><span class="btn-text" data-lang-key="form_submit"></span><span class="spinner"></span></button>
                          </form>
                     </div>
                 </div>
@@ -359,12 +592,11 @@
         </section>
     </main>
     
-    <!-- 頁腳 -->
     <footer class="bg-primary-wood-dark text-text-light pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" class="h-16 mb-4" onerror="this.src='https://placehold.co/180x65/FFFFFF/000000?text=MANLY+FOODS'">
+                    <img src="MANLY LOGO.png" alt="MANLY FOODS Logo" class="h-32 mb-4" onerror="this.src='https://placehold.co/180x65/FFFFFF/000000?text=MANLY+FOODS'">
                     <h4 class="font-bold text-lg mb-3" data-lang-key="footerValuesTitle"></h4>
                     <ul class="space-y-2 text-sm text-gray-300">
                         <li class="flex items-start"><i class="fas fa-leaf text-accent-gold mt-1 mr-2"></i><span data-lang-key="value1"></span></li>
@@ -406,14 +638,19 @@
         </div>
         <style>.footer-link { color: #ccc; transition: all 0.3s; } .footer-link:hover { color: var(--accent-gold); padding-left: 5px; } .social-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border:1px solid #777; border-radius:50%; color:#ccc; transition:all .3s;} .social-icon:hover { background-color:var(--accent-gold); color:var(--primary-wood-dark); border-color:var(--accent-gold);}</style>
     </footer>
-    <p id="developer-info" class="fixed bottom-1 right-2 text-[10px] text-gray-300 opacity-60 pointer-events-none">™ <span data-lang-key="developerInfo"></span></p>
 
-    <!-- 全局 Modal -->
+    <p id="developer-info" class="fixed bottom-1 right-2 text-[9px] text-gray-400 opacity-30 pointer-events-none">™ <span data-lang-key="developerInfo"></span></p>
+
     <div id="global-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[1000] opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white p-8 rounded-lg shadow-xl text-center max-w-lg w-11/12">
-            <h3 id="global-modal-title" class="text-2xl font-bold mb-4"></h3>
-            <div id="global-modal-content" class="text-gray-600 mb-6 prose"></div>
-            <button id="global-modal-close" class="btn" data-lang-key="messageBoxCloseBtn"></button>
+        <div id="modal-content-wrapper" class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-11/12 transform transition-transform duration-300 scale-95">
+            <div class="flex justify-between items-start">
+                <h3 id="global-modal-title" class="text-2xl font-bold mb-4 text-primary-wood-dark"></h3>
+                <button id="global-modal-close" class="text-2xl text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <div id="global-modal-content" class="text-gray-600 mb-6 prose max-w-none prose-p:my-2 prose-headings:text-primary-wood-dark prose-strong:text-primary-wood-dark" style="max-height: 60vh; overflow-y: auto;"></div>
+            <div id="global-modal-actions" class="mt-6 text-right">
+                <button id="modal-action-btn" class="btn hidden"></button>
+            </div>
         </div>
     </div>
 
@@ -422,6 +659,13 @@
         const translations = {
             en: {
                 navHome: "Home", navAbout: "About Us", navBrands: "Our Brands", navProducts: "Products", navB2B: "B2B Services", navContact: "Contact",
+                "hero.btn1": "Explore Products", "hero.btn2": "Contact Us", "hero.btn1.b2b": "Explore Services",
+                "hero.title1": "Premium Halal-Certified Food Distributor", "hero.subtitle1": "Trusted for Quality & Excellence Since 1986",
+                "hero.title2": "Gourmet Teas & Infusions", "hero.subtitle2": "Discover Our Exquisite Tea Collections",
+                "hero.title3": "Exquisite Chocolates & Confections", "hero.subtitle3": "Indulge in Rich Flavors & Unique Gifts",
+                "hero.title4": "Pure & Natural Honey Selections", "hero.subtitle4": "From Our Hives to Your Home",
+                "hero.title5": "Corporate Gifting & B2B Solutions", "hero.subtitle5": "Tailored Food Solutions for Your Business Needs",
+                "hero.title6": "Singapore's Premier FMCG Distributor", "hero.subtitle6": "Connecting Quality Brands with Local Markets",
                 shopWithUsTitle: "Shop With Us", socialShopee: "Shopee", socialLazada: "Lazada", socialTikTokShop: "TikTok Shop",
                 followUsTitle: "Follow Us Online", socialManlyFoods: "MANLY FOODS IG", socialAhmadTeaIG: "Ahmad Tea IG", socialFacebook: "Facebook", socialLinkedIn: "LinkedIn",
                 chatWithUs: "Chat with Us",
@@ -436,19 +680,10 @@
                 brandsTitle: "Our Exclusive Brands",
                 brandsIntro: "We are proud to exclusively represent a portfolio of international brands that combine premium quality, attractive packaging, and strong retail value - ideal for both everyday consumption and special gifting occasions.",
                 productsTitle: "Our Product Collections",
-                filterAll: "All", filterTea: "Tea", filterHoney: "Honey", filterChocolate: "Chocolate", filterGifts: "Gift Sets",
-                productManlyTeaTitle: "MANLY SG WOODEN BOX TEA", productManlyTeaDesc: "Singapore landmark design, specially crafted for tourists.",
-                exploreBtn: "Explore", generateRecipe: "Generate Recipe",
-                productFulmerHoneyTitle: "Fulmer Premium Honey", productFulmerHoneyDesc: "100% pure Halal-certified honey from New Zealand, known for its bold sweetness and golden color.",
-                productBuramHoneyTitle: "Buram Honey", productBuramHoneyDesc: "Raw floral honey from Europe, minimally processed and packed in jars & squeezers, perfect for health-conscious families.",
-                productMerlionChocolateTitle: "Merlion Chocolate", productMerlionChocolateDesc: "Iconic Singapore souvenir chocolate with a premium taste. Our in-house souvenir brand featuring Merlion design, affordable & lightweight.",
-                productRamadanGiftTitle: "Ramadan Gift Set", productRamadanGiftDesc: "Elegant tea and honey combination for festive gifting. A thoughtful choice for special occasions.",
-                productAhmadTeaTitle: "Ahmad Tea Collection", productAhmadTeaDesc: "British royal warrant holder tea selection, offering black teas, wellness blends & fruit infusions.",
-                productCorporateGiftTitle: "Corporate Gift Set", productCorporateGiftDesc: "Customizable premium gift sets with company branding. Ideal for client appreciation and events.",
-                getQuoteBtn: "Get Quote",
+                generateRecipe: "✨ Get Recipe",
                 b2bTitle: "B2B Services",
                 b2bFeature1Title: "Corporate & Festive Gifting", b2bFeature1Content: "Custom branded gift sets for clients and employees with bulk discounts. Perfect for CNY & Hari Raya.",
-                enquireNowBtn: "Enquire Now", getInspiration: "Get Inspiration",
+                enquireNowBtn: "Enquire Now", getInspiration: "✨ Get Inspiration",
                 b2bFeature2Title: "Travel Retail", b2bFeature2Content: "Airport and tourist location distribution with attractive margins. Products customized for gifting.",
                 learnMoreBtn: "Learn More",
                 b2bFeature3Title: "Gift Package Pairing", b2bFeature3Content: "Private label and co-branding options available for all products. We support businesses in bulking for various occasions.",
@@ -470,79 +705,93 @@
                 socialUpdate3Title: "Hari Raya Promotion", socialUpdate3Content: "Special discounts on all gift sets for Hari Raya. Limited time offer!",
                 socialUpdate4Title: "Customer Support Hours", socialUpdate4Content: "Our WhatsApp support is available from 9 AM to 6 PM daily.",
                 socialUpdateLinkText: "View Post", messageUs: "Message Us",
-                contactTitle: "Get In Touch", contactDetailsTitle: "Contact Details",
-                contactHoursMonFri: "Mon - Fri: 9:00 AM - 6:00 PM", contactHoursSat: "Sat: 9:00 AM - 12:00 PM", contactHoursSunPH: "Sun & PH: Closed",
-                ourAddressTitle: "Our Address", companyName: "Manly Pte Ltd", streetAddress: "221 Henderson Road, #07-11", buildingName: "Henderson Building", postalCode: "Singapore 159557",
-                viewOnMapsBtn: "View on Google Maps", leaveReviewBtn: "Leave a Review",
-                followUsTitle: "Follow Us",
-                contact_info_title: "Contact Information", contact_address_title: "Address", contact_phone_title: "Phone", contact_email_title: "Email", contact_hours_title: "Operating Hours", contact_hours_time: "Mon-Fri: 9:00 AM - 6:00 PM; Sat: 9:00 AM - 12:00 PM; Sun & PH: Closed", contact_form_title: "Send Us a Message", form_name: "Your Name", form_email: "Your Email", form_company: "Company Name", form_enquiry_option_1: "Select Enquiry", form_enquiry_option_2: "General", form_enquiry_option_3: "B2B", form_enquiry_option_4: "Product", form_message: "Your Message", form_submit: "Send Message",
-                formNamePlaceholder: "Your Name", formEmailPlaceholder: "Your Email", formCompanyPlaceholder: "Company Name", formEnquiryNaturePlaceholder: "Nature of Enquiry", enquiryProducts: "Product Information", enquiryB2B: "B2B Services", enquiryCustom: "Custom Gifts", enquiryOther: "Other", formMessagePlaceholder: "Your Message", sendMessageBtn: "Send Message", aiAssistantBtn: "✨ AI Assistant",
-                messageBoxTitle: "Thank You!", messageBoxContent: "We have received your inquiry and will get back to you shortly.", messageBoxCloseBtn: "Close",
+                contactTitle: "Get In Touch",
+                contact_info_title: "Contact Information", contact_address_title: "Address", contact_phone_title: "Phone", contact_email_title: "Email", contact_hours_title: "Operating Hours", contact_hours_time: "Mon-Fri: 9:00 AM - 6:00 PM; Sat: 9:00 AM - 12:00 PM; Sun & PH: Closed",
+                contact_form_title: "Send Us a Message", form_name: "Your Name", form_email: "Your Email", form_company: "Company Name",
+                form_enquiry_option_1: "Select Enquiry", form_enquiry_option_2: "General", form_enquiry_option_3: "B2B", form_enquiry_option_4: "Product",
+                form_message: "Your Message", form_submit: "Send Message", aiAssistantBtn: "✨ AI Assistant",
+                messageBoxTitle: "Thank You!", messageBoxContent: "We have received your inquiry and will get back to you shortly.",
+                messageBoxCloseBtn: "Close",
                 footerValuesTitle: "Our Values", value1: "Rooted in Singapore’s Heritage", value2: "Premium Gifts for Global Travellers", value3: "Halal-Certified & Inclusive Choices",
                 footerQuickLinksTitle: "Quick Links", footerProductsTitle: "Products", footerTeaCollections: "Tea Collections", footerPremiumHoney: "Premium Honey", footerChocolate: "Chocolate", footerCorporateGifts: "Corporate Gifts",
-                copyrightText: "© 2025 MANLY PTE LTD. All Rights Reserved.", developerInfo: "Website developed and built by Eddie工作室."
+                copyrightText: "© 2025 MANLY PTE LTD. All Rights Reserved.", developerInfo: "Website developed and built by Eddie工作室.",
+                aiPromptTitle: "✨ AI Assistant",
+                aiPromptGift: "Generating creative gift ideas...",
+                aiPromptRecipe: "Thinking of a delicious recipe for ",
+                aiPromptContact: "Let AI help you write your message!",
+                aiPromptContactKeywords: "Enter some keywords (e.g., bulk order, Hari Raya)",
+                aiPromptGenerate: "Generate",
+                aiPromptInsert: "Insert into Form",
+                aiPromptGenerating: "Generating...",
+                aiError: "Sorry, the AI assistant is currently unavailable. Please try again later.",
             },
             zh: {
-                navHome: "首页", navAbout: "关于我们", navBrands: "独家品牌", navProducts: "产品系列", navB2B: "B2B服务", navContact: "联系我们",
-                shopWithUsTitle: "在以下平台购物", socialShopee: "虾皮", socialLazada: "来赞达", socialTikTokShop: "TikTok 商城",
-                followUsTitle: "在线关注我们", socialManlyFoods: "万利食品 IG", socialAhmadTeaIG: "Ahmad 茶 IG", socialFacebook: "脸书", socialLinkedIn: "领英",
-                chatWithUs: "与我们聊天",
-                aboutTitle: "我们的品牌故事",
-                aboutContent: "Manly Pte Ltd 成立于1986年，是新加坡食品进口和分销行业中值得信赖的名字。我们专注于优质茶叶、蜂蜜、巧克力和适合作为纪念品的快消品，专为游客礼品市场和日常家庭享用量身定制。从早期作为传统分销商，到如今成为独家品牌代表，我们已发展壮大，为新加坡的零售商、电子商务平台、礼品合作伙伴和国际游客提供服务。我们对品质、快速响应和精选产品的承诺，使我们成为B2B客户和寻求有意义礼品解决方案的消费者的可靠伙伴。",
-                whyUsTitle: "为何选择我们",
-                feature1Title: "优质合作", feature1Content: "拥有清真认证的世界知名食品品牌的独家分销商。",
-                feature2Title: "礼品方案", feature2Content: "为所有场合定制礼品套装，提供优质包装选择。",
-                feature3Title: "全球网络", feature3Content: "在亚洲和中东地区建立了完善的分销网络。",
-                feature4Title: "清真认证", feature4Content: "确保所有产品符合严格的清真标准，以满足多元化市场。",
-                feature5Title: "高效物流", feature5Content: "在新加坡及其他地区提供快速可靠的配送服务。",
-                brandsTitle: "我们的独家品牌",
-                brandsIntro: "我们很荣幸能独家代理一系列国际品牌，这些品牌结合了卓越品质、精美包装和强大零售价值——是日常消费和特殊送礼的理想之选。",
-                productsTitle: "我们的产品系列",
-                filterAll: "全部", filterTea: "茶叶", filterHoney: "蜂蜜", filterChocolate: "巧克力", filterGifts: "礼品",
-                productManlyTeaTitle: "万利新加坡木盒茶", productManlyTeaDesc: "新加坡地标设计，专为游客精心打造。",
-                exploreBtn: "探索", generateRecipe: "生成食谱",
-                productFulmerHoneyTitle: "富尔默优质蜂蜜", productFulmerHoneyDesc: "100%纯正新西兰清真认证蜂蜜，以其浓郁甜味和金色泽闻名。",
-                productBuramHoneyTitle: "Buram 蜂蜜", productBuramHoneyDesc: "来自欧洲的原始花蜜，最少加工，适合注重健康的家庭。",
-                productMerlionChocolateTitle: "鱼尾狮巧克力", productMerlionChocolateDesc: "标志性的新加坡纪念品巧克力，口感极佳。我们的自有纪念品品牌，价格实惠且轻便。",
-                productRamadanGiftTitle: "斋月礼品套装", productRamadanGiftDesc: "优雅的茶与蜂蜜组合，适合节日送礼。",
-                productAhmadTeaTitle: "Ahmad茶系列", productAhmadTeaDesc: "英国皇家认证茶品，提供红茶、健康调和茶及水果 infusion。",
-                productCorporateGiftTitle: "企业礼品套装", productCorporateGiftDesc: "可定制公司品牌的高级礼品套装。适合客户答谢和活动。",
-                getQuoteBtn: "获取报价",
-                b2bTitle: "B2B 服务",
-                b2bFeature1Title: "企业及节日礼品", b2bFeature1Content: "为客户和员工定制品牌礼品套装，享受批量折扣。适合农历新年和开斋节。",
-                enquireNowBtn: "立即咨询", getInspiration: "获取灵感",
-                b2bFeature2Title: "旅游零售", b2bFeature2Content: "机场和旅游景点分销，利润可观。产品专为礼品定制。",
+                navHome: "首頁", navAbout: "關於我們", navBrands: "獨家品牌", navProducts: "產品系列", navB2B: "B2B服務", navContact: "聯繫我們",
+                "hero.btn1": "探索產品", "hero.btn2": "聯繫我們", "hero.btn1.b2b": "探索服務",
+                "hero.title1": "優質清真認證食品分銷商", "hero.subtitle1": "自1986年以來，品質與卓越的信譽保證",
+                "hero.title2": "精選茗茶與花草茶", "hero.subtitle2": "探索我們精緻的茶葉系列",
+                "hero.title3": "精緻巧克力與甜點", "hero.subtitle3": "沉醉於濃郁風味與獨特禮品",
+                "hero.title4": "純淨天然蜂蜜精選", "hero.subtitle4": "從我們的蜂巢到您的餐桌",
+                "hero.title5": "企業禮贈與B2B解決方案", "hero.subtitle5": "為您的業務需求量身打造食品解決方案",
+                "hero.title6": "新加坡領先的快消品分銷商", "hero.subtitle6": "將優質品牌與本地市場緊密連接",
+                shopWithUsTitle: "在以下平台購物", socialShopee: "蝦皮", socialLazada: "來贊達", socialTikTokShop: "TikTok 商城",
+                followUsTitle: "在線關注我們", socialManlyFoods: "萬利食品 IG", socialAhmadTeaIG: "Ahmad 茶 IG", socialFacebook: "臉書", socialLinkedIn: "領英",
+                chatWithUs: "與我們聊天",
+                aboutTitle: "我們的品牌故事",
+                aboutContent: "Manly Pte Ltd 成立於1986年，是新加坡食品進口和分銷行業中值得信賴的名字。我們專注於優質茶葉、蜂蜜、巧克力和適合作為紀念品的快消品，專為遊客禮品市場和日常家庭享用量身定制。從早期作為傳統分銷商，到如今成為獨家品牌代表，我們已發展壯大，為新加坡的零售商、電子商務平台、禮品合作夥伴和國際遊客提供服務。我們對品質、快速響應和精選產品的承諾，使我們成為B2B客戶和尋求有意義禮品解決方案的消費者的可靠夥伴。",
+                whyUsTitle: "為何選擇我們",
+                feature1Title: "優質合作", feature1Content: "擁有清真認證的世界知名食品品牌的獨家分銷商。",
+                feature2Title: "禮品方案", feature2Content: "為所有場合訂製禮品套裝，提供優質包裝選擇。",
+                feature3Title: "全球網絡", feature3Content: "在亞洲和中東地區建立了完善的分銷網絡。",
+                feature4Title: "清真認證", feature4Content: "確保所有產品符合嚴格的清真標準，以滿足多元化市場。",
+                feature5Title: "高效物流", feature5Content: "在新加坡及其他地區提供快速可靠的配送服務。",
+                brandsTitle: "我們的獨家品牌",
+                brandsIntro: "我們很榮幸能獨家代理一系列國際品牌，這些品牌結合了卓越品質、精美包裝和強大零售價值——是日常消費和特殊送禮的理想之選。",
+                productsTitle: "我們的產品系列",
+                generateRecipe: "✨ AI 來點靈感",
+                b2bTitle: "B2B 服務",
+                b2bFeature1Title: "企業及節日禮品", b2bFeature1Content: "為客戶和員工訂製品牌禮品套裝，享受批量折扣。適合農曆新年和開齋節。",
+                enquireNowBtn: "立即諮詢", getInspiration: "✨ 獲取靈感",
+                b2bFeature2Title: "旅遊零售", b2bFeature2Content: "機場和旅遊景點分銷，利潤可觀。產品專為禮品訂製。",
                 learnMoreBtn: "了解更多",
-                b2bFeature3Title: "礼品套餐搭配", b2bFeature3Content: "提供所有产品的自有品牌和联合品牌选项。我们支持企业为各种场合批量采购。",
-                getSamplesBtn: "获取样品",
-                clientsTitle: "我们的主要客户",
-                testimonialsTitle: "客户怎么说",
-                testimonial1Content: "“三年来，万利食品一直是我们信赖的企业礼品供应商。他们的产品总能给我们的客户留下深刻印象，他们的团队使整个过程无缝衔接...”",
-                testimonial1Author: "林小姐", testimonial1Role: "营销总监, 科技方案私人有限公司",
-                testimonial2Content: "“万利食品的清真认证产品深受我们国际顾客的喜爱。他们独特的新加坡主题礼品尤其受欢迎...”",
-                testimonial2Author: "阿卜杜勒·拉赫曼", testimonial2Role: "零售经理, 樟宜机场免税店",
-                testimonial3Content: "“我们非常感谢万利食品为我们年度企业活动提供的灵活性和定制选项。他们的团队非常专业，合作愉快...”",
-                testimonial3Author: "陈小姐", testimonial3Role: "人力资源经理, 环球创新公司",
-                testimonial4Content: "“作为一名在线经销商，与万利食品合作非常有益。他们快速的库存处理和品牌营销视觉效果显著提升了我们的销售额...”",
-                testimonial4Author: "黄先生", testimonial4Role: "电子商务企业家",
-                socialUpdatesTitle: "最新社交动态",
-                socialUpdatesIntro: "在我们的社交媒体上与我们保持联系，获取最新消息、促销和产品发布！",
-                socialUpdate1Title: "新品发布！", socialUpdate1Content: "很高兴宣布我们新的优质混合茶！请查看我们的Instagram了解详情。",
-                socialUpdate2Title: "幕后花絮", socialUpdate2Content: "一窥我们的包装过程。质量是我们的首要任务！",
-                socialUpdate3Title: "开斋节促销", socialUpdate3Content: "开斋节期间所有礼品套装均有特别折扣。限时优惠！",
-                socialUpdate4Title: "客服时间", socialUpdate4Content: "我们的WhatsApp支持服务时间为每天上午9点至下午6点。",
-                socialUpdateLinkText: "查看帖子", messageUs: "发消息给我们",
-                contactTitle: "联系我们", contactDetailsTitle: "联系方式",
-                contactHoursMonFri: "周一至周五: 上午9点 - 下午6点", contactHoursSat: "周六: 上午9点 - 中午12点", contactHoursSunPH: "周日及公共假期: 休息",
-                ourAddressTitle: "我们的地址", companyName: "Manly 私人有限公司", streetAddress: "221 Henderson Road, #07-11", buildingName: "Henderson Building", postalCode: "新加坡 159557",
-                viewOnMapsBtn: "在谷歌地图上查看", leaveReviewBtn: "留下评论",
-                followUsTitle: "关注我们",
-                contact_info_title: "联系信息", contact_address_title: "地址", contact_phone_title: "电话", contact_email_title: "邮箱", contact_hours_title: "营业时间", contact_hours_time: "周一至周五: 上午9点 - 下午6点; 周六: 上午9点 - 中午12点; 周日及公共假期: 休息", contact_form_title: "发送信息", form_name: "您的姓名", form_email: "您的邮箱", form_company: "公司名称", form_enquiry_option_1: "请选择咨询类别", form_enquiry_option_2: "一般咨询", form_enquiry_option_3: "B2B 合作", form_enquiry_option_4: "产品咨询", form_message: "您的留言", form_submit: "发送信息",
-                formNamePlaceholder: "您的姓名", formEmailPlaceholder: "您的邮箱", formCompanyPlaceholder: "公司名称", formEnquiryNaturePlaceholder: "咨询性质", enquiryProducts: "产品信息", enquiryB2B: "B2B服务", enquiryCustom: "定制礼品", enquiryOther: "其他", formMessagePlaceholder: "您的留言", sendMessageBtn: "发送信息", aiAssistantBtn: "✨ AI小助理",
-                messageBoxTitle: "谢谢！", messageBoxContent: "我们已收到您的咨询，将尽快回复。", messageBoxCloseBtn: "关闭",
-                footerValuesTitle: "我们的价值观", value1: "植根于新加坡传统", value2: "为全球旅行者提供优质礼品", value3: "清真认证与包容性选择",
-                footerQuickLinksTitle: "快速链接", footerProductsTitle: "产品", footerTeaCollections: "茶叶系列", footerPremiumHoney: "优质蜂蜜", footerChocolate: "巧克力", footerCorporateGifts: "企业礼品",
-                copyrightText: "© 2025 MANLY PTE LTD. 版权所有。", developerInfo: "本网站由Eddie工作室倾情制作呈现。"
+                b2bFeature3Title: "禮品套餐搭配", b2bFeature3Content: "提供所有產品的自有品牌和聯合品牌選項。我們支持企業為各種場合批量採購。",
+                getSamplesBtn: "獲取樣品",
+                clientsTitle: "我們的合作夥伴",
+                testimonialsTitle: "客戶怎麼說",
+                testimonial1Content: "“三年間，萬利食品一直是我們信賴的企業禮品供應商。他們的產品總能給我們的客戶留下深刻印象，他們的團隊使整個過程無縫銜接...”",
+                testimonial1Author: "林小姐", testimonial1Role: "市場總監, 科技方案私人有限公司",
+                testimonial2Content: "“萬利食品的清真認證產品深受我們國際顧客的喜愛。他們獨特的新加坡主題禮品尤其受歡迎...”",
+                testimonial2Author: "阿卜杜勒·拉赫曼", testimonial2Role: "零售經理, 樟宜機場免稅店",
+                testimonial3Content: "“我們非常感謝萬利食品為我們年度企業活動提供的靈活性和訂製選項。他們的團隊非常專業，合作愉快...”",
+                testimonial3Author: "陳小姐", testimonial3Role: "人力資源經理, 環球創新公司",
+                testimonial4Content: "“作為一名在線經銷商，與萬利食品合作非常有益。他們快速的庫存處理和品牌營銷視覺效果顯著提升了我們的銷售額...”",
+                testimonial4Author: "黃先生", testimonial4Role: "電商創業者",
+                socialUpdatesTitle: "最新社交動態",
+                socialUpdatesIntro: "在我們的社交媒體上與我們保持聯繫，獲取最新消息、促銷和產品發布！",
+                socialUpdate1Title: "新品發布！", socialUpdate1Content: "很高興宣布我們新的優質混合茶！請查看我們的Instagram了解詳情。",
+                socialUpdate2Title: "幕後花絮", socialUpdate2Content: "一窺我們的包裝過程。品質是我們的首要任務！",
+                socialUpdate3Title: "開齋節促銷", socialUpdate3Content: "開齋節期間所有禮品套裝均有特別折扣。限時優惠！",
+                socialUpdate4Title: "客服時間", socialUpdate4Content: "我們的WhatsApp支持服務時間為每天上午9點至下午6點。",
+                socialUpdateLinkText: "查看帖子", messageUs: "發消息給我們",
+                contactTitle: "聯繫我們",
+                contact_info_title: "聯繫信息", contact_address_title: "地址", contact_phone_title: "電話", contact_email_title: "電郵", contact_hours_title: "營業時間", contact_hours_time: "週一至週五: 上午9點 - 下午6點; 週六: 上午9點 - 中午12點; 週日及公眾假期: 休息",
+                contact_form_title: "發送訊息", form_name: "您的姓名", form_email: "您的電郵", form_company: "公司名稱",
+                form_enquiry_option_1: "請選擇諮詢類別", form_enquiry_option_2: "一般諮詢", form_enquiry_option_3: "B2B 合作", form_enquiry_option_4: "產品諮詢",
+                form_message: "您的訊息", form_submit: "發送訊息", aiAssistantBtn: "✨ AI 小助理",
+                messageBoxTitle: "謝謝！", messageBoxContent: "我們已收到您的諮詢，將盡快回覆。",
+                messageBoxCloseBtn: "關閉",
+                footerValuesTitle: "我們的價值觀", value1: "植根於新加坡傳統", value2: "為全球旅行者提供優質禮品", value3: "清真認證與包容性選擇",
+                footerQuickLinksTitle: "快速連結", footerProductsTitle: "產品", footerTeaCollections: "茶葉系列", footerPremiumHoney: "優質蜂蜜", footerChocolate: "巧克力", footerCorporateGifts: "企業禮品",
+                copyrightText: "© 2025 MANLY PTE LTD. 版權所有。", developerInfo: "本網站由Eddie工作室傾情製作呈現。",
+                aiPromptTitle: "✨ AI 小助理",
+                aiPromptGift: "正在生成創意禮品方案...",
+                aiPromptRecipe: "正在為您烹飪 ",
+                aiPromptContact: "讓 AI 幫助您撰寫訊息！",
+                aiPromptContactKeywords: "請輸入一些關鍵字（例如：批量訂購、開齋節）",
+                aiPromptGenerate: "生成內容",
+                aiPromptInsert: "填入表單",
+                aiPromptGenerating: "正在生成中...",
+                aiError: "抱歉，AI 助理目前無法使用，請稍後再試。",
             }
         };
 
@@ -556,26 +805,34 @@
             Object.keys(translations[lang]).forEach(key => {
                 const elements = document.querySelectorAll(`[data-lang-key="${key}"]`);
                 elements.forEach(el => {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        el.placeholder = translations[lang][key];
+                    const value = translations[lang][key];
+                    if (el.dataset.langPlaceholder) {
+                        el.placeholder = value;
+                    } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'BUTTON') {
+                        // Find the text node to update
+                        const textNode = Array.from(el.childNodes).find(node => node.nodeType === Node.TEXT_NODE || node.classList?.contains('btn-text'));
+                        if (textNode) {
+                            if(textNode.classList?.contains('btn-text')) {
+                                textNode.textContent = value;
+                            } else if (el.type === "submit" || el.type === "button") {
+                                el.value = value;
+                            }
+                        } else {
+                           el.textContent = value;
+                        }
                     } else {
-                        el.textContent = translations[lang][key];
+                        el.innerHTML = value;
                     }
                 });
             });
 
-            const enquirySelect = document.getElementById('enquiryNatureSelect');
-            if (enquirySelect) {
-                const placeholder = translations[lang].formEnquiryNaturePlaceholder;
-                enquirySelect.innerHTML = `
-                    <option value="" disabled selected>${placeholder}</option>
-                    <option value="products">${translations[lang].enquiryProducts}</option>
-                    <option value="b2b">${translations[lang].enquiryB2B}</option>
-                    <option value="custom">${translations[lang].enquiryCustom}</option>
-                    <option value="other">${translations[lang].enquiryOther}</option>
-                `;
-            }
-            
+             document.querySelectorAll('input[data-lang-placeholder]').forEach(el => {
+                el.placeholder = translations[lang][el.dataset.langPlaceholder];
+            });
+             document.querySelectorAll('textarea[data-lang-placeholder]').forEach(el => {
+                el.placeholder = translations[lang][el.dataset.langPlaceholder];
+            });
+
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('!bg-accent-gold', btn.dataset.lang === lang);
                 btn.classList.toggle('!text-text-dark', btn.dataset.lang === lang);
@@ -583,6 +840,51 @@
             });
         }
         
+        // --- Gemini AI API 功能 ---
+        const API_KEY = ""; // 將由環境提供
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+        
+        async function callGeminiAPI(prompt, button) {
+            if (button) button.classList.add('loading');
+
+            try {
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: prompt }] }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        topK: 1,
+                        topP: 1,
+                        maxOutputTokens: 8192,
+                    },
+                };
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error("Unexpected API response structure:", result);
+                    return translations[currentLang].aiError;
+                }
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                return translations[currentLang].aiError;
+            } finally {
+                if (button) button.classList.remove('loading');
+            }
+        }
+
         // --- 互動邏輯 ---
         const navbar = document.getElementById('navbar');
         const backToTopBtn = document.getElementById('back-to-top');
@@ -627,38 +929,123 @@
         });
 
         // --- 英雄區塊輪播 ---
-        const heroBgContainer = document.getElementById('hero-carousel-bg');
-        const heroSlides = heroBgContainer.querySelectorAll('.carousel-item');
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.hero-dot');
         let currentHeroIndex = 0;
-        setInterval(() => {
-            heroSlides[currentHeroIndex].classList.remove('active');
+
+        function showHeroSlide(index) {
+            heroSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            heroDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextHeroSlide() {
             currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
-            heroSlides[currentHeroIndex].classList.add('active');
-        }, 5000);
+            showHeroSlide(currentHeroIndex);
+        }
 
-
-
-        // --- 產品篩選 ---
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                e.target.classList.add('active');
-                const filter = e.target.dataset.filter;
-                document.querySelectorAll('.product-card').forEach(card => {
-                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
-                });
+        heroDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentHeroIndex = parseInt(dot.dataset.slide);
+                showHeroSlide(currentHeroIndex);
             });
         });
+
+        setInterval(nextHeroSlide, 5000);
+
         
         // --- Modal Setup ---
         const globalModal = document.getElementById('global-modal');
+        const modalContentWrapper = document.getElementById('modal-content-wrapper');
         const modalTitle = document.getElementById('global-modal-title');
         const modalContent = document.getElementById('global-modal-content');
         const modalCloseBtn = document.getElementById('global-modal-close');
+        const modalActionBtn = document.getElementById('modal-action-btn');
 
+        function showModal(title, content, actionBtnText = '', actionBtnCallback = null) {
+            modalTitle.innerHTML = title;
+            modalContent.innerHTML = content;
+            
+            if (actionBtnText && actionBtnCallback) {
+                modalActionBtn.textContent = actionBtnText;
+                modalActionBtn.onclick = actionBtnCallback;
+                modalActionBtn.classList.remove('hidden');
+            } else {
+                modalActionBtn.classList.add('hidden');
+            }
+
+            globalModal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => modalContentWrapper.classList.remove('scale-95'), 10);
+        }
+
+        function hideModal() {
+            modalContentWrapper.classList.add('scale-95');
+            globalModal.classList.add('opacity-0', 'pointer-events-none');
+        }
         
-        modalCloseBtn.addEventListener('click', () => {
-             globalModal.classList.add('opacity-0', 'pointer-events-none');
+        modalCloseBtn.addEventListener('click', hideModal);
+        globalModal.addEventListener('click', (e) => {
+            if (e.target === globalModal) {
+                hideModal();
+            }
+        });
+
+        // --- Gemini Feature: Gift Inspiration ---
+        document.getElementById('gift-inspiration-btn').addEventListener('click', async (e) => {
+            const button = e.currentTarget;
+            const prompt = "You are a creative assistant for a premium food company in Singapore. Generate 3 unique and luxurious Halal corporate gift ideas for a client. The gift set must include our products: premium Ahmad Tea, gourmet Fulmer Honey, and artisanal Merlion Chocolate. Describe each idea briefly and give it a creative name. Format the response in Markdown with headings for each idea.";
+            
+            showModal(translations[currentLang].aiPromptTitle, `<div class="flex items-center justify-center"><div class="spinner mr-4"></div><p>${translations[currentLang].aiPromptGift}</p></div>`);
+            
+            const result = await callGeminiAPI(prompt, button);
+            showModal(translations[currentLang].aiPromptTitle, result.replace(/\n/g, '<br>'));
+        });
+
+        // --- Gemini Feature: Recipe Generation ---
+        document.querySelectorAll('.generate-recipe-btn').forEach(button => {
+            button.addEventListener('click', async (e) => {
+                const card = e.currentTarget.closest('.product-card');
+                const productName = card.dataset.productName;
+                const prompt = `You are a creative chef. Create a simple and delicious recipe that features "${productName}". The recipe should be suitable for home cooks. Include a short, enticing description, a list of ingredients, and step-by-step instructions. Format the response in Markdown.`;
+
+                showModal(translations[currentLang].aiPromptTitle, `<div class="flex items-center justify-center"><div class="spinner mr-4"></div><p>${translations[currentLang].aiPromptRecipe} ${productName}...</p></div>`);
+
+                const result = await callGeminiAPI(prompt, e.currentTarget);
+                showModal(`${productName}`, result.replace(/\n/g, '<br>'));
+            });
+        });
+
+        // --- Gemini Feature: AI Contact Form Assistant ---
+        document.getElementById('ai-assistant-btn').addEventListener('click', () => {
+            const title = translations[currentLang].aiPromptContact;
+            const content = `
+                <p>${translations[currentLang].aiPromptContactKeywords}</p>
+                <input type="text" id="ai-keywords-input" class="form-input mt-2" placeholder="e.g., bulk order, Hari Raya">
+            `;
+            const actionBtnText = translations[currentLang].aiPromptGenerate;
+            
+            showModal(title, content, actionBtnText, async () => {
+                const keywords = document.getElementById('ai-keywords-input').value;
+                if (!keywords.trim()) return;
+
+                const contactMessageTextarea = document.getElementById('contact-message');
+                const prompt = `You are a professional business assistant. A customer wants to inquire about "${keywords}". Write a polite, clear, and professional email message for them to send. The message should be ready to be pasted into a form. Do not include a subject line or signature. Just write the body of the message.`;
+
+                modalContent.innerHTML = `<div class="flex items-center justify-center"><div class="spinner mr-4"></div><p>${translations[currentLang].aiPromptGenerating}</p></div>`;
+                modalActionBtn.classList.add('loading');
+
+                const result = await callGeminiAPI(prompt);
+                
+                modalActionBtn.classList.remove('loading');
+
+                showModal(title, result.replace(/\n/g, '<br>'), translations[currentLang].aiPromptInsert, () => {
+                    contactMessageTextarea.value = result;
+                    hideModal();
+                });
+            });
         });
 
 
@@ -666,12 +1053,15 @@
         const contactForm = document.getElementById('contact-form');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const modalTitleKey = "messageBoxTitle";
-            const modalContentKey = "messageBoxContent";
-            modalTitle.textContent = translations[currentLang][modalTitleKey];
-            modalContent.textContent = translations[currentLang][modalContentKey];
-            globalModal.classList.remove('opacity-0', 'pointer-events-none');
-            contactForm.reset();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            submitBtn.classList.add('loading');
+
+            // 模擬提交
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                showModal(translations[currentLang].messageBoxTitle, translations[currentLang].messageBoxContent);
+                contactForm.reset();
+            }, 1000);
         });
         
         // --- 初始化 ---
